@@ -1,5 +1,4 @@
 import socket
-import errno
 
 # Arduino의 IP 주소와 포트
 arduino_ip = "192.168.0.12"  # 아두이노의 IP 주소로 변경해야 합니다.
