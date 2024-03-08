@@ -1,77 +1,64 @@
-#include <Servo.h>
+#include <WiFi.h>
+#include <ESP32Servo.h>
 
-int pushButton3 = 3;
-int pushButton2 = 2;
-bool flag = false;
+const char* ssid = "AIE_509_2.4G";
+const char* password = "addinedu_class1";
+const int servoPin = 4;  // GPIO 4에 연결된 핀
 
-Servo servo;
-float pos = 0;
+Servo myServo;
+
+WiFiServer server(80);
 
 void setup() {
-  Serial.begin(9600); 
+  Serial.begin(115200);
+  WiFi.begin(ssid, password);
 
-  pinMode(pushButton3, INPUT);
-  pinMode(pushButton2, INPUT);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(1000);
+    Serial.println("Wi-Fi에 연결 중...");
+  }
 
-  Serial.println("Hello. Ready!!!");
-  servo.attach(9);
-  servo.write(0);
+  Serial.println("Wi-Fi에 연결됨");
+  myServo.setPeriodHertz(50);  // 서보의 주기 설정
+  myServo.attach(servoPin, 500, 2400);  // GPIO 4에 연결된 핀 설정 (추가)
+  myServo.write(90);
+  server.begin();
 }
-//(단계별로 하나씩)
-//1. 한번만 입력 받게 만들기
 
-//2. 누르면 10도씩 증가
-
-//3. 누르면 계속 동작
-
-//4. -10도씩 움직이는 스위치 설치
+void handleCommand(String command) {
+  if (command == "l") {
+    myServo.write(myServo.read() - 60);
+    Serial.println("왼쪽으로 30도 회전");
+  } else if (command == "r") {
+    myServo.write(myServo.read() + 60);
+    Serial.println("오른쪽으로 30도 회전");
+  } else {
+    Serial.println("알 수 없는 명령");
+  }
+}
 
 void loop() {
-  bool incomming_data3 = digitalRead(pushButton3);
-  if (incomming_data3 == HIGH) {
-    if (flag == false) {
-      flag = true;
-      Serial.println('1');
-      pos = pos + 1;
-      servo.write(pos);
-    }
-  }
-  if (incomming_data3 == HIGH) {
-    if (flag == true) {
-      flag = false;
-      // delay(30);
+  WiFiClient client = server.available();
+  if (client) {
+    Serial.println("클라이언트 연결됨");
+    while (client.connected()) {
+      if (client.available()) {
+        String command = client.readStringUntil('\n');
+        command.trim();
+        Serial.println("수신된 명령: " + command);
+
+        // 수신된 명령을 처리하는 함수 호출
+        handleCommand(command);
+
+        client.println("명령 수신 및 처리 완료");
+        break;
       }
     }
-
-  else{
-    if (flag == true) {
-      flag = false;
-      Serial.println('0');
-      // servo.write(pos);
-    }                        
-  }
-
-  bool incomming_data2 = digitalRead(pushButton2);
-  if (incomming_data2 == HIGH) {
-    if (flag == false) {
-      flag = true;
-      Serial.println('0');
-      pos = pos - 1;
-      servo.write(pos);
-    }
-  }
-  if (incomming_data2 == HIGH) {
-    if (flag == true) {
-      flag = false;
-      // delay(30);
-      }
-    }
-
-  else{
-    if (flag == true) {
-      flag = false;
-      Serial.println('0');
-      servo.write(pos);
-    }                                   
+    client.stop();
+    Serial.println("클라이언트 연결 해제됨");
   }
 }
+
+
+
+
