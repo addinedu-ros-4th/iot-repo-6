@@ -38,15 +38,15 @@ class Ui_MainWindow(object):
 "}")
         self.circularProgressTEMP.setFrameShape(QFrame.StyledPanel)
         self.circularProgressTEMP.setFrameShadow(QFrame.Raised)
-        self.circularBg = QFrame(self.circularProgressBarTEMP)
-        self.circularBg.setObjectName(u"circularBg")
-        self.circularBg.setGeometry(QRect(10, 10, 220, 220))
-        self.circularBg.setStyleSheet(u"QFrame{\n"
+        self.circularBgTEMP = QFrame(self.circularProgressBarTEMP)
+        self.circularBgTEMP.setObjectName(u"circularBgTEMP")
+        self.circularBgTEMP.setGeometry(QRect(10, 10, 220, 220))
+        self.circularBgTEMP.setStyleSheet(u"QFrame{\n"
 "	border-radius: 110px;	\n"
 "	background-color: rgba(85, 85, 127, 100);\n"
 "}")
-        self.circularBg.setFrameShape(QFrame.StyledPanel)
-        self.circularBg.setFrameShadow(QFrame.Raised)
+        self.circularBgTEMP.setFrameShape(QFrame.StyledPanel)
+        self.circularBgTEMP.setFrameShadow(QFrame.Raised)
         self.circularContainerTEMP = QFrame(self.circularProgressBarTEMP)
         self.circularContainerTEMP.setObjectName(u"circularContainerTEMP")
         self.circularContainerTEMP.setGeometry(QRect(25, 25, 190, 190))
@@ -97,16 +97,16 @@ class Ui_MainWindow(object):
 
         self.infoLayout.addWidget(self.labelCredits, 2, 0, 1, 1)
 
-        self.circularBg.raise_()
+        self.circularBgTEMP.raise_()
         self.circularProgressTEMP.raise_()
         self.circularContainerTEMP.raise_()
-        self.circularProgressBar_Main_2 = QFrame(self.centralwidget)
-        self.circularProgressBar_Main_2.setObjectName(u"circularProgressBar_Main_2")
-        self.circularProgressBar_Main_2.setGeometry(QRect(510, 80, 240, 240))
-        self.circularProgressBar_Main_2.setStyleSheet(u"background-color: none;")
-        self.circularProgressBar_Main_2.setFrameShape(QFrame.NoFrame)
-        self.circularProgressBar_Main_2.setFrameShadow(QFrame.Raised)
-        self.circularProgressHUM = QFrame(self.circularProgressBar_Main_2)
+        self.circularProgressBarHUM = QFrame(self.centralwidget)
+        self.circularProgressBarHUM.setObjectName(u"circularProgressBarHUM")
+        self.circularProgressBarHUM.setGeometry(QRect(510, 80, 240, 240))
+        self.circularProgressBarHUM.setStyleSheet(u"background-color: none;")
+        self.circularProgressBarHUM.setFrameShape(QFrame.NoFrame)
+        self.circularProgressBarHUM.setFrameShadow(QFrame.Raised)
+        self.circularProgressHUM = QFrame(self.circularProgressBarHUM)
         self.circularProgressHUM.setObjectName(u"circularProgressHUM")
         self.circularProgressHUM.setGeometry(QRect(10, 10, 220, 220))
         self.circularProgressHUM.setStyleSheet(u"QFrame{\n"
@@ -115,26 +115,26 @@ class Ui_MainWindow(object):
 "}")
         self.circularProgressHUM.setFrameShape(QFrame.StyledPanel)
         self.circularProgressHUM.setFrameShadow(QFrame.Raised)
-        self.circularBg_2 = QFrame(self.circularProgressBar_Main_2)
-        self.circularBg_2.setObjectName(u"circularBg_2")
-        self.circularBg_2.setGeometry(QRect(10, 10, 220, 220))
-        self.circularBg_2.setStyleSheet(u"QFrame{\n"
+        self.circularBgHUM = QFrame(self.circularProgressBarHUM)
+        self.circularBgHUM.setObjectName(u"circularBgHUM")
+        self.circularBgHUM.setGeometry(QRect(10, 10, 220, 220))
+        self.circularBgHUM.setStyleSheet(u"QFrame{\n"
 "	border-radius: 110px;	\n"
 "	background-color: rgba(85, 85, 127, 100);\n"
 "}")
-        self.circularBg_2.setFrameShape(QFrame.StyledPanel)
-        self.circularBg_2.setFrameShadow(QFrame.Raised)
-        self.circularContainer_2 = QFrame(self.circularProgressBar_Main_2)
-        self.circularContainer_2.setObjectName(u"circularContainer_2")
-        self.circularContainer_2.setGeometry(QRect(25, 25, 190, 190))
-        self.circularContainer_2.setBaseSize(QSize(0, 0))
-        self.circularContainer_2.setStyleSheet(u"QFrame{\n"
+        self.circularBgHUM.setFrameShape(QFrame.StyledPanel)
+        self.circularBgHUM.setFrameShadow(QFrame.Raised)
+        self.circularContainerHUM = QFrame(self.circularProgressBarHUM)
+        self.circularContainerHUM.setObjectName(u"circularContainerHUM")
+        self.circularContainerHUM.setGeometry(QRect(25, 25, 190, 190))
+        self.circularContainerHUM.setBaseSize(QSize(0, 0))
+        self.circularContainerHUM.setStyleSheet(u"QFrame{\n"
 "	border-radius: 95px;	\n"
 "	background-color: rgb(58, 58, 102);\n"
 "}")
-        self.circularContainer_2.setFrameShape(QFrame.StyledPanel)
-        self.circularContainer_2.setFrameShadow(QFrame.Raised)
-        self.layoutWidget_2 = QWidget(self.circularContainer_2)
+        self.circularContainerHUM.setFrameShape(QFrame.StyledPanel)
+        self.circularContainerHUM.setFrameShadow(QFrame.Raised)
+        self.layoutWidget_2 = QWidget(self.circularContainerHUM)
         self.layoutWidget_2.setObjectName(u"layoutWidget_2")
         self.layoutWidget_2.setGeometry(QRect(10, 40, 171, 127))
         self.infoLayout_2 = QGridLayout(self.layoutWidget_2)
@@ -165,9 +165,9 @@ class Ui_MainWindow(object):
 
         self.infoLayout_2.addWidget(self.labelCredits_2, 2, 0, 1, 1)
 
-        self.circularBg_2.raise_()
+        self.circularBgHUM.raise_()
         self.circularProgressHUM.raise_()
-        self.circularContainer_2.raise_()
+        self.circularContainerHUM.raise_()
         self.circularProgressBarAIR = QFrame(self.centralwidget)
         self.circularProgressBarAIR.setObjectName(u"circularProgressBarAIR")
         self.circularProgressBarAIR.setGeometry(QRect(10, 80, 240, 240))
@@ -183,15 +183,15 @@ class Ui_MainWindow(object):
 "}")
         self.circularProgresAIR.setFrameShape(QFrame.StyledPanel)
         self.circularProgresAIR.setFrameShadow(QFrame.Raised)
-        self.circularBg_3 = QFrame(self.circularProgressBarAIR)
-        self.circularBg_3.setObjectName(u"circularBg_3")
-        self.circularBg_3.setGeometry(QRect(10, 10, 220, 220))
-        self.circularBg_3.setStyleSheet(u"QFrame{\n"
+        self.circularBgAIR = QFrame(self.circularProgressBarAIR)
+        self.circularBgAIR.setObjectName(u"circularBgAIR")
+        self.circularBgAIR.setGeometry(QRect(10, 10, 220, 220))
+        self.circularBgAIR.setStyleSheet(u"QFrame{\n"
 "	border-radius: 110px;	\n"
 "	background-color: rgba(85, 85, 127, 100);\n"
 "}")
-        self.circularBg_3.setFrameShape(QFrame.StyledPanel)
-        self.circularBg_3.setFrameShadow(QFrame.Raised)
+        self.circularBgAIR.setFrameShape(QFrame.StyledPanel)
+        self.circularBgAIR.setFrameShadow(QFrame.Raised)
         self.circularContainerAIR = QFrame(self.circularProgressBarAIR)
         self.circularContainerAIR.setObjectName(u"circularContainerAIR")
         self.circularContainerAIR.setGeometry(QRect(25, 25, 190, 190))
@@ -233,7 +233,7 @@ class Ui_MainWindow(object):
 
         self.infoLayout_3.addWidget(self.labelPercentageAIR, 1, 0, 1, 1)
 
-        self.circularBg_3.raise_()
+        self.circularBgAIR.raise_()
         self.circularProgresAIR.raise_()
         self.circularContainerAIR.raise_()
         self.label_title = QLabel(self.centralwidget)
@@ -270,18 +270,18 @@ class Ui_MainWindow(object):
 "background-color: rgb(98, 98, 162);\n"
 "border-radius: 20px;")
         
-        self.label_13 = QLabel(self.centralwidget)
-        self.label_13.setObjectName(u"label_13")
-        self.label_13.setGeometry(QRect(90,830,582,40))
-        self.label_13.setMaximumSize(QSize(600, 40))
+        self.rfid = QLabel(self.centralwidget)
+        self.rfid.setObjectName(u"rfid")
+        self.rfid.setGeometry(QRect(90,830,582,40))
+        self.rfid.setMaximumSize(QSize(600, 40))
         font4 = QFont()
         font4.setFamily(u"Roboto Light")
         font4.setPointSize(14)
-        self.label_13.setFont(font4)
-        self.label_13.setStyleSheet(u"color: rgb(220, 220, 220);\n"
+        self.rfid.setFont(font4)
+        self.rfid.setStyleSheet(u"color: rgb(220, 220, 220);\n"
 "background-color: rgb(98, 98, 162);\n"
 "border-radius: 20px;")
-        self.label_13.setAlignment(Qt.AlignCenter)
+        self.rfid.setAlignment(Qt.AlignCenter)
         self.btn_maximize = QPushButton(self.centralwidget)
         self.btn_maximize.setObjectName(u"btn_maximize")
         self.btn_maximize.setGeometry(QRect(1223, 20, 17, 17))
@@ -419,15 +419,121 @@ class Ui_MainWindow(object):
         "    background-color: rgb(199, 0, 99);\n"
         "}")
         
+        self.start = QLabel(self.centralwidget)
+        self.start.setObjectName(u"start")
+        self.start.setGeometry(QRect(810,140,67,17))
+        self.start.setMaximumSize(QSize(600, 40))
+        font4 = QFont()
+        font4.setFamily(u"Roboto Light")
+        font4.setPointSize(14)
+        self.start.setFont(font4)
+        self.start.setStyleSheet(u"color: rgb(220, 220, 220);\n"
+"background-color: transparent;\n"
+"border-radius: 20px;")
+        self.start.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
+        
         self.dateStart = QDateEdit(self.centralwidget)
         self.dateStart.setObjectName(u"dateStart")
         self.dateStart.setGeometry(QRect(890, 130, 101, 31))
         self.dateStart.setCalendarPopup(True)
         
+        self.end = QLabel(self.centralwidget)
+        self.end.setObjectName(u"end")
+        self.end.setGeometry(QRect(1000,140,67,17))
+        self.end.setMaximumSize(QSize(600, 40))
+        font4 = QFont()
+        font4.setFamily(u"Roboto Light")
+        font4.setPointSize(14)
+        self.end.setFont(font4)
+        self.end.setStyleSheet(u"color: rgb(220, 220, 220);\n"
+"background-color: transparent;\n"
+"border-radius: 20px;")
+        self.end.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
+        
         self.dateEnd = QDateEdit(self.centralwidget)
         self.dateEnd.setObjectName(u"dateEnd")
         self.dateEnd.setGeometry(QRect(1080, 130, 101, 31))
         self.dateEnd.setCalendarPopup(True)
+        
+        self.min = QLabel(self.centralwidget)
+        self.min.setObjectName(u"min")
+        self.min.setGeometry(QRect(900,210,67,17))
+        self.min.setMaximumSize(QSize(600, 40))
+        font4 = QFont()
+        font4.setFamily(u"Roboto Light")
+        font4.setPointSize(14)
+        self.min.setFont(font4)
+        self.min.setStyleSheet(u"color: rgb(220, 220, 220);\n"
+"background-color: transparent;\n"
+"border-radius: 20px;")
+        self.min.setAlignment(Qt.AlignVCenter)
+        
+        self.max = QLabel(self.centralwidget)
+        self.max.setObjectName(u"max")
+        self.max.setGeometry(QRect(1000,210,67,17))
+        self.max.setMaximumSize(QSize(600, 40))
+        font4 = QFont()
+        font4.setFamily(u"Roboto Light")
+        font4.setPointSize(14)
+        self.max.setFont(font4)
+        self.max.setStyleSheet(u"color: rgb(220, 220, 220);\n"
+"background-color: transparent;\n"
+"border-radius: 20px;")
+        self.max.setAlignment(Qt.AlignVCenter)
+        
+        
+        self.air = QLabel(self.centralwidget)
+        self.air.setObjectName(u"air")
+        self.air.setGeometry(QRect(810,250,67,17))
+        self.air.setMaximumSize(QSize(600, 40))
+        font4 = QFont()
+        font4.setFamily(u"Roboto Light")
+        font4.setPointSize(11)
+        self.air.setFont(font4)
+        self.air.setStyleSheet(u"color: rgb(220, 220, 220);\n"
+"background-color: transparent;\n"
+"border-radius: 20px;")
+        self.air.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
+        
+        self.temperature = QLabel(self.centralwidget)
+        self.temperature.setObjectName(u"temperature")
+        self.temperature.setGeometry(QRect(756,290,121,20))
+        self.temperature.setMaximumSize(QSize(600, 40))
+        font4 = QFont()
+        font4.setFamily(u"Roboto Light")
+        font4.setPointSize(11)
+        self.temperature.setFont(font4)
+        self.temperature.setStyleSheet(u"color: rgb(220, 220, 220);\n"
+"background-color: transparent;\n"
+"border-radius: 20px;")
+        self.temperature.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
+        
+        self.humidity = QLabel(self.centralwidget)
+        self.humidity.setObjectName(u"humidity")
+        self.humidity.setGeometry(QRect(796,330,81,20))
+        self.humidity.setMaximumSize(QSize(600, 40))
+        font4 = QFont()
+        font4.setFamily(u"Roboto Light")
+        font4.setPointSize(11)
+        self.humidity.setFont(font4)
+        self.humidity.setStyleSheet(u"color: rgb(220, 220, 220);\n"
+"background-color: transparent;\n"
+"border-radius: 20px;")
+        self.humidity.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
+        
+        self.time = QLabel(self.centralwidget)
+        self.time.setObjectName(u"min")
+        self.time.setGeometry(QRect(140,780,161,21))
+        self.time.setMaximumSize(QSize(600, 40))
+        font4 = QFont()
+        font4.setFamily(u"Roboto Light")
+        font4.setPointSize(14)
+        self.time.setFont(font4)
+        self.time.setStyleSheet(u"color: rgb(220, 220, 220);\n"
+"background-color: transparent;\n"
+"border-radius: 20px;")
+        self.time.setAlignment(Qt.AlignVCenter)
+        
         
         self.label = QLabel(self.centralwidget)
         self.label.setObjectName(u"label")
@@ -438,7 +544,7 @@ class Ui_MainWindow(object):
         font4.setPointSize(14)
         self.label.setFont(font4)
         self.label.setStyleSheet(u"color: rgb(220, 220, 220);\n"
-"background-color: rgb(98, 98, 162);\n"
+"background-color: transparent;\n"
 "border-radius: 20px;")
         self.label.setAlignment(Qt.AlignCenter)
         
@@ -451,7 +557,7 @@ class Ui_MainWindow(object):
         font4.setPointSize(14)
         self.label_2.setFont(font4)
         self.label_2.setStyleSheet(u"color: rgb(220, 220, 220);\n"
-"background-color: rgb(98, 98, 162);\n"
+"background-color: transparent;\n"
 "border-radius: 20px;")
         self.label_2.setAlignment(Qt.AlignCenter)
         
@@ -464,7 +570,7 @@ class Ui_MainWindow(object):
         font4.setPointSize(14)
         self.label_3.setFont(font4)
         self.label_3.setStyleSheet(u"color: rgb(220, 220, 220);\n"
-"background-color: rgb(98, 98, 162);\n"
+"background-color: transparent;\n"
 "border-radius: 20px;")
         self.label_3.setAlignment(Qt.AlignCenter)
         self.retranslateUi(MainWindow)
@@ -483,16 +589,28 @@ class Ui_MainWindow(object):
         self.labelAIR.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-weight:600;\">AIR</span></p></body></html>", None))
         # self.labelCredits_3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>TEMP: <span style=\" color:#ffffff;\">20\u00ba</span></p></body></html>", None))
         self.labelPercentageAIR.setText(QCoreApplication.translate("MainWindow", u"<p align=\"center\"><span style=\" font-size:50pt;\">25</span><span style=\" font-size:40pt; vertical-align:super;\">PPM</span></p>", None))
-        self.label_title.setText(QCoreApplication.translate("MainWindow", u"This Is My App - Title Bar", None))
+        self.label_title.setText(QCoreApplication.translate("MainWindow", u"The Best Switch In the World", None))
 #if QT_CONFIG(tooltip)
         self.btn_close.setToolTip(QCoreApplication.translate("MainWindow", u"Close", None))
 #endif // QT_CONFIG(tooltip)
         self.btn_close.setText("")
-        self.label_13.setText(QCoreApplication.translate("MainWindow", u"RFID", None))
+        self.rfid.setText(QCoreApplication.translate("MainWindow", u"RFID", None))
 #if QT_CONFIG(tooltip)
         self.label.setText(QCoreApplication.translate("MainWindow", u"FRONT", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"BACK", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"VENTILATOR", None))
+        
+        self.start.setText(QCoreApplication.translate("MainWindow", u"START", None))
+        self.end.setText(QCoreApplication.translate("MainWindow", u"END", None))
+        self.dateStart.setDisplayFormat(QCoreApplication.translate("MainWindow", u"yyyy/mm/dd", None))
+        self.dateEnd.setDisplayFormat(QCoreApplication.translate("MainWindow", u"yyyy/mm/dd", None))
+        self.min.setText(QCoreApplication.translate("MainWindow", u"MIN", None))
+        self.max.setText(QCoreApplication.translate("MainWindow", u"MAX", None))
+        self.air.setText(QCoreApplication.translate("MainWindow", u"AIR", None))
+        self.temperature.setText(QCoreApplication.translate("MainWindow", u"TEMPERATURE", None))
+        self.humidity.setText(QCoreApplication.translate("MainWindow", u"HUMIDITY", None))
+        self.time.setText(QCoreApplication.translate("MainWindow", u"00:00:00", None))
+        
         self.btn_maximize.setToolTip(QCoreApplication.translate("MainWindow", u"Maximize", None))
 #endif // QT_CONFIG(tooltip)
         self.btn_maximize.setText("")

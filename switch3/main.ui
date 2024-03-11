@@ -57,7 +57,7 @@
       <enum>QFrame::Raised</enum>
      </property>
     </widget>
-    <widget class="QFrame" name="circularBg">
+    <widget class="QFrame" name="circularBgTEMP">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -179,11 +179,11 @@
       </layout>
      </widget>
     </widget>
-    <zorder>circularBg</zorder>
+    <zorder>circularBgTEMP</zorder>
     <zorder>circularProgressTEMP</zorder>
     <zorder>circularContainerTEMP</zorder>
    </widget>
-   <widget class="QFrame" name="circularProgressBar_Main_2">
+   <widget class="QFrame" name="circularProgressBarHUM">
     <property name="geometry">
      <rect>
       <x>510</x>
@@ -201,7 +201,7 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QFrame" name="circularProgressGPU">
+    <widget class="QFrame" name="circularProgressHUM">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -223,7 +223,7 @@
       <enum>QFrame::Raised</enum>
      </property>
     </widget>
-    <widget class="QFrame" name="circularBg_2">
+    <widget class="QFrame" name="circularBgHUM">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -245,7 +245,7 @@
       <enum>QFrame::Raised</enum>
      </property>
     </widget>
-    <widget class="QFrame" name="circularContainer_2">
+    <widget class="QFrame" name="circularContainerHUM">
      <property name="geometry">
       <rect>
        <x>25</x>
@@ -345,9 +345,9 @@
       </layout>
      </widget>
     </widget>
-    <zorder>circularBg_2</zorder>
-    <zorder>circularProgressGPU</zorder>
-    <zorder>circularContainer_2</zorder>
+    <zorder>circularBgHUM</zorder>
+    <zorder>circularProgressHUM</zorder>
+    <zorder>circularContainerHUM</zorder>
    </widget>
    <widget class="QFrame" name="circularProgressBarAIR">
     <property name="geometry">
@@ -445,7 +445,7 @@
          </widget>
         </item>
         <item row="5" column="1">
-         <widget class="QLabel" name="labelPercentageRAM">
+         <widget class="QLabel" name="labelPercentageAIR">
           <property name="font">
            <font>
             <family>Roboto Thin</family>
@@ -495,7 +495,7 @@
       </widget>
      </widget>
     </widget>
-    <widget class="QFrame" name="circularBg_3">
+    <widget class="QFrame" name="circularBgAIR">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -517,7 +517,7 @@
       <enum>QFrame::Raised</enum>
      </property>
     </widget>
-    <zorder>circularBg_3</zorder>
+    <zorder>circularBgAIR</zorder>
     <zorder>circularProgressAIR</zorder>
    </widget>
    <widget class="QLabel" name="label_title">
@@ -580,7 +580,7 @@ QPushButton:hover {
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_13">
+   <widget class="QLabel" name="rfid">
     <property name="geometry">
      <rect>
       <x>90</x>
@@ -607,7 +607,7 @@ background-color: rgb(98, 98, 162);
 border-radius: 20px;</string>
     </property>
     <property name="text">
-     <string>&quot;If you control the code, you control the world.&quot;</string>
+     <string>rfid</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -929,10 +929,10 @@ QPushButton:hover {
    <widget class="QLabel" name="temperature">
     <property name="geometry">
      <rect>
-      <x>766</x>
+      <x>756</x>
       <y>290</y>
-      <width>111</width>
-      <height>16</height>
+      <width>121</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="text">
@@ -945,9 +945,9 @@ QPushButton:hover {
    <widget class="QLabel" name="humidity">
     <property name="geometry">
      <rect>
-      <x>776</x>
+      <x>796</x>
       <y>330</y>
-      <width>101</width>
+      <width>81</width>
       <height>20</height>
      </rect>
     </property>
@@ -1128,7 +1128,7 @@ QPushButton:hover {
      </rect>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>00:00:00</string>
     </property>
    </widget>
   </widget>

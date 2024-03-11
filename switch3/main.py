@@ -155,7 +155,7 @@ class SplashScreen(QMainWindow):
         self.shadow.setXOffset(0)
         self.shadow.setYOffset(0)
         self.shadow.setColor(QColor(0, 0, 0, 120))
-        self.ui.circularBg.setGraphicsEffect(self.shadow)
+        self.ui.circularBgTEMP.setGraphicsEffect(self.shadow)
 
         ## QTIMER ==> START
         self.timer = QtCore.QTimer()
