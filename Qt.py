@@ -14,22 +14,17 @@ import matplotlib.pyplot as plt
 import cv2
 
 
-# Arduino의 IP 주소와 포트
-# arduino_ip = "192.168.0.12"  # 아두이노의 IP 주소로 변경해야 합니다.
-# arduino_port = 80
-
-###### 임시 셋팅
-esp_32_ip = "192.168.0.12"  # 아두이노의 IP 주소로 변경해야 합니다.
+# esp32 wifi setting
+esp_32_ip = "192.168.0.12" 
 esp_32_port = 80
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client_socket.connect((esp_32_ip, esp_32_port))
 
 
-## 시리얼 통신 (임시)
+# serial setting
 ser = serial.Serial('/dev/ttyACM0', 9600)
 
-
-from_class = uic.loadUiType("today/today_sensor_qt.ui")[0]
+from_class = uic.loadUiType("Qt.ui")[0]
 
 class WindowClass(QMainWindow, from_class) :
     def __init__(self):
@@ -242,6 +237,7 @@ if __name__ == "__main__":
     myWindows = WindowClass()
     myWindows.show()
     sys.exit(app.exec_())
+
 
 
 
