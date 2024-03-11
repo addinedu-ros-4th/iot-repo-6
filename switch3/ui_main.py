@@ -457,7 +457,7 @@ class Ui_MainWindow(object):
         
         self.min = QLabel(self.centralwidget)
         self.min.setObjectName(u"min")
-        self.min.setGeometry(QRect(900,210,67,17))
+        self.min.setGeometry(QRect(910,210,41,17))
         self.min.setMaximumSize(QSize(600, 40))
         font4 = QFont()
         font4.setFamily(u"Roboto Light")
@@ -470,7 +470,7 @@ class Ui_MainWindow(object):
         
         self.max = QLabel(self.centralwidget)
         self.max.setObjectName(u"max")
-        self.max.setGeometry(QRect(1000,210,67,17))
+        self.max.setGeometry(QRect(1000,210,41,17))
         self.max.setMaximumSize(QSize(600, 40))
         font4 = QFont()
         font4.setFamily(u"Roboto Light")
@@ -521,9 +521,49 @@ class Ui_MainWindow(object):
 "border-radius: 20px;")
         self.humidity.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
         
+        self.air_min = QLineEdit(self.centralwidget)
+        self.air_min.setObjectName(u"air_min")
+        self.air_min.setGeometry(QRect(900, 250, 51, 25))
+        
+        self.air_max = QLineEdit(self.centralwidget)
+        self.air_max.setObjectName(u"air_max")
+        self.air_max.setGeometry(QRect(1000, 250, 51, 25))
+        
+        self.temp_min = QLineEdit(self.centralwidget)
+        self.temp_min.setObjectName(u"temp_min")
+        self.temp_min.setGeometry(QRect(900, 290, 51, 25))
+        
+        self.temp_max = QLineEdit(self.centralwidget)
+        self.temp_max.setObjectName(u"temp_max")
+        self.temp_max.setGeometry(QRect(1000, 290, 51, 25))
+        
+        self.hum_min = QLineEdit(self.centralwidget)
+        self.hum_min.setObjectName(u"hum_min")
+        self.hum_min.setGeometry(QRect(900, 330, 51, 25))
+        
+        self.hum_max = QLineEdit(self.centralwidget)
+        self.hum_max.setObjectName(u"hum_max")
+        self.hum_max.setGeometry(QRect(1000, 330, 51, 25))
+        
+        self.airok_btn = QPushButton(self.centralwidget)
+        self.airok_btn.setObjectName(u"airok_btn")
+        self.airok_btn.setGeometry(QRect(1080, 250, 89, 25))
+        
+        self.tempok_btn = QPushButton(self.centralwidget)
+        self.tempok_btn.setObjectName(u"tempok_btn")
+        self.tempok_btn.setGeometry(QRect(1080, 290, 89, 25))
+        
+        self.humok_btn = QPushButton(self.centralwidget)
+        self.humok_btn.setObjectName(u"humok_btn")
+        self.humok_btn.setGeometry(QRect(1080, 330, 89, 25))
+        
+        self.search_btn = QPushButton(self.centralwidget)
+        self.search_btn.setObjectName(u"search_btn")
+        self.search_btn.setGeometry(QRect(1200, 130, 89, 221))
+            
         self.time = QLabel(self.centralwidget)
         self.time.setObjectName(u"min")
-        self.time.setGeometry(QRect(140,780,161,21))
+        self.time.setGeometry(QRect(100,780,201,21))
         self.time.setMaximumSize(QSize(600, 40))
         font4 = QFont()
         font4.setFamily(u"Roboto Light")
@@ -533,7 +573,6 @@ class Ui_MainWindow(object):
 "background-color: transparent;\n"
 "border-radius: 20px;")
         self.time.setAlignment(Qt.AlignVCenter)
-        
         
         self.label = QLabel(self.centralwidget)
         self.label.setObjectName(u"label")
@@ -573,8 +612,30 @@ class Ui_MainWindow(object):
 "background-color: transparent;\n"
 "border-radius: 20px;")
         self.label_3.setAlignment(Qt.AlignCenter)
-        self.retranslateUi(MainWindow)
         
+        self.dbTable = QTableWidget(self.centralwidget)
+        if (self.dbTable.columnCount() < 5):
+            self.dbTable.setColumnCount(5)
+        __qtablewidgetitem = QTableWidgetItem()
+        self.dbTable.setHorizontalHeaderItem(0, __qtablewidgetitem)
+        __qtablewidgetitem1 = QTableWidgetItem()
+        self.dbTable.setHorizontalHeaderItem(1, __qtablewidgetitem1)
+        font6 = QFont()
+        font6.setPointSize(10)
+        __qtablewidgetitem2 = QTableWidgetItem()
+        __qtablewidgetitem2.setFont(font6);
+        self.dbTable.setHorizontalHeaderItem(2, __qtablewidgetitem2)
+        __qtablewidgetitem3 = QTableWidgetItem()
+        self.dbTable.setHorizontalHeaderItem(3, __qtablewidgetitem3)
+        __qtablewidgetitem4 = QTableWidgetItem()
+        self.dbTable.setHorizontalHeaderItem(4, __qtablewidgetitem4)
+        self.dbTable.setObjectName(u"dbTable")
+        self.dbTable.setGeometry(QRect(780, 390, 501, 461))
+        self.dbTable.setStyleSheet(u"color: rgb(220, 220, 220);\n"
+"background-color: rgb(98, 98, 162);\n"
+"border-radius: 20px;")
+        
+        self.retranslateUi(MainWindow)
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
 
@@ -611,7 +672,24 @@ class Ui_MainWindow(object):
         self.humidity.setText(QCoreApplication.translate("MainWindow", u"HUMIDITY", None))
         self.time.setText(QCoreApplication.translate("MainWindow", u"00:00:00", None))
         
+        self.airok_btn.setText(QCoreApplication.translate("MainWindow", u"ok", None))
+        self.tempok_btn.setText(QCoreApplication.translate("MainWindow", u"ok", None))
+        self.humok_btn.setText(QCoreApplication.translate("MainWindow", u"ok", None))
+        self.search_btn.setText(QCoreApplication.translate("MainWindow", u"SEARCH", None))
+        
+        ___qtablewidgetitem = self.dbTable.horizontalHeaderItem(0)
+        ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"ID", None));
+        ___qtablewidgetitem1 = self.dbTable.horizontalHeaderItem(1)
+        ___qtablewidgetitem1.setText(QCoreApplication.translate("MainWindow", u"AIR", None));
+        ___qtablewidgetitem2 = self.dbTable.horizontalHeaderItem(2)
+        ___qtablewidgetitem2.setText(QCoreApplication.translate("MainWindow", u"TEMPERATURE", None));
+        ___qtablewidgetitem3 = self.dbTable.horizontalHeaderItem(3)
+        ___qtablewidgetitem3.setText(QCoreApplication.translate("MainWindow", u"HUMIDITY", None));
+        ___qtablewidgetitem4 = self.dbTable.horizontalHeaderItem(4)
+        ___qtablewidgetitem4.setText(QCoreApplication.translate("MainWindow", u"CREATE_AT", None));
+        
         self.btn_maximize.setToolTip(QCoreApplication.translate("MainWindow", u"Maximize", None))
+        
 #endif // QT_CONFIG(tooltip)
         self.btn_maximize.setText("")
 #if QT_CONFIG(tooltip)

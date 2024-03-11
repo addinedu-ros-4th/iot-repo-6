@@ -839,6 +839,11 @@ QPushButton:hover {
       <height>261</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(220, 220, 220);
+background-color: rgb(98, 98, 162);
+border-radius: 20px;</string>
+    </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
     </property>
@@ -961,7 +966,7 @@ QPushButton:hover {
    <widget class="QLineEdit" name="air_min">
     <property name="geometry">
      <rect>
-      <x>910</x>
+      <x>900</x>
       <y>250</y>
       <width>51</width>
       <height>25</height>
@@ -971,7 +976,7 @@ QPushButton:hover {
    <widget class="QLineEdit" name="temp_min">
     <property name="geometry">
      <rect>
-      <x>910</x>
+      <x>900</x>
       <y>290</y>
       <width>51</width>
       <height>25</height>
@@ -981,7 +986,7 @@ QPushButton:hover {
    <widget class="QLineEdit" name="hum_min">
     <property name="geometry">
      <rect>
-      <x>910</x>
+      <x>900</x>
       <y>330</y>
       <width>51</width>
       <height>25</height>
@@ -1009,7 +1014,7 @@ QPushButton:hover {
      <rect>
       <x>900</x>
       <y>210</y>
-      <width>67</width>
+      <width>41</width>
       <height>17</height>
      </rect>
     </property>
@@ -1025,7 +1030,7 @@ QPushButton:hover {
      <rect>
       <x>1000</x>
       <y>210</y>
-      <width>67</width>
+      <width>51</width>
       <height>17</height>
      </rect>
     </property>
@@ -1039,7 +1044,7 @@ QPushButton:hover {
    <widget class="QLineEdit" name="temp_max">
     <property name="geometry">
      <rect>
-      <x>1010</x>
+      <x>1000</x>
       <y>290</y>
       <width>51</width>
       <height>25</height>
@@ -1049,7 +1054,7 @@ QPushButton:hover {
    <widget class="QLineEdit" name="air_max">
     <property name="geometry">
      <rect>
-      <x>1010</x>
+      <x>1000</x>
       <y>250</y>
       <width>51</width>
       <height>25</height>
@@ -1059,7 +1064,7 @@ QPushButton:hover {
    <widget class="QLineEdit" name="hum_max">
     <property name="geometry">
      <rect>
-      <x>1010</x>
+      <x>1000</x>
       <y>330</y>
       <width>51</width>
       <height>25</height>
@@ -1069,7 +1074,7 @@ QPushButton:hover {
    <widget class="QPushButton" name="airok_btn">
     <property name="geometry">
      <rect>
-      <x>1090</x>
+      <x>1080</x>
       <y>250</y>
       <width>89</width>
       <height>25</height>
@@ -1082,7 +1087,7 @@ QPushButton:hover {
    <widget class="QPushButton" name="tempok_btn">
     <property name="geometry">
      <rect>
-      <x>1090</x>
+      <x>1080</x>
       <y>290</y>
       <width>89</width>
       <height>25</height>
@@ -1095,7 +1100,7 @@ QPushButton:hover {
    <widget class="QPushButton" name="humok_btn">
     <property name="geometry">
      <rect>
-      <x>1090</x>
+      <x>1080</x>
       <y>330</y>
       <width>89</width>
       <height>25</height>
@@ -1121,14 +1126,72 @@ QPushButton:hover {
    <widget class="QLabel" name="time">
     <property name="geometry">
      <rect>
-      <x>140</x>
+      <x>100</x>
       <y>780</y>
-      <width>161</width>
+      <width>201</width>
       <height>21</height>
      </rect>
     </property>
     <property name="text">
      <string>00:00:00</string>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="dbTable">
+    <property name="geometry">
+     <rect>
+      <x>780</x>
+      <y>390</y>
+      <width>501</width>
+      <height>461</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(220, 220, 220);
+background-color: rgb(98, 98, 162);
+border-radius: 20px;</string>
+    </property>
+    <column>
+     <property name="text">
+      <string>ID</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>AIR</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>TEMPERATURE</string>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>HUMIDITY</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>CREATE_AT</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QPushButton" name="cameraIcon">
+    <property name="geometry">
+     <rect>
+      <x>610</x>
+      <y>740</y>
+      <width>64</width>
+      <height>64</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PushButton</string>
     </property>
    </widget>
   </widget>
