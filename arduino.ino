@@ -6,6 +6,14 @@
 #define SS_PIN 10
 #define RST_PIN 9
 
+// time setting
+const unsigned long interval = 5000;
+unsigned long previousMillis = 0;
+
+// toggle setting
+int toggle = 0;
+
+// sensor setting 
 MFRC522 mfrc522(SS_PIN, RST_PIN);
 DHT11 dht11(A0);
 LiquidCrystal lcd(7, 6, 5, 4, 3, 2);
@@ -26,10 +34,29 @@ void loop() {
     int air = analogRead(A1);
     int result = dht11.readTemperatureHumidity(tem, hum);
 
-    lcd.setCursor(0, 0);
-    lcd.print("Hum");  lcd.print("  Tem "); lcd.print(" Air ");
-    lcd.setCursor(0, 1);
-    lcd.print(hum); lcd.print("%  "); lcd.print(tem); lcd.print("C  "); lcd.print(air); lcd.print("ppm"); 
+    if (toggle == 0)
+    {
+      lcd.setCursor(0, 0);
+      lcd.print("Hum");  lcd.print("  Tem "); lcd.print(" Air ");
+      lcd.setCursor(0, 1);
+      lcd.print(hum); lcd.print("%  "); lcd.print(tem); lcd.print("C  "); lcd.print(air); lcd.println("ppm "); 
+    }
+    
+    if (toggle == 1)
+    {
+      unsigned long currentMillis = millis();
+      lcd.clear();
+      lcd.setCursor(0, 0);
+      lcd.print("user "); 
+      lcd.setCursor(0, 1);
+      lcd.print(" Song yongtak ");
+      
+      if (currentMillis - previousMillis >= interval)
+      {
+        previousMillis = currentMillis;
+        toggle = 0;
+      }
+    }
     
     Serial.print("[");
     Serial.print(tem);
@@ -42,6 +69,7 @@ void loop() {
     
     if (mfrc522.PICC_IsNewCardPresent() && mfrc522.PICC_ReadCardSerial()) 
     {
+      toggle = 1;
       // UID를 저장할 변수
       String cardUID = "";
 
