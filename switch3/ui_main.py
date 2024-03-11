@@ -8,9 +8,9 @@
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide2.QtCore import *
-from PySide2.QtGui import *
-from PySide2.QtWidgets import *
+from PyQt5.QtCore import *
+from PyQt5.QtGui import *
+from PyQt5.QtWidgets import *
 
 
 class Ui_MainWindow(object):
@@ -18,8 +18,8 @@ class Ui_MainWindow(object):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(760, 900)
-        MainWindow.setMinimumSize(QSize(760, 900))
-        MainWindow.setMaximumSize(QSize(760, 900))
+        MainWindow.setMinimumSize(QSize(1332, 900))
+        MainWindow.setMaximumSize(QSize(1332, 900))
         MainWindow.setStyleSheet(u"background-color: rgb(77, 77, 127);")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
@@ -246,7 +246,7 @@ class Ui_MainWindow(object):
         self.label_title.setStyleSheet(u"color: rgb(115, 185, 255); background-color: none;")
         self.btn_close = QPushButton(self.centralwidget)
         self.btn_close.setObjectName(u"btn_close")
-        self.btn_close.setGeometry(QRect(724, 20, 17, 17))
+        self.btn_close.setGeometry(QRect(1277, 20, 17, 17))
         self.btn_close.setMinimumSize(QSize(16, 16))
         self.btn_close.setMaximumSize(QSize(17, 17))
         self.btn_close.setStyleSheet(u"QPushButton {\n"
@@ -260,7 +260,7 @@ class Ui_MainWindow(object):
         
         self.camera = QLabel(self.centralwidget)
         self.camera.setObjectName(u"camera")
-        self.camera.setGeometry(QRect(346, 470, 341, 261))
+        self.camera.setGeometry(QRect(346, 440, 341, 261))
         # self.camera.setMaximumSize(QSize(600, 40))
         font4 = QFont()
         font4.setFamily(u"Roboto Light")
@@ -284,7 +284,7 @@ class Ui_MainWindow(object):
         self.label_13.setAlignment(Qt.AlignCenter)
         self.btn_maximize = QPushButton(self.centralwidget)
         self.btn_maximize.setObjectName(u"btn_maximize")
-        self.btn_maximize.setGeometry(QRect(670, 20, 17, 17))
+        self.btn_maximize.setGeometry(QRect(1223, 20, 17, 17))
         self.btn_maximize.setMinimumSize(QSize(16, 16))
         self.btn_maximize.setMaximumSize(QSize(17, 17))
         self.btn_maximize.setStyleSheet(u"QPushButton {\n"
@@ -297,7 +297,7 @@ class Ui_MainWindow(object):
 "}")
         self.btn_minimize = QPushButton(self.centralwidget)
         self.btn_minimize.setObjectName(u"btn_minimize")
-        self.btn_minimize.setGeometry(QRect(697, 20, 17, 17))
+        self.btn_minimize.setGeometry(QRect(1250, 20, 17, 17))
         self.btn_minimize.setMinimumSize(QSize(16, 16))
         self.btn_minimize.setMaximumSize(QSize(17, 17))
         self.btn_minimize.setStyleSheet(u"QPushButton {\n"
@@ -308,99 +308,12 @@ class Ui_MainWindow(object):
 "QPushButton:hover {	\n"
 "	background-color: rgba(255, 170, 0, 150);\n"
 "}")
-        self.sliderTEMP = QSlider(self.centralwidget)
-        self.sliderTEMP.setObjectName(u"sliderTEMP")
-        self.sliderTEMP.setGeometry(QRect(300, 330, 161, 22))
-        self.sliderTEMP.setStyleSheet(u"/* SLIDERS */\n"
-"QSlider::groove:horizontal {\n"
-"    border-radius: 9px;\n"
-"    height: 18px;\n"
-"	margin: 0px;\n"
-"	background-color: rgb(52, 59, 72);\n"
-"}\n"
-"QSlider::groove:horizontal:hover {\n"
-"	background-color: rgb(55, 62, 76);\n"
-"}\n"
-"QSlider::handle:horizontal {\n"
-"    background-color: rgb(255, 0, 127);\n"
-"    border: none;\n"
-"    height: 18px;\n"
-"    width: 18px;\n"
-"    margin: 0px;\n"
-"	border-radius: 9px;\n"
-"}\n"
-"QSlider::handle:horizontal:hover {\n"
-"    background-color: rgb(105, 180, 255);\n"
-"}\n"
-"QSlider::handle:horizontal:pressed {\n"
-"    background-color: rgb(65, 130, 195);\n"
-"}")
-        self.sliderTEMP.setMaximum(100)
-        self.sliderTEMP.setOrientation(Qt.Horizontal)
-        self.sliderHUM = QSlider(self.centralwidget)
-        self.sliderHUM.setObjectName(u"sliderHUM")
-        self.sliderHUM.setGeometry(QRect(550, 330, 161, 22))
-        self.sliderHUM.setStyleSheet(u"/* SLIDERS */\n"
-"QSlider::groove:horizontal {\n"
-"    border-radius: 9px;\n"
-"    height: 18px;\n"
-"	margin: 0px;\n"
-"	background-color: rgb(52, 59, 72);\n"
-"}\n"
-"QSlider::groove:horizontal:hover {\n"
-"	background-color: rgb(55, 62, 76);\n"
-"}\n"
-"QSlider::handle:horizontal {\n"
-"    background-color: rgb(85, 170, 255);\n"
-"    border: none;\n"
-"    height: 18px;\n"
-"    width: 18px;\n"
-"    margin: 0px;\n"
-"	border-radius: 9px;\n"
-"}\n"
-"QSlider::handle:horizontal:hover {\n"
-"    background-color: rgb(115, 255, 148);\n"
-"}\n"
-"QSlider::handle:horizontal:pressed {\n"
-"    background-color: rgb(65, 195, 95);\n"
-"}")
-        self.sliderHUM.setMaximum(100)
-        self.sliderHUM.setOrientation(Qt.Horizontal)
-        self.sliderAIR = QSlider(self.centralwidget)
-        self.sliderAIR.setObjectName(u"sliderAIR")
-        self.sliderAIR.setGeometry(QRect(50, 330, 161, 22))
-        self.sliderAIR.setStyleSheet(u"/* SLIDERS */\n"
-"QSlider::groove:horizontal {\n"
-"    border-radius: 9px;\n"
-"    height: 18px;\n"
-"	margin: 0px;\n"
-"	background-color: rgb(52, 59, 72);\n"
-"}\n"
-"QSlider::groove:horizontal:hover {\n"
-"	background-color: rgb(55, 62, 76);\n"
-"}\n"
-"QSlider::handle:horizontal {\n"
-"    background-color: rgb(85, 255, 127);\n"
-"    border: none;\n"
-"    height: 18px;\n"
-"    width: 18px;\n"
-"    margin: 0px;\n"
-"	border-radius: 9px;\n"
-"}\n"
-"QSlider::handle:horizontal:hover {\n"
-"    background-color: rgb(255, 55, 155);\n"
-"}\n"
-"QSlider::handle:horizontal:pressed {\n"
-"    background-color: rgb(199, 0, 99);\n"
-"}\n"
-"")
-        self.sliderAIR.setMaximum(100)
-        self.sliderAIR.setOrientation(Qt.Horizontal)
+
         MainWindow.setCentralWidget(self.centralwidget)
         
         self.graphAIR = QPushButton(self.centralwidget)
         self.graphAIR.setObjectName(u"graphAIR")
-        self.graphAIR.setGeometry(QRect(60, 380, 141, 31))
+        self.graphAIR.setGeometry(QRect(60, 350, 141, 31))
         self.graphAIR.setText(QCoreApplication.translate("MainWindow", u"GRAPH", None))
         self.graphAIR.setStyleSheet(u"QPushButton {\n"
         "    background-color: rgb(85, 255, 127);\n"
@@ -418,7 +331,7 @@ class Ui_MainWindow(object):
         
         self.graphTEMP = QPushButton(self.centralwidget)
         self.graphTEMP.setObjectName(u"graphTEMP")
-        self.graphTEMP.setGeometry(QRect(310, 380, 141, 31))
+        self.graphTEMP.setGeometry(QRect(310, 350, 141, 31))
         self.graphTEMP.setText(QCoreApplication.translate("MainWindow", u"GRAPH", None))
         self.graphTEMP.setStyleSheet(u"QPushButton {\n"
         "    background-color: rgb(255, 0, 127);\n"
@@ -436,7 +349,7 @@ class Ui_MainWindow(object):
         
         self.graphHUM = QPushButton(self.centralwidget)
         self.graphHUM.setObjectName(u"graphHUM")
-        self.graphHUM.setGeometry(QRect(560, 380, 141, 31))
+        self.graphHUM.setGeometry(QRect(560, 350, 141, 31))
         self.graphHUM.setText(QCoreApplication.translate("MainWindow", u"GRAPH", None))
         self.graphHUM.setStyleSheet(u"QPushButton {\n"
         "    background-color: rgb(85, 170, 255);\n"
@@ -454,7 +367,7 @@ class Ui_MainWindow(object):
         
         self.btn_button1 = QPushButton(self.centralwidget)
         self.btn_button1.setObjectName(u"btn_button1")
-        self.btn_button1.setGeometry(QRect(200, 460, 111, 81))
+        self.btn_button1.setGeometry(QRect(200, 430, 111, 81))
         self.btn_button1.setText(QCoreApplication.translate("MainWindow", u"Button 1", None))
         self.btn_button1.setStyleSheet(u"QPushButton {\n"
         "    background-color: rgb(85, 170, 255);\n"
@@ -472,7 +385,7 @@ class Ui_MainWindow(object):
 
         self.btn_button2 = QPushButton(self.centralwidget)
         self.btn_button2.setObjectName(u"btn_button2")
-        self.btn_button2.setGeometry(QRect(200, 560, 111, 81))
+        self.btn_button2.setGeometry(QRect(200, 530, 111, 81))
         self.btn_button2.setText(QCoreApplication.translate("MainWindow", u"Button 2", None))
         self.btn_button2.setStyleSheet(u"QPushButton {\n"
         "    background-color: rgb(85, 255, 127);\n"
@@ -490,7 +403,7 @@ class Ui_MainWindow(object):
 
         self.btn_button3 = QPushButton(self.centralwidget)
         self.btn_button3.setObjectName(u"btn_button3")
-        self.btn_button3.setGeometry(QRect(200,660,111,81))
+        self.btn_button3.setGeometry(QRect(200,630,111,81))
         self.btn_button3.setText(QCoreApplication.translate("MainWindow", u"Button 3", None))
         self.btn_button3.setStyleSheet(u"QPushButton {\n"
         "    background-color: rgb(255, 0, 127);\n"
@@ -506,9 +419,19 @@ class Ui_MainWindow(object):
         "    background-color: rgb(199, 0, 99);\n"
         "}")
         
+        self.dateStart = QDateEdit(self.centralwidget)
+        self.dateStart.setObjectName(u"dateStart")
+        self.dateStart.setGeometry(QRect(890, 130, 101, 31))
+        self.dateStart.setCalendarPopup(True)
+        
+        self.dateEnd = QDateEdit(self.centralwidget)
+        self.dateEnd.setObjectName(u"dateEnd")
+        self.dateEnd.setGeometry(QRect(1080, 130, 101, 31))
+        self.dateEnd.setCalendarPopup(True)
+        
         self.label = QLabel(self.centralwidget)
         self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(100,490,67,17))
+        self.label.setGeometry(QRect(100,460,67,17))
         self.label.setMaximumSize(QSize(600, 40))
         font4 = QFont()
         font4.setFamily(u"Roboto Light")
@@ -521,7 +444,7 @@ class Ui_MainWindow(object):
         
         self.label_2 = QLabel(self.centralwidget)
         self.label_2.setObjectName(u"label_2")
-        self.label_2.setGeometry(QRect(100,590,67,17))
+        self.label_2.setGeometry(QRect(100,560,67,17))
         self.label_2.setMaximumSize(QSize(600, 40))
         font4 = QFont()
         font4.setFamily(u"Roboto Light")
@@ -534,7 +457,7 @@ class Ui_MainWindow(object):
         
         self.label_3 = QLabel(self.centralwidget)
         self.label_3.setObjectName(u"label_3")
-        self.label_3.setGeometry(QRect(50,690,121,20))
+        self.label_3.setGeometry(QRect(50,660,121,20))
         self.label_3.setMaximumSize(QSize(600, 40))
         font4 = QFont()
         font4.setFamily(u"Roboto Light")
@@ -545,30 +468,31 @@ class Ui_MainWindow(object):
 "border-radius: 20px;")
         self.label_3.setAlignment(Qt.AlignCenter)
         self.retranslateUi(MainWindow)
+        
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.labelTEMP.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-weight:600;\">TEMPERATURE</span></p></body></html>", None))
-        self.labelDegreeTEMP.setText(QCoreApplication.translate("MainWindow", u"<p align=\"center\"><span style=\" font-size:50pt;\">60</span><span style=\" font-size:40pt; vertical-align:super;\">°%</span></p>", None))
-        self.labelCredits.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><br/></p></body></html>", None))
+        self.labelDegreeTEMP.setText(QCoreApplication.translate("MainWindow", u"<p align=\"center\"><span style=\" font-size:50pt;\">60</span><span style=\" font-size:40pt; vertical-align:super;\">°C</span></p>", None))
+        # self.labelCredits.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><br/></p></body></html>", None))
         self.labelHUM.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-weight:600;\">HUMIDITY</span></p></body></html>", None))
         self.labelPercentageHUM.setText(QCoreApplication.translate("MainWindow", u"<p align=\"center\"><span style=\" font-size:50pt;\">40</span><span style=\" font-size:40pt; vertical-align:super;\">%</span></p>", None))
-        self.labelCredits_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>TEMP: <span style=\" color:#ffffff;\">60\u00ba</span></p></body></html>", None))
+        # self.labelCredits_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>TEMP: <span style=\" color:#ffffff;\">60\u00ba</span></p></body></html>", None))
         self.labelAIR.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-weight:600;\">AIR</span></p></body></html>", None))
-        self.labelCredits_3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>TEMP: <span style=\" color:#ffffff;\">20\u00ba</span></p></body></html>", None))
+        # self.labelCredits_3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>TEMP: <span style=\" color:#ffffff;\">20\u00ba</span></p></body></html>", None))
         self.labelPercentageAIR.setText(QCoreApplication.translate("MainWindow", u"<p align=\"center\"><span style=\" font-size:50pt;\">25</span><span style=\" font-size:40pt; vertical-align:super;\">PPM</span></p>", None))
         self.label_title.setText(QCoreApplication.translate("MainWindow", u"This Is My App - Title Bar", None))
 #if QT_CONFIG(tooltip)
         self.btn_close.setToolTip(QCoreApplication.translate("MainWindow", u"Close", None))
 #endif // QT_CONFIG(tooltip)
         self.btn_close.setText("")
-        self.label_13.setText(QCoreApplication.translate("MainWindow", u"\"If you control the code, you control the world.\"", None))
+        self.label_13.setText(QCoreApplication.translate("MainWindow", u"RFID", None))
 #if QT_CONFIG(tooltip)
-        self.label.setText(QCoreApplication.translate("MainWindow", u"\"FRONT\"", None))
-        self.label_2.setText(QCoreApplication.translate("MainWindow", u"\" BACK \"", None))
-        self.label_3.setText(QCoreApplication.translate("MainWindow", u"\"VENTILATOR\"", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"FRONT", None))
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"BACK", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"VENTILATOR", None))
         self.btn_maximize.setToolTip(QCoreApplication.translate("MainWindow", u"Maximize", None))
 #endif // QT_CONFIG(tooltip)
         self.btn_maximize.setText("")

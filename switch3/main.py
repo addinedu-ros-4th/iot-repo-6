@@ -8,10 +8,10 @@
 
 import sys
 import platform
-from PySide2 import QtCore, QtGui, QtWidgets
-from PySide2.QtCore import (QCoreApplication, QPropertyAnimation, QDate, QDateTime, QMetaObject, QObject, QPoint, QRect, QSize, QTime, QUrl, Qt, QEvent)
-from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont, QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter, QPixmap, QRadialGradient)
-from PySide2.QtWidgets import *
+from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QMainWindow, QLabel, QPushButton, QApplication, QGraphicsDropShadowEffect
+from PyQt5.QtGui import *
 
 # GUI FILE
 from ui_splash_screen import Ui_SplashScreen
@@ -28,7 +28,11 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.UiComponents()
+        # self.labelCredits = QLabel(self)
+        # self.labelCredits.setGeometry(1, 109, 30, 30)
 
+        # # 이미지 파일 경로에 맞게 수정
+        # self.labelCredits.setPixmap(QtGui.QPixmap("/home/addinedu/dev_ws/qt/switch2/temperature.png"))
         # self.isbtn_button1 = False
         # self.isbtn_button2 = False
         # self.isbtn_button3 = False
@@ -63,7 +67,7 @@ class MainWindow(QMainWindow):
         #         self.ui.btn_button3.setText("on")
         #         self.isbtn_button3 = False        
     def UiComponents(self):
-        mic_image_path = '/home/halynn/dev_ws/qt/switch3/mic.png'
+        mic_image_path = '/home/addinedu/dev_ws/qt/switch3/mic.png'
         # creating a push button
         self.btn_mic_button = QPushButton("", self)
     
@@ -77,27 +81,27 @@ class MainWindow(QMainWindow):
         def setValue(self, slider, labelPercentage, progressBarName, color):
 
             # GET SLIDER VALUE
-            value = slider.value()
+            # value = slider.value()
 
-            # CONVERT VALUE TO INT
-            sliderValue = int(value)
+            # # CONVERT VALUE TO INT
+            # sliderValue = int(value)
 
             # HTML TEXT PERCENTAGE
             htmlText = """<p align="center"><span style=" font-size:50pt;">{VALUE}</span><span style=" font-size:40pt; vertical-align:super;">%</span></p>"""
-            labelPercentage.setText(htmlText.replace("{VALUE}", str(sliderValue)))
+            # labelPercentage.setText(htmlText.replace("{VALUE}", str(sliderValue)))
 
             # CALL DEF progressBarValue
-            self.progressBarValue(sliderValue, progressBarName, color)
+            # self.progressBarValue(sliderValue, progressBarName, color)
 
         ## ==> APPLY VALUES TO PROGREESBAR
-        self.ui.sliderTEMP.valueChanged.connect(lambda: setValue(self, self.ui.sliderTEMP, self.ui.labelDegreeTEMP, self.ui.circularProgressTEMP, "rgba(255, 0, 127, 255)"))
-        self.ui.sliderHUM.valueChanged.connect(lambda: setValue(self, self.ui.sliderHUM, self.ui.labelPercentageHUM, self.ui.circularProgressHUM, "rgba(85, 170, 255, 255)"))
-        self.ui.sliderAIR.valueChanged.connect(lambda: setValue(self, self.ui.sliderAIR, self.ui.labelPercentageRAM, self.ui.circularProgresAIR, "rgba(85, 255, 127, 255)"))
+        # self.ui.sliderTEMP.valueChanged.connect(lambda: setValue(self, self.ui.sliderTEMP, self.ui.labelDegreeTEMP, self.ui.circularProgressTEMP, "rgba(255, 0, 127, 255)"))
+        # self.ui.sliderHUM.valueChanged.connect(lambda: setValue(self, self.ui.sliderHUM, self.ui.labelPercentageHUM, self.ui.circularProgressHUM, "rgba(85, 170, 255, 255)"))
+        # self.ui.sliderAIR.valueChanged.connect(lambda: setValue(self, self.ui.sliderAIR, self.ui.labelPercentageRAM, self.ui.circularProgresAIR, "rgba(85, 255, 127, 255)"))
 
-        ## ==> DEF START VALUES
-        self.ui.sliderTEMP.setValue(25)
-        self.ui.sliderHUM.setValue(65)
-        self.ui.sliderAIR.setValue(45)
+        # ## ==> DEF START VALUES
+        # self.ui.sliderTEMP.setValue(25)
+        # self.ui.sliderHUM.setValue(65)
+        # self.ui.sliderAIR.setValue(45)
 
     ## DEF PROGRESS BAR VALUE
     ########################################################################
@@ -161,11 +165,6 @@ class SplashScreen(QMainWindow):
         
         self.ui.setupUi(self)
         
-        self.labelCredits = QLabel(self)
-        self.labelCredits.setGeometry(10, 10, 400, 200)
-
-        # 이미지 파일 경로에 맞게 수정
-        self.labelCredits.setPixmap(QtGui.QPixmap("/home/halynn/dev_ws/qt/switch2/temperature.png"))
         ## SHOW ==> MAIN WINDOW
         ########################################################################
         self.show()
