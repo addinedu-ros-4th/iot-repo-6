@@ -1,0 +1,160 @@
+라벨 이름 바꾸고, *
+버튼 눌려서 그래프 air, temperatur, humidity *
+front,back,ven~ 밑으로 조금 내리고 *
+웹캠 *
+sql 데이터 *
+rfid *
+온도 색 바꾸기 *
+
+labelPercentageAIR.setStyleSheet  circularProgressAIR (공기) ram
+labelDegreeTEMP.setStyleSheet	  circularProgressTEMP (온도) cpu
+labelPercentageGPU.setStyleSheet  circularProgressGPU (습도) gpu
+
+초록 115, 255, 171	85, 255, 127
+
+	self.btn_button2.setStyleSheet(u"QPushButton {\n"
+        "    background-color: rgb(85, 255, 127);\n"
+        "    border: 2px solid rgb(60, 60, 60);\n"
+        "    border-radius: 8px;\n"
+        "    color: white;\n"
+        "    font-weight: bold;\n"
+        "}\n"
+        "QPushButton:hover {\n"
+        "    background-color: rgb(105, 255, 150);\n"
+        "}\n"
+        "QPushButton:pressed {\n"
+        "    background-color: rgb(55, 195, 95);\n"
+        "}")
+
+핑크 255, 44, 174	255, 0, 127
+
+       self.btn_button3.setStyleSheet(u"QPushButton {\n"
+        "    background-color: rgb(255, 0, 127);\n"
+        "    border: 2px solid rgb(60, 60, 60);\n"
+        "    border-radius: 8px;\n"
+        "    color: white;\n"
+        "    font-weight: bold;\n"
+        "}\n"
+        "QPushButton:hover {\n"
+        "    background-color: rgb(255, 55, 155);\n"
+        "}\n"
+        "QPushButton:pressed {\n"
+        "    background-color: rgb(199, 0, 99);\n"
+        "}")
+파랑 115, 185, 255	85, 170, 255
+
+	self.graphAIR.setStyleSheet(u"QPushButton {\n"
+        "    background-color: rgb(85, 170, 255);\n"
+        "    border: 2px solid rgb(60, 60, 60);\n"
+        "    border-radius: 8px;\n"
+        "    color: white;\n"
+        "    font-weight: bold;\n"
+        "}\n"
+        "QPushButton:hover {\n"
+        "    background-color: rgb(105, 200, 255);\n"
+        "}\n"
+        "QPushButton:pressed {\n"
+        "    background-color: rgb(55, 130, 200);\n"
+        "}")
+        
+        
+  
+        self.sliderTEMP = QSlider(self.centralwidget)
+        self.sliderTEMP.setObjectName(u"sliderTEMP")
+        self.sliderTEMP.setGeometry(QRect(300, 330, 161, 22))
+        self.sliderTEMP.setStyleSheet(u"/* SLIDERS */\n"
+"QSlider::groove:horizontal {\n"
+"    border-radius: 9px;\n"
+"    height: 18px;\n"
+"	margin: 0px;\n"
+"	background-color: rgb(52, 59, 72);\n"
+"}\n"
+"QSlider::groove:horizontal:hover {\n"
+"	background-color: rgb(55, 62, 76);\n"
+"}\n"
+"QSlider::handle:horizontal {\n"
+"    background-color: rgb(255, 0, 127);\n"
+"    border: none;\n"
+"    height: 18px;\n"
+"    width: 18px;\n"
+"    margin: 0px;\n"
+"	border-radius: 9px;\n"
+"}\n"
+"QSlider::handle:horizontal:hover {\n"
+"    background-color: rgb(105, 180, 255);\n"
+"}\n"
+"QSlider::handle:horizontal:pressed {\n"
+"    background-color: rgb(65, 130, 195);\n"
+"}")
+        self.sliderTEMP.setMaximum(100)
+        self.sliderTEMP.setOrientation(Qt.Horizontal)
+        self.sliderHUM = QSlider(self.centralwidget)
+        self.sliderHUM.setObjectName(u"sliderHUM")
+        self.sliderHUM.setGeometry(QRect(550, 330, 161, 22))
+        self.sliderHUM.setStyleSheet(u"/* SLIDERS */\n"
+"QSlider::groove:horizontal {\n"
+"    border-radius: 9px;\n"
+"    height: 18px;\n"
+"	margin: 0px;\n"
+"	background-color: rgb(52, 59, 72);\n"
+"}\n"
+"QSlider::groove:horizontal:hover {\n"
+"	background-color: rgb(55, 62, 76);\n"
+"}\n"
+"QSlider::handle:horizontal {\n"
+"    background-color: rgb(85, 170, 255);\n"
+"    border: none;\n"
+"    height: 18px;\n"
+"    width: 18px;\n"
+"    margin: 0px;\n"
+"	border-radius: 9px;\n"
+"}\n"
+"QSlider::handle:horizontal:hover {\n"
+"    background-color: rgb(115, 255, 148);\n"
+"}\n"
+"QSlider::handle:horizontal:pressed {\n"
+"    background-color: rgb(65, 195, 95);\n"
+"}")
+        self.sliderHUM.setMaximum(100)
+        self.sliderHUM.setOrientation(Qt.Horizontal)
+        self.sliderAIR = QSlider(self.centralwidget)
+        self.sliderAIR.setObjectName(u"sliderAIR")
+        self.sliderAIR.setGeometry(QRect(50, 330, 161, 22))
+        self.sliderAIR.setStyleSheet(u"/* SLIDERS */\n"
+"QSlider::groove:horizontal {\n"
+"    border-radius: 9px;\n"
+"    height: 18px;\n"
+"	margin: 0px;\n"
+"	background-color: rgb(52, 59, 72);\n"
+"}\n"
+"QSlider::groove:horizontal:hover {\n"
+"	background-color: rgb(55, 62, 76);\n"
+"}\n"
+"QSlider::handle:horizontal {\n"
+"    background-color: rgb(85, 255, 127);\n"
+"    border: none;\n"
+"    height: 18px;\n"
+"    width: 18px;\n"
+"    margin: 0px;\n"
+"	border-radius: 9px;\n"
+"}\n"
+"QSlider::handle:horizontal:hover {\n"
+"    background-color: rgb(255, 55, 155);\n"
+"}\n"
+"QSlider::handle:horizontal:pressed {\n"
+"    background-color: rgb(199, 0, 99);\n"
+"}\n"
+"")
+        self.sliderAIR.setMaximum(100)
+        self.sliderAIR.setOrientation(Qt.Horizontal)
+        
+  
+  
+self.dateStart = QDateEdit(Dialog)
+        self.dateStart.setObjectName(u"dateStart")
+        self.dateStart.setGeometry(QRect(150, 20, 110, 26))
+        self.dateStart.setCalendarPopup(True)
+      
+      
+      
+      id, air, temperature, humidity

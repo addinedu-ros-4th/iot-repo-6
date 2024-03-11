@@ -677,6 +677,13 @@ class Ui_MainWindow(object):
         self.humok_btn.setText(QCoreApplication.translate("MainWindow", u"ok", None))
         self.search_btn.setText(QCoreApplication.translate("MainWindow", u"SEARCH", None))
         
+        self.air_min.setText(QCoreApplication.translate("MainWindow", u"0", None))
+        self.air_max.setText(QCoreApplication.translate("MainWindow", u"500", None))
+        self.temp_min.setText(QCoreApplication.translate("MainWindow", u"0", None))
+        self.temp_max.setText(QCoreApplication.translate("MainWindow", u"100", None))
+        self.hum_min.setText(QCoreApplication.translate("MainWindow", u"0", None))
+        self.hum_max.setText(QCoreApplication.translate("MainWindow", u"100", None))
+        
         ___qtablewidgetitem = self.dbTable.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"ID", None));
         ___qtablewidgetitem1 = self.dbTable.horizontalHeaderItem(1)
