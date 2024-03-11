@@ -14,17 +14,17 @@ import matplotlib.pyplot as plt
 import cv2
 
 
-# # esp32 wifi setting
-# esp_32_ip = "192.168.0.12" 
-# esp_32_port = 80
-# client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-# client_socket.connect((esp_32_ip, esp_32_port))
+# esp32 wifi setting
+esp_32_ip = "192.168.0.12" 
+esp_32_port = 80
+client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+client_socket.connect((esp_32_ip, esp_32_port))
 
 
 # serial setting
-ser = serial.Serial('/dev/ttyACM0', 9600)
+# ser = serial.Serial('/dev/ttyACM0', 9600)
 
-from_class = uic.loadUiType("mar11/Qt.ui")[0]
+from_class = uic.loadUiType("Qt.ui")[0]
 
 class WindowClass(QMainWindow, from_class) :
     def __init__(self):
@@ -32,6 +32,7 @@ class WindowClass(QMainWindow, from_class) :
         self.setupUi(self)
         self.setWindowTitle("World class switch!!")
         self.count = 0
+        self.toggle = 0
         
         self.time_values = []  # 시간 저장을 위한 리스트
         self.tem_values = []   # 온도 저장을 위한 리스트
@@ -46,16 +47,23 @@ class WindowClass(QMainWindow, from_class) :
         
 
         # 쓰레드 설정
-        self.sensorThread = Sensor(ser)
-        self.sensorThread.start()
+        # self.sensorThread = Sensor(ser)
+        # self.sensorThread.start()
 
 
 
         # 메소드 설정
-        self.sensorThread.receive1.connect(self.Recv)
-        self.sensorThread.receive2.connect(self.rfidRecv)
+        # self.sensorThread.receive1.connect(self.Recv)
+        # self.sensorThread.receive2.connect(self.rfidRecv)
         self.pushButton.clicked.connect(self.increase)
-        self.pushButton2.clicked.connect(self.sendCommand)
+        self.btn1.clicked.connect(lambda state, x = 1 : self.sendCommand(x))
+        self.btn2.clicked.connect(lambda state, x = 2 : self.sendCommand(x))
+        self.btn3.clicked.connect(lambda state, x = 3 : self.sendCommand(x))
+        self.btn4.clicked.connect(lambda state, x = 4 : self.sendCommand(x))
+        self.btn5.clicked.connect(lambda state, x = 5 : self.sendCommand(x))
+        self.btn6.clicked.connect(lambda state, x = 6 : self.sendCommand(x))
+        self.btn7.clicked.connect(lambda state, x = 7 : self.sendCommand(x))
+        self.btn8.clicked.connect(lambda state, x = 8 : self.sendCommand(x))
         self.pushButton3.clicked.connect(self.visualizeTem)
         self.camera.update.connect(self.updateCamera)
         self.pushButton6.clicked.connect(self.clickCamera)
@@ -168,11 +176,41 @@ class WindowClass(QMainWindow, from_class) :
         self.label2.setText(str(self.count))
 
     
-    def sendCommand(self):
-        data_to_send = str(1)
-        ser.write(data_to_send.encode())
+    def sendCommand(self, x):
+        if ( x == 1 ):
+            com = "(turn all lights on)"
+            client_socket.sendall(com.encode())
 
-    
+        if ( x == 2 ):
+            com = "(turn all lights off)"
+            client_socket.sendall(com.encode())
+        
+        if ( x == 3 ):
+            com = "(turn front lights on)"
+            client_socket.sendall(com.encode())
+
+        if ( x == 4 ):
+            com = "(turn front lights off)"
+            client_socket.sendall(com.encode())
+
+        if ( x == 5 ):
+            com = "(turn back lights on)"
+            client_socket.sendall(com.encode())
+
+        if ( x == 6 ):
+            com = "(turn back lights off)"
+            client_socket.sendall(com.encode())
+
+        if ( x == 7 ):
+            com = "(turn ventilator on)"
+            client_socket.sendall(com.encode())
+        
+        if ( x == 8 ):
+            com = "(turn ventilator off)"
+            client_socket.sendall(com.encode())
+        
+
+
     def updateCamera(self):
         retval, image = self.video.read()
 

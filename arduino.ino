@@ -1,14 +1,17 @@
 #include <DHT11.h>
 #include <SPI.h>
 #include <MFRC522.h>
+#include <LiquidCrystal.h>
 
 #define SS_PIN 10
 #define RST_PIN 9
 
 MFRC522 mfrc522(SS_PIN, RST_PIN);
 DHT11 dht11(A0);
+LiquidCrystal lcd(7, 6, 5, 4, 3, 2);
 
 void setup() {
+  lcd.begin(16, 2);
   Serial.begin(9600);
   pinMode(A1, INPUT);
   SPI.begin();
@@ -22,6 +25,11 @@ void loop() {
     int hum = 0;
     int air = analogRead(A1);
     int result = dht11.readTemperatureHumidity(tem, hum);
+
+    lcd.setCursor(0, 0);
+    lcd.print("Hum");  lcd.print("  Tem "); lcd.print(" Air ");
+    lcd.setCursor(0, 1);
+    lcd.print(hum); lcd.print("%  "); lcd.print(tem); lcd.print("C  "); lcd.print(air); lcd.print("ppm"); 
     
     Serial.print("[");
     Serial.print(tem);
