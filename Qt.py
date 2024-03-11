@@ -14,17 +14,17 @@ import matplotlib.pyplot as plt
 import cv2
 
 
-# esp32 wifi setting
-esp_32_ip = "192.168.0.12" 
-esp_32_port = 80
-client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-client_socket.connect((esp_32_ip, esp_32_port))
+# # esp32 wifi setting
+# esp_32_ip = "192.168.0.12" 
+# esp_32_port = 80
+# client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+# client_socket.connect((esp_32_ip, esp_32_port))
 
 
 # serial setting
 ser = serial.Serial('/dev/ttyACM0', 9600)
 
-from_class = uic.loadUiType("Qt.ui")[0]
+from_class = uic.loadUiType("mar11/Qt.ui")[0]
 
 class WindowClass(QMainWindow, from_class) :
     def __init__(self):
@@ -46,13 +46,14 @@ class WindowClass(QMainWindow, from_class) :
         
 
         # 쓰레드 설정
-        self.sensorThread = Sensor(client_socket)
+        self.sensorThread = Sensor(ser)
         self.sensorThread.start()
 
 
 
         # 메소드 설정
-        self.sensorThread.receive.connect(self.Recv)
+        self.sensorThread.receive1.connect(self.Recv)
+        self.sensorThread.receive2.connect(self.rfidRecv)
         self.pushButton.clicked.connect(self.increase)
         self.pushButton2.clicked.connect(self.sendCommand)
         self.pushButton3.clicked.connect(self.visualizeTem)
@@ -69,12 +70,26 @@ class WindowClass(QMainWindow, from_class) :
 
 
     def update_count(self):
-        self.count += 1
-        self.label2.setText(str(self.count))
-        if self.count > 300:
-            self.count = 0
-            self.time_values = []
-            self.tem_values = []
+        if self.visualized_tem:
+            self.count += 1
+            self.label2.setText(str(self.count))
+            if self.count > 300:
+                self.count = 0
+                self.time_values = []
+                self.tem_values = []
+
+
+    def rfidRecv(self, message):
+        current_time = datetime.now()
+        formatted_time = current_time.strftime("%Y-%m-%d %H:%M:%S")
+        self.label6.setText(str(formatted_time))
+
+        try:
+            self.rfid = str(message)
+            self.label7.setText(self.rfid)
+
+        except Exception as e:
+            print(f"Error in WifiManager: {e}")
 
         
 
@@ -86,8 +101,13 @@ class WindowClass(QMainWindow, from_class) :
         self.tem = str(message).split(',')[0].split('[')[1]
         self.label.setText(self.tem)
 
-        self.hum = str(message).split(',')[1].split(']')[0]
+        self.hum = str(message).split(',')[1]
         self.label3.setText(self.hum)
+
+        self.air = str(message).split(',')[2].split(']')[0]
+        self.label5.setText(self.air)
+
+        
         
 
         if self.visualized_tem:
@@ -192,7 +212,8 @@ class WindowClass(QMainWindow, from_class) :
 
 
 class Sensor(QThread):
-    receive = pyqtSignal(str)
+    receive1 = pyqtSignal(str)
+    receive2 = pyqtSignal(str)
 
     def __init__(self, sec=0, parent=None):
         super().__init__()
@@ -202,13 +223,19 @@ class Sensor(QThread):
     def run(self):
         try:
             while self.running:
-                data = client_socket.recv(1024).decode()
+                data = ser.readline().decode().strip()
                 if len(data) > 0:
                     match = re.search(r'\[(.*?)\]', data)
+                    match2 = re.search(r'\{(.*?)\}', data)
                     if match:
                         json_data = f'[{match.group(1)}]'
-                        self.receive.emit(str(json_data))
+                        self.receive1.emit(str(json_data))
+                    
+                    elif match2: 
+                        json_data2 = f'[{match2.group(1)}]'
+                        self.receive2.emit(str(json_data2))
                 time.sleep(0.1)
+
         except Exception as e:
             print(f"Error in WifiManager: {e}")
 
