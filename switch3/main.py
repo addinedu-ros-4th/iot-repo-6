@@ -27,6 +27,7 @@ class MainWindow(QMainWindow):
         QMainWindow.__init__(self)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+        self.UiComponents()
 
         # self.isbtn_button1 = False
         # self.isbtn_button2 = False
@@ -61,6 +62,16 @@ class MainWindow(QMainWindow):
         #     else:
         #         self.ui.btn_button3.setText("on")
         #         self.isbtn_button3 = False        
+    def UiComponents(self):
+        mic_image_path = '/home/halynn/dev_ws/qt/switch3/mic.png'
+        # creating a push button
+        self.btn_mic_button = QPushButton("", self)
+    
+        # setting geometry of button
+        self.btn_mic_button.setGeometry(330, 750, 64, 64)
+    
+        # setting icon to the button
+        self.btn_mic_button.setStyleSheet(f"QPushButton {{ background-image: url({mic_image_path}); background-repeat: no-repeat; }}")
             
         ## ==> SET VALUES TO DEF progressBarValue
         def setValue(self, slider, labelPercentage, progressBarName, color):

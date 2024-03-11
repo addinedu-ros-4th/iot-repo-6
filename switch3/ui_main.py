@@ -272,7 +272,7 @@ class Ui_MainWindow(object):
         
         self.label_13 = QLabel(self.centralwidget)
         self.label_13.setObjectName(u"label_13")
-        self.label_13.setGeometry(QRect(90,760,582,40))
+        self.label_13.setGeometry(QRect(90,830,582,40))
         self.label_13.setMaximumSize(QSize(600, 40))
         font4 = QFont()
         font4.setFamily(u"Roboto Light")
