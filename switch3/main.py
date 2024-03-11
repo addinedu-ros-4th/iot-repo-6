@@ -24,6 +24,7 @@ import platform
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QMainWindow, QLabel, QPushButton, QApplication, QGraphicsDropShadowEffect
+import speech_recognition as sr
 
 
 # GUI FILE
@@ -45,13 +46,12 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
         self.UiCAM()
         self.UiMIC()
-
-    #####syt######
         self.count = 0
         
         self.time_values = []  # 시간 저장을 위한 리스트
         self.tem_values = []   # 온도 저장을 위한 리스트
         self.visualized_tem = False  
+        self.is_mic_listening = False  # 마이크 리스닝 상태를 나타내는 변수 추가
 
         # 카메라 설정
         self.pixmap = QPixmap()
@@ -72,6 +72,7 @@ class MainWindow(QMainWindow):
         self.ui.graphTEMP.clicked.connect(self.visualizeTem)
         self.camera.update.connect(self.updateCamera)
         self.btn_cam_button.clicked.connect(self.clickCamera)
+        self.btn_mic_button.clicked.connect(self.clickMic)
 
 
         # QTimer 설정
@@ -91,14 +92,15 @@ class MainWindow(QMainWindow):
     def rfidRecv(self, message):
         current_time = datetime.now()
         formatted_time = current_time.strftime("%Y-%m-%d %H:%M:%S")
-        self.time.setText(str(formatted_time))
+        self.ui.time.setText(str(formatted_time))
 
         try:
             self.rfid = str(message)
-            self.rfid.setText(self.rfid)
-
+            # Assuming self.rfid is a QLabel or similar widget
+            self.ui.rfid.setText(f"{self.rfid}님 환영합니다.")
         except Exception as e:
             print(f"Error in WifiManager: {e}")
+
     
     def Recv(self, message):
         current_time = datetime.now()
@@ -195,8 +197,50 @@ class MainWindow(QMainWindow):
             self.count = 0
             self.video.release()                    # 운영체제에 자원을 반환
 
+    def clickMic(self):
+        audio = None  # audio 변수를 초기화
 
-    ######jhr##############
+        if not self.is_mic_listening:
+            # 마이크에서 오디오 소스 생성
+            r = sr.Recognizer()
+
+            with sr.Microphone() as source:
+                print("말해보세요!")  # 사용자에게 메시지 출력
+                audio = r.listen(source)
+
+            # 구글 웹 음성 API를 사용하여 음성 인식 (일일 50회 제한)
+            try:
+                recognized_text = r.recognize_google(audio, language='ko')
+                print("Google 음성 인식이 인식한 내용: " + recognized_text)
+
+                # 인식된 텍스트를 개별 문자로 리스트에 저장
+                character_list = list(recognized_text)
+                print("개별 문자:", character_list)
+
+                # 리스트에서 특정 단어 확인 후 출력
+                if "불" in character_list and "꺼" in character_list:
+                    print("안녕하세요")
+                    print(character_list)
+
+            except sr.UnknownValueError:
+                print("Google 음성 인식이 오디오를 이해하지 못했습니다.")
+            except sr.RequestError as e:
+                print("Google 음성 인식 서비스에서 결과를 요청할 수 없습니다; {0}".format(e))
+
+        else:
+            # 두 번째 클릭 시 음성 인식 멈추고 저장
+            print("음성 인식 멈추고 저장")
+
+            # 오디오를 WAV 파일로 저장
+            if audio is not None:
+                with open("microphone-results.wav", "wb") as f:
+                    f.write(audio.get_wav_data())
+
+        # 상태 변경
+        self.is_mic_listening = not self.is_mic_listening
+
+
+    
     def UiCAM(self):
         cam_image_path = '/home/ito/amr_ws/iot/project/iot-repo-6-jhr/switch3/camera.png'
         # creating a push button
@@ -353,7 +397,6 @@ class SplashScreen(QMainWindow):
         # APPLY STYLESHEET WITH NEW VALUES
         self.ui.circularProgress.setStyleSheet(newStylesheet)
 
-######syt#####
 class Sensor(QThread):
     receive1 = pyqtSignal(str)
     receive2 = pyqtSignal(str)
