@@ -28,6 +28,40 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
+        # self.isbtn_button1 = False
+        # self.isbtn_button2 = False
+        # self.isbtn_button3 = False
+        
+        # # btn_button 버튼 클릭 시 toggle_button 함수 호출
+        # self.ui.btn_button1.clicked.connect(self.toggle_button1)
+        # self.ui.btn_button2.clicked.connect(self.toggle_button2)
+        # self.ui.btn_button3.clicked.connect(self.toggle_button3)
+        
+        # def toggle_button1(self):
+        #     if not self.isbtn_button1:
+        #         self.ui.btn_button1.setText("off")
+        #         self.isbtn_button1 = True
+        #     else:
+        #         self.ui.btn_button1.setText("on")
+        #         self.isbtn_button1 = False
+
+        # # btn_button2를 토글하는 함수 정의
+        # def toggle_button2(self):
+        #     if not self.isbtn_button2:
+        #         self.ui.btn_button2.setText("off")
+        #         self.isbtn_button2 = True
+        #     else:
+        #         self.ui.btn_button2.setText("on")
+        #         self.isbtn_button2 = False
+        
+        # def toggle_button3(self):
+        #     if not self.isbtn_button3:
+        #         self.ui.btn_button3.setText("off")
+        #         self.isbtn_button3 = True
+        #     else:
+        #         self.ui.btn_button3.setText("on")
+        #         self.isbtn_button3 = False        
+            
         ## ==> SET VALUES TO DEF progressBarValue
         def setValue(self, slider, labelPercentage, progressBarName, color):
 
@@ -45,14 +79,14 @@ class MainWindow(QMainWindow):
             self.progressBarValue(sliderValue, progressBarName, color)
 
         ## ==> APPLY VALUES TO PROGREESBAR
-        self.ui.sliderCPU.valueChanged.connect(lambda: setValue(self, self.ui.sliderCPU, self.ui.labelPercentageCPU, self.ui.circularProgressCPU, "rgba(85, 170, 255, 255)"))
-        self.ui.sliderGPU.valueChanged.connect(lambda: setValue(self, self.ui.sliderGPU, self.ui.labelPercentageGPU, self.ui.circularProgressGPU, "rgba(85, 255, 127, 255)"))
-        self.ui.sliderRAM.valueChanged.connect(lambda: setValue(self, self.ui.sliderRAM, self.ui.labelPercentageRAM, self.ui.circularProgressRAM, "rgba(255, 0, 127, 255)"))
+        self.ui.sliderTEMP.valueChanged.connect(lambda: setValue(self, self.ui.sliderTEMP, self.ui.labelDegreeTEMP, self.ui.circularProgressTEMP, "rgba(255, 0, 127, 255)"))
+        self.ui.sliderHUM.valueChanged.connect(lambda: setValue(self, self.ui.sliderHUM, self.ui.labelPercentageHUM, self.ui.circularProgressHUM, "rgba(85, 170, 255, 255)"))
+        self.ui.sliderAIR.valueChanged.connect(lambda: setValue(self, self.ui.sliderAIR, self.ui.labelPercentageRAM, self.ui.circularProgresAIR, "rgba(85, 255, 127, 255)"))
 
         ## ==> DEF START VALUES
-        self.ui.sliderCPU.setValue(25)
-        self.ui.sliderGPU.setValue(65)
-        self.ui.sliderRAM.setValue(45)
+        self.ui.sliderTEMP.setValue(25)
+        self.ui.sliderHUM.setValue(65)
+        self.ui.sliderAIR.setValue(45)
 
     ## DEF PROGRESS BAR VALUE
     ########################################################################
