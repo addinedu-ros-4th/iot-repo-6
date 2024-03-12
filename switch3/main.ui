@@ -539,7 +539,7 @@
      <string notr="true">color: rgb(115, 185, 255); background-color: none;</string>
     </property>
     <property name="text">
-     <string>This Is My App - Title Bar</string>
+     <string>The Best Switch In the World</string>
     </property>
    </widget>
    <widget class="QPushButton" name="btn_close">
@@ -584,8 +584,8 @@ QPushButton:hover {
     <property name="geometry">
      <rect>
       <x>90</x>
-      <y>820</y>
-      <width>582</width>
+      <y>840</y>
+      <width>451</width>
       <height>40</height>
      </rect>
     </property>
@@ -607,7 +607,7 @@ background-color: rgb(98, 98, 162);
 border-radius: 20px;</string>
     </property>
     <property name="text">
-     <string>rfid</string>
+     <string>RFID</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -689,46 +689,46 @@ QPushButton:hover {
      <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="frontON">
     <property name="geometry">
      <rect>
       <x>200</x>
       <y>430</y>
       <width>111</width>
-      <height>81</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
      <string>PushButton</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="backON">
     <property name="geometry">
      <rect>
       <x>200</x>
       <y>530</y>
       <width>111</width>
-      <height>81</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
      <string>PushButton</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="venON">
     <property name="geometry">
      <rect>
       <x>200</x>
       <y>630</y>
       <width>111</width>
-      <height>81</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
      <string>PushButton</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="labelFront">
     <property name="geometry">
      <rect>
       <x>100</x>
@@ -749,7 +749,7 @@ QPushButton:hover {
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="labelBack">
     <property name="geometry">
      <rect>
       <x>100</x>
@@ -770,7 +770,7 @@ QPushButton:hover {
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="label_3">
+   <widget class="QLabel" name="labelVen">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -836,7 +836,7 @@ QPushButton:hover {
       <x>346</x>
       <y>440</y>
       <width>341</width>
-      <height>261</height>
+      <height>301</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -857,8 +857,8 @@ border-radius: 20px;</string>
    <widget class="QPushButton" name="pushButton_4">
     <property name="geometry">
      <rect>
-      <x>330</x>
-      <y>740</y>
+      <x>550</x>
+      <y>760</y>
       <width>64</width>
       <height>64</height>
      </rect>
@@ -1126,8 +1126,8 @@ border-radius: 20px;</string>
    <widget class="QLabel" name="time">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>780</y>
+      <x>340</x>
+      <y>800</y>
       <width>201</width>
       <height>21</height>
      </rect>
@@ -1142,7 +1142,7 @@ border-radius: 20px;</string>
       <x>780</x>
       <y>390</y>
       <width>501</width>
-      <height>461</height>
+      <height>481</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -1184,14 +1184,113 @@ border-radius: 20px;</string>
    <widget class="QPushButton" name="cameraIcon">
     <property name="geometry">
      <rect>
-      <x>610</x>
-      <y>740</y>
+      <x>620</x>
+      <y>760</y>
       <width>64</width>
       <height>64</height>
      </rect>
     </property>
     <property name="text">
      <string>PushButton</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="frontOFF">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>480</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PushButton</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="backOFF">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>580</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PushButton</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="venOFF">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>680</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PushButton</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="allON">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>730</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PushButton</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="allOFF">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>780</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PushButton</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelAll">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>760</y>
+      <width>51</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>ALL</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="rfidRG">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>840</y>
+      <width>131</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Register</string>
     </property>
    </widget>
   </widget>

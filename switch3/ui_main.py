@@ -260,7 +260,7 @@ class Ui_MainWindow(object):
         
         self.camera = QLabel(self.centralwidget)
         self.camera.setObjectName(u"camera")
-        self.camera.setGeometry(QRect(346, 440, 341, 261))
+        self.camera.setGeometry(QRect(346, 440, 341, 301))
         # self.camera.setMaximumSize(QSize(600, 40))
         font4 = QFont()
         font4.setFamily(u"Roboto Light")
@@ -272,7 +272,7 @@ class Ui_MainWindow(object):
         
         self.rfid = QLabel(self.centralwidget)
         self.rfid.setObjectName(u"rfid")
-        self.rfid.setGeometry(QRect(90,830,582,40))
+        self.rfid.setGeometry(QRect(90,840,451,40))
         self.rfid.setMaximumSize(QSize(600, 40))
         font4 = QFont()
         font4.setFamily(u"Roboto Light")
@@ -282,6 +282,15 @@ class Ui_MainWindow(object):
 "background-color: rgb(98, 98, 162);\n"
 "border-radius: 20px;")
         self.rfid.setAlignment(Qt.AlignCenter)
+        
+        self.rfidRG = QPushButton(self.centralwidget)
+        self.rfidRG.setObjectName(u"rfidRG")
+        self.rfidRG.setGeometry(QRect(550, 840, 131, 41))
+        self.rfidRG.setText(QCoreApplication.translate("MainWindow", u"GRAPH", None))
+        self.rfidRG.setStyleSheet(u"color: rgb(220, 220, 220);\n"
+"background-color: rgb(98, 98, 162);\n"
+"border-radius: 20px;")
+        
         self.btn_maximize = QPushButton(self.centralwidget)
         self.btn_maximize.setObjectName(u"btn_maximize")
         self.btn_maximize.setGeometry(QRect(1223, 20, 17, 17))
@@ -365,11 +374,29 @@ class Ui_MainWindow(object):
         "    background-color: rgb(55, 130, 200);\n"
         "}")
         
-        self.btn_button1 = QPushButton(self.centralwidget)
-        self.btn_button1.setObjectName(u"btn_button1")
-        self.btn_button1.setGeometry(QRect(200, 430, 111, 81))
-        self.btn_button1.setText(QCoreApplication.translate("MainWindow", u"Button 1", None))
-        self.btn_button1.setStyleSheet(u"QPushButton {\n"
+        self.frontON = QPushButton(self.centralwidget)
+        self.frontON.setObjectName(u"frontON")
+        self.frontON.setGeometry(QRect(200, 430, 111, 41))
+        # self.frontON.setText(QCoreApplication.translate("MainWindow", u"Button 1", None))
+        self.frontON.setStyleSheet(u"QPushButton {\n"
+        "    background-color: rgb(85, 170, 255);\n"
+        "    border: 2px solid rgb(60, 60, 60);\n"
+        "    border-radius: 8px;\n"
+        "    color: white;\n"
+        "    font-weight: bold;\n"
+        "}\n"
+        "QPushButton:hover {\n"
+        "    background-color: rgb(105, 200, 255);\n"
+        "}\n"
+        "QPushButton:pressed {\n"
+        "    background-color: rgb(55, 130, 200);\n"
+        "}")
+        
+        self.frontOFF = QPushButton(self.centralwidget)
+        self.frontOFF.setObjectName(u"frontOFF")
+        self.frontOFF.setGeometry(QRect(200, 480, 111, 41))
+        # self.frontON.setText(QCoreApplication.translate("MainWindow", u"Button 1", None))
+        self.frontOFF.setStyleSheet(u"QPushButton {\n"
         "    background-color: rgb(85, 170, 255);\n"
         "    border: 2px solid rgb(60, 60, 60);\n"
         "    border-radius: 8px;\n"
@@ -383,11 +410,11 @@ class Ui_MainWindow(object):
         "    background-color: rgb(55, 130, 200);\n"
         "}")
 
-        self.btn_button2 = QPushButton(self.centralwidget)
-        self.btn_button2.setObjectName(u"btn_button2")
-        self.btn_button2.setGeometry(QRect(200, 530, 111, 81))
-        self.btn_button2.setText(QCoreApplication.translate("MainWindow", u"Button 2", None))
-        self.btn_button2.setStyleSheet(u"QPushButton {\n"
+        self.backON = QPushButton(self.centralwidget)
+        self.backON.setObjectName(u"backON")
+        self.backON.setGeometry(QRect(200, 530, 111, 41))
+        # self.backON.setText(QCoreApplication.translate("MainWindow", u"Button 2", None))
+        self.backON.setStyleSheet(u"QPushButton {\n"
         "    background-color: rgb(85, 255, 127);\n"
         "    border: 2px solid rgb(60, 60, 60);\n"
         "    border-radius: 8px;\n"
@@ -401,11 +428,29 @@ class Ui_MainWindow(object):
         "    background-color: rgb(55, 195, 95);\n"
         "}")
 
-        self.btn_button3 = QPushButton(self.centralwidget)
-        self.btn_button3.setObjectName(u"btn_button3")
-        self.btn_button3.setGeometry(QRect(200,630,111,81))
-        self.btn_button3.setText(QCoreApplication.translate("MainWindow", u"Button 3", None))
-        self.btn_button3.setStyleSheet(u"QPushButton {\n"
+        self.backOFF = QPushButton(self.centralwidget)
+        self.backOFF.setObjectName(u"backOFF")
+        self.backOFF.setGeometry(QRect(200, 580, 111, 41))
+        # self.backON.setText(QCoreApplication.translate("MainWindow", u"Button 2", None))
+        self.backOFF.setStyleSheet(u"QPushButton {\n"
+        "    background-color: rgb(85, 255, 127);\n"
+        "    border: 2px solid rgb(60, 60, 60);\n"
+        "    border-radius: 8px;\n"
+        "    color: white;\n"
+        "    font-weight: bold;\n"
+        "}\n"
+        "QPushButton:hover {\n"
+        "    background-color: rgb(105, 255, 150);\n"
+        "}\n"
+        "QPushButton:pressed {\n"
+        "    background-color: rgb(55, 195, 95);\n"
+        "}")
+        
+        self.venON = QPushButton(self.centralwidget)
+        self.venON.setObjectName(u"venON")
+        self.venON.setGeometry(QRect(200,630,111,41))
+        # self.venON.setText(QCoreApplication.translate("MainWindow", u"Button 3", None))
+        self.venON.setStyleSheet(u"QPushButton {\n"
         "    background-color: rgb(255, 0, 127);\n"
         "    border: 2px solid rgb(60, 60, 60);\n"
         "    border-radius: 8px;\n"
@@ -417,6 +462,78 @@ class Ui_MainWindow(object):
         "}\n"
         "QPushButton:pressed {\n"
         "    background-color: rgb(199, 0, 99);\n"
+        "}")
+        
+        self.venOFF = QPushButton(self.centralwidget)
+        self.venOFF.setObjectName(u"venOFF")
+        self.venOFF.setGeometry(QRect(200,680,111,41))
+        # self.venON.setText(QCoreApplication.translate("MainWindow", u"Button 3", None))
+        self.venOFF.setStyleSheet(u"QPushButton {\n"
+        "    background-color: rgb(255, 0, 127);\n"
+        "    border: 2px solid rgb(60, 60, 60);\n"
+        "    border-radius: 8px;\n"
+        "    color: white;\n"
+        "    font-weight: bold;\n"
+        "}\n"
+        "QPushButton:hover {\n"
+        "    background-color: rgb(255, 55, 155);\n"
+        "}\n"
+        "QPushButton:pressed {\n"
+        "    background-color: rgb(199, 0, 99);\n"
+        "}")
+        
+        self.venOFF = QPushButton(self.centralwidget)
+        self.venOFF.setObjectName(u"venOFF")
+        self.venOFF.setGeometry(QRect(200,680,111,41))
+        # self.venON.setText(QCoreApplication.translate("MainWindow", u"Button 3", None))
+        self.venOFF.setStyleSheet(u"QPushButton {\n"
+        "    background-color: rgb(255, 0, 127);\n"
+        "    border: 2px solid rgb(60, 60, 60);\n"
+        "    border-radius: 8px;\n"
+        "    color: white;\n"
+        "    font-weight: bold;\n"
+        "}\n"
+        "QPushButton:hover {\n"
+        "    background-color: rgb(255, 55, 155);\n"
+        "}\n"
+        "QPushButton:pressed {\n"
+        "    background-color: rgb(199, 0, 99);\n"
+        "}")
+        
+        self.allON = QPushButton(self.centralwidget)
+        self.allON.setObjectName(u"allON")
+        self.allON.setGeometry(QRect(200,730,111,41))
+        # self.venON.setText(QCoreApplication.translate("MainWindow", u"Button 3", None))
+        self.allON.setStyleSheet(u"QPushButton {\n"
+        "    background-color: rgb(254, 122, 1);\n"
+        "    border: 2px solid rgb(60, 60, 60);\n"
+        "    border-radius: 8px;\n"
+        "    color: white;\n"
+        "    font-weight: bold;\n"
+        "}\n"
+        "QPushButton:hover {\n"
+        "    background-color: rgb(255, 122, 26);\n"
+        "}\n"
+        "QPushButton:pressed {\n"
+        "    background-color: rgb(211, 76, 1);\n"
+        "}")
+        
+        self.allOFF = QPushButton(self.centralwidget)
+        self.allOFF.setObjectName(u"allOFF")
+        self.allOFF.setGeometry(QRect(200,780,111,41))
+        # self.venON.setText(QCoreApplication.translate("MainWindow", u"Button 3", None))
+        self.allOFF.setStyleSheet(u"QPushButton {\n"
+        "    background-color: rgb(254, 122, 1);\n"
+        "    border: 2px solid rgb(60, 60, 60);\n"
+        "    border-radius: 8px;\n"
+        "    color: white;\n"
+        "    font-weight: bold;\n"
+        "}\n"
+        "QPushButton:hover {\n"
+        "    background-color: rgb(255, 122, 26);\n"
+        "}\n"
+        "QPushButton:pressed {\n"
+        "    background-color: rgb(211, 76, 1);\n"
         "}")
         
         self.start = QLabel(self.centralwidget)
@@ -563,7 +680,7 @@ class Ui_MainWindow(object):
             
         self.time = QLabel(self.centralwidget)
         self.time.setObjectName(u"min")
-        self.time.setGeometry(QRect(100,780,201,21))
+        self.time.setGeometry(QRect(340,800,201,21))
         self.time.setMaximumSize(QSize(600, 40))
         font4 = QFont()
         font4.setFamily(u"Roboto Light")
@@ -574,44 +691,57 @@ class Ui_MainWindow(object):
 "border-radius: 20px;")
         self.time.setAlignment(Qt.AlignVCenter)
         
-        self.label = QLabel(self.centralwidget)
-        self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(100,460,67,17))
-        self.label.setMaximumSize(QSize(600, 40))
+        self.labelFront = QLabel(self.centralwidget)
+        self.labelFront.setObjectName(u"labelFront")
+        self.labelFront.setGeometry(QRect(100,460,67,17))
+        self.labelFront.setMaximumSize(QSize(600, 40))
         font4 = QFont()
         font4.setFamily(u"Roboto Light")
         font4.setPointSize(14)
-        self.label.setFont(font4)
-        self.label.setStyleSheet(u"color: rgb(220, 220, 220);\n"
+        self.labelFront.setFont(font4)
+        self.labelFront.setStyleSheet(u"color: rgb(220, 220, 220);\n"
 "background-color: transparent;\n"
 "border-radius: 20px;")
-        self.label.setAlignment(Qt.AlignCenter)
+        self.labelFront.setAlignment(Qt.AlignCenter)
         
-        self.label_2 = QLabel(self.centralwidget)
-        self.label_2.setObjectName(u"label_2")
-        self.label_2.setGeometry(QRect(100,560,67,17))
-        self.label_2.setMaximumSize(QSize(600, 40))
+        self.labelBack = QLabel(self.centralwidget)
+        self.labelBack.setObjectName(u"labelBack")
+        self.labelBack.setGeometry(QRect(100,560,67,17))
+        self.labelBack.setMaximumSize(QSize(600, 40))
         font4 = QFont()
         font4.setFamily(u"Roboto Light")
         font4.setPointSize(14)
-        self.label_2.setFont(font4)
-        self.label_2.setStyleSheet(u"color: rgb(220, 220, 220);\n"
+        self.labelBack.setFont(font4)
+        self.labelBack.setStyleSheet(u"color: rgb(220, 220, 220);\n"
 "background-color: transparent;\n"
 "border-radius: 20px;")
-        self.label_2.setAlignment(Qt.AlignCenter)
+        self.labelBack.setAlignment(Qt.AlignCenter)
         
-        self.label_3 = QLabel(self.centralwidget)
-        self.label_3.setObjectName(u"label_3")
-        self.label_3.setGeometry(QRect(50,660,121,20))
-        self.label_3.setMaximumSize(QSize(600, 40))
+        self.labelVen = QLabel(self.centralwidget)
+        self.labelVen.setObjectName(u"labelVen")
+        self.labelVen.setGeometry(QRect(50,660,121,20))
+        self.labelVen.setMaximumSize(QSize(600, 40))
         font4 = QFont()
         font4.setFamily(u"Roboto Light")
         font4.setPointSize(14)
-        self.label_3.setFont(font4)
-        self.label_3.setStyleSheet(u"color: rgb(220, 220, 220);\n"
+        self.labelVen.setFont(font4)
+        self.labelVen.setStyleSheet(u"color: rgb(220, 220, 220);\n"
 "background-color: transparent;\n"
 "border-radius: 20px;")
-        self.label_3.setAlignment(Qt.AlignCenter)
+        self.labelVen.setAlignment(Qt.AlignCenter)
+        
+        self.labelAll = QLabel(self.centralwidget)
+        self.labelAll.setObjectName(u"labelAll")
+        self.labelAll.setGeometry(QRect(110,760,51,20))
+        self.labelAll.setMaximumSize(QSize(600, 40))
+        font4 = QFont()
+        font4.setFamily(u"Roboto Light")
+        font4.setPointSize(14)
+        self.labelAll.setFont(font4)
+        self.labelAll.setStyleSheet(u"color: rgb(220, 220, 220);\n"
+"background-color: transparent;\n"
+"border-radius: 20px;")
+        self.labelAll.setAlignment(Qt.AlignCenter)
         
         self.dbTable = QTableWidget(self.centralwidget)
         if (self.dbTable.columnCount() < 5):
@@ -656,10 +786,13 @@ class Ui_MainWindow(object):
 #endif // QT_CONFIG(tooltip)
         self.btn_close.setText("")
         self.rfid.setText(QCoreApplication.translate("MainWindow", u"RFID", None))
+        self.rfidRG.setText(QCoreApplication.translate("MainWindow", u"Register", None))
 #if QT_CONFIG(tooltip)
-        self.label.setText(QCoreApplication.translate("MainWindow", u"FRONT", None))
-        self.label_2.setText(QCoreApplication.translate("MainWindow", u"BACK", None))
-        self.label_3.setText(QCoreApplication.translate("MainWindow", u"VENTILATOR", None))
+
+        self.labelFront.setText(QCoreApplication.translate("MainWindow", u"FRONT", None))
+        self.labelBack.setText(QCoreApplication.translate("MainWindow", u"BACK", None))
+        self.labelVen.setText(QCoreApplication.translate("MainWindow", u"VENTILATOR", None))
+        self.labelAll.setText(QCoreApplication.translate("MainWindow", u"ALL", None))
         
         self.start.setText(QCoreApplication.translate("MainWindow", u"START", None))
         self.end.setText(QCoreApplication.translate("MainWindow", u"END", None))
@@ -703,7 +836,15 @@ class Ui_MainWindow(object):
         self.btn_minimize.setToolTip(QCoreApplication.translate("MainWindow", u"Minimize", None))
 #endif // QT_CONFIG(tooltip)
         self.btn_minimize.setText("")
+        
     # retranslateUi
-        self.btn_button1.setText(QCoreApplication.translate("MainWindow", u"on", None))
-        self.btn_button2.setText(QCoreApplication.translate("MainWindow", u"on", None))
-        self.btn_button3.setText(QCoreApplication.translate("MainWindow", u"on", None))
+        self.frontON.setText(QCoreApplication.translate("MainWindow", u"on", None))
+        self.frontOFF.setText(QCoreApplication.translate("MainWindow", u"off", None))
+        self.backON.setText(QCoreApplication.translate("MainWindow", u"on", None))
+        self.backOFF.setText(QCoreApplication.translate("MainWindow", u"off", None))
+        self.venON.setText(QCoreApplication.translate("MainWindow", u"on", None))
+        self.venOFF.setText(QCoreApplication.translate("MainWindow", u"off", None))
+        self.allON.setText(QCoreApplication.translate("MainWindow", u"on", None))
+        self.allOFF.setText(QCoreApplication.translate("MainWindow", u"off", None))
+        
+        

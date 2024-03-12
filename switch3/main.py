@@ -36,7 +36,7 @@ class MainWindow(QMainWindow):
         self.btn_mic_button = QPushButton("", self)
     
         # setting geometry of button
-        self.btn_mic_button.setGeometry(330, 750, 64, 64)
+        self.btn_mic_button.setGeometry(550, 760, 64, 64)
     
         # setting icon to the button
         self.btn_mic_button.setStyleSheet(f"QPushButton {{ background-image: url({mic_image_path}); background-repeat: no-repeat; }}")
@@ -47,7 +47,7 @@ class MainWindow(QMainWindow):
         self.btn_cam_button = QPushButton("", self)
     
         # setting geometry of button
-        self.btn_cam_button.setGeometry(610, 740, 64, 64)
+        self.btn_cam_button.setGeometry(620, 760, 64, 64)
     
         # setting icon to the button
         self.btn_cam_button.setStyleSheet(f"QPushButton {{ background-image: url({mic_image_path}); background-repeat: no-repeat; }}")
