@@ -272,7 +272,7 @@ class Ui_MainWindow(object):
         
         self.rfid = QLabel(self.centralwidget)
         self.rfid.setObjectName(u"rfid")
-        self.rfid.setGeometry(QRect(90,840,451,40))
+        self.rfid.setGeometry(QRect(50,840,301,40))
         self.rfid.setMaximumSize(QSize(600, 40))
         font4 = QFont()
         font4.setFamily(u"Roboto Light")
@@ -282,7 +282,11 @@ class Ui_MainWindow(object):
 "background-color: rgb(98, 98, 162);\n"
 "border-radius: 20px;")
         self.rfid.setAlignment(Qt.AlignCenter)
-        
+       
+        self.user = QLineEdit(self.centralwidget)
+        self.user.setObjectName(u"user")
+        self.user.setGeometry(QRect(370, 840, 161, 41))
+               
         self.rfidRG = QPushButton(self.centralwidget)
         self.rfidRG.setObjectName(u"rfidRG")
         self.rfidRG.setGeometry(QRect(550, 840, 131, 41))
