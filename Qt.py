@@ -15,7 +15,7 @@ import cv2
 
 
 # esp32 wifi setting
-esp_32_ip = "192.168.0.27" 
+esp_32_ip = "192.168.0.12" 
 esp_32_port = 80
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client_socket.connect((esp_32_ip, esp_32_port))
