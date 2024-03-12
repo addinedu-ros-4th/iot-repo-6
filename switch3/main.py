@@ -25,7 +25,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QMainWindow, QLabel, QPushButton, QApplication, QGraphicsDropShadowEffect
 import speech_recognition as sr
-
+import mysql.connector
 
 # GUI FILE
 from ui_splash_screen import Ui_SplashScreen
@@ -47,6 +47,9 @@ class MainWindow(QMainWindow):
         self.UiCAM()
         self.UiMIC()
         self.count = 0
+
+       # 초기에 버튼과 라벨 숨김
+        self.hide_all_buttons_and_labels()
         
         self.time_values = []  # 시간 저장을 위한 리스트
         self.tem_values = []   # 온도 저장을 위한 리스트
@@ -67,8 +70,6 @@ class MainWindow(QMainWindow):
         # 메소드 설정
         self.sensorThread.receive1.connect(self.Recv)
         self.sensorThread.receive2.connect(self.rfidRecv)
-        # self.pushButton.clicked.connect(self.increase)
-        # self.pushButton2.clicked.connect(self.sendCommand)
         self.ui.graphTEMP.clicked.connect(self.visualizeTem)
         self.camera.update.connect(self.updateCamera)
         self.btn_cam_button.clicked.connect(self.clickCamera)
@@ -80,6 +81,138 @@ class MainWindow(QMainWindow):
         self.timer.timeout.connect(self.update_count)
         self.timer.start(1000)  # 1초에 한 번씩 타이머가 작동
 
+        # 허용된 RFID 목록 가져오기
+        self.allowed_rfids, self.user_names = self.get_allowed_rfids()
+        self.ui.rfidRG.clicked.connect(self.rfid_registration)
+
+    def connect_to_database(self):
+        # MySQL 연결 설정
+        connection = mysql.connector.connect(
+            host="146.148.43.95",
+            user="root",
+            password="0320",
+            database="iot-project"
+        )
+
+        # MySQL 커서 생성
+        cursor = connection.cursor()
+
+        return connection, cursor
+    
+    #rfid db 값 가져오기
+    def get_allowed_rfids(self):
+        try:
+            connection, cursor = self.connect_to_database()
+
+            # MySQL 쿼리 실행
+            query = "SELECT card_uid, user_name FROM rfid_cards"
+            cursor.execute(query)
+
+            # 결과 가져오기
+            result = cursor.fetchall()
+
+            # 각 열의 값을 리스트로 추출
+            card_uids = [str(row[0]) for row in result]
+            user_names = [str(row[1]) for row in result]
+
+            return card_uids, user_names
+
+        except Exception as e:
+            print(f"Error in get_allowed_rfids: {e}")
+
+    #rfid 등록 되어 있는지 확인
+    def rfidRecv(self, message):
+        current_time = datetime.now()
+        formatted_time = current_time.strftime("%Y-%m-%d %H:%M:%S")
+        self.ui.time.setText(str(formatted_time))
+
+        try:
+            self.rfid = str(message)
+            
+            # 현재 RFID가 허용된 목록에 있는지 확인
+            if self.rfid in self.allowed_rfids:
+                # RFID가 목록에 있으면 버튼과 라벨 표시
+                self.show_buttons_and_labels()
+                # 사용자 이름 출력
+                user_index = self.allowed_rfids.index(self.rfid)
+                user_name = self.user_names[user_index]
+                self.ui.rfid.setText(f"{user_name}님 환영합니다.")
+                ser.write(f"{user_name}\n".encode())
+            else:
+                # 등록되지 않은 RFID
+                self.hide_all_buttons_and_labels()
+                self.ui.rfid.setText(f"먼저 rfid 등록을 마쳐주세요.")
+
+        except Exception as e:
+            print(f"Error in WifiManager: {e}")
+
+    def rfid_registration(self, message):
+        try:
+            
+             # 현재 RFID가 허용된 목록에 있는지 확인
+            if self.rfid in self.allowed_rfids:
+                self.ui.rfid.setText(f"이미 있는 유저입니다. 등록 없이 로그인하세요.")
+            else:
+                # 등록되지 않은 RFID
+                self.hide_all_buttons_and_labels()
+                
+                user_name = input("유저 이름을 입력하세요: ")  # 사용자 이름 입력 받기
+                # 데이터베이스에 RFID와 사용자 이름 등록
+                self.register_to_database(self.rfid, user_name)
+
+                self.ui.rfid.setText(f"{user_name}님 환영합니다.")  # UI 업데이트
+                ser.write(f"{user_name}\n".encode())
+
+        except Exception as e:
+            print(f"Error in WifiManager: {e}")
+
+
+    def register_to_database(self, card_uid, user_name):
+        try:
+            connection, cursor = self.connect_to_database()
+
+            # MySQL 쿼리 실행
+            query = "INSERT INTO rfid_cards (card_uid, user_name) VALUES (%s, %s)"
+            values = (card_uid, user_name)
+            cursor.execute(query, values)
+
+            # 변경사항 커밋
+            connection.commit()
+
+
+            # 데이터베이스에 등록된 사용자 목록 갱신
+            self.allowed_rfids, self.user_names = self.get_allowed_rfids()
+
+        except Exception as e:
+            print(f"Error in register_user_to_database: {e}")
+    
+    def hide_all_buttons_and_labels(self):
+        self.btn_cam_button.hide()
+        self.btn_mic_button.hide()
+        self.ui.camera.hide()
+        self.ui.frontON.hide()
+        self.ui.frontOFF.hide()
+        self.ui.backON.hide()
+        self.ui.backOFF.hide()
+        self.ui.venON.hide()
+        self.ui.venOFF.hide()
+        self.ui.allON.hide()
+        self.ui.allOFF.hide()
+
+    def show_buttons_and_labels(self):
+        self.btn_cam_button.show()
+        self.btn_mic_button.show()
+        self.ui.camera.show()
+        self.ui.frontON.show()
+        self.ui.frontOFF.show()
+        self.ui.backON.show()
+        self.ui.backOFF.show()
+        self.ui.venON.show()
+        self.ui.venOFF.show()
+        self.ui.allON.show()
+        self.ui.allOFF.show()
+    
+    
     def update_count(self):
         if self.visualized_tem:
             self.count += 1
@@ -89,17 +222,6 @@ class MainWindow(QMainWindow):
                 self.time_values = []
                 self.tem_values = []
 
-    def rfidRecv(self, message):
-        current_time = datetime.now()
-        formatted_time = current_time.strftime("%Y-%m-%d %H:%M:%S")
-        self.ui.time.setText(str(formatted_time))
-
-        try:
-            self.rfid = str(message)
-            # Assuming self.rfid is a QLabel or similar widget
-            self.ui.rfid.setText(f"{self.rfid}님 환영합니다.")
-        except Exception as e:
-            print(f"Error in WifiManager: {e}")
 
     
     def Recv(self, message):
@@ -246,7 +368,7 @@ class MainWindow(QMainWindow):
         # creating a push button
         self.btn_cam_button = QPushButton("", self)
         # setting geometry of button
-        self.btn_cam_button.setGeometry(610, 740, 64, 64)
+        self.btn_cam_button.setGeometry(620, 760, 64, 64)
         # setting icon to the button
         self.btn_cam_button.setStyleSheet(f"QPushButton {{ background-image: url({cam_image_path}); background-repeat: no-repeat; }}")
 
@@ -256,7 +378,7 @@ class MainWindow(QMainWindow):
         self.btn_mic_button = QPushButton("", self)
     
         # setting geometry of button
-        self.btn_mic_button.setGeometry(330, 750, 64, 64)
+        self.btn_mic_button.setGeometry(550, 760, 64, 64)
     
         # setting icon to the button
         self.btn_mic_button.setStyleSheet(f"QPushButton {{ background-image: url({mic_image_path}); background-repeat: no-repeat; }}")
