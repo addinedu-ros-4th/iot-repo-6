@@ -10,8 +10,12 @@ import sys
 import platform
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QMainWindow, QLabel, QPushButton, QApplication, QGraphicsDropShadowEffect
+from PyQt5.QtWidgets import QMainWindow, QLabel, QPushButton, QApplication, QGraphicsDropShadowEffect, QHeaderView
 from PyQt5.QtGui import *
+from PyQt5.QtWidgets import QApplication, QMainWindow, QTableWidget, QTableWidgetItem, QHeaderView
+from PyQt5.QtGui import QFont
+from PyQt5.QtCore import QRect
+
 
 # GUI FILE
 from ui_splash_screen import Ui_SplashScreen
@@ -29,6 +33,8 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
         self.UiMIC()
         self.UiCAM()
+        self.ui.dbTable.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        
             
     def UiMIC(self):
         mic_image_path = '/home/addinedu/dev_ws/qt/switch3/mic.png'
