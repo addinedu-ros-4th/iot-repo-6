@@ -38,6 +38,11 @@ jumper = 10
 
 # serial setting
 ser = serial.Serial('/dev/ttyACM0', 9600)
+#wifi esp setting
+esp_32_ip = "192.168.0.12" 
+esp_32_port = 80
+client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+client_socket.connect((esp_32_ip, esp_32_port))
 
 ## ==> YOUR APPLICATION WINDOW
 class MainWindow(QMainWindow):
@@ -77,6 +82,15 @@ class MainWindow(QMainWindow):
         self.btn_cam_button.clicked.connect(self.clickCamera)
         self.btn_mic_button.clicked.connect(self.clickMic)
 
+        self.ui.allON.clicked.connect(lambda state, x = 1 : self.sendCommand(x))
+        self.ui.allOFF.clicked.connect(lambda state, x = 2 : self.sendCommand(x))
+        self.ui.frontON.clicked.connect(lambda state, x = 3 : self.sendCommand(x))
+        self.ui.frontOFF.clicked.connect(lambda state, x = 4 : self.sendCommand(x))
+        self.ui.backON.clicked.connect(lambda state, x = 5 : self.sendCommand(x))
+        self.ui.backOFF.clicked.connect(lambda state, x = 6 : self.sendCommand(x))
+        self.ui.venON.clicked.connect(lambda state, x = 7 : self.sendCommand(x))
+        self.ui.venOFF.clicked.connect(lambda state, x = 8 : self.sendCommand(x))
+
         # QTimer 설정
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.update_count)
@@ -98,6 +112,40 @@ class MainWindow(QMainWindow):
 
         self.ui.search_btn.clicked.connect(self.search_data)
         self.ui.dbTable.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+
+    #lights command
+    def sendCommand(self, x):
+        if ( x == 1 ):
+            com = "(turn all lights on)"
+            client_socket.sendall(com.encode())
+
+        if ( x == 2 ):
+            com = "(turn all lights off)"
+            client_socket.sendall(com.encode())
+        
+        if ( x == 3 ):
+            com = "(turn front lights on)"
+            client_socket.sendall(com.encode())
+
+        if ( x == 4 ):
+            com = "(turn front lights off)"
+            client_socket.sendall(com.encode())
+
+        if ( x == 5 ):
+            com = "(turn back lights on)"
+            client_socket.sendall(com.encode())
+
+        if ( x == 6 ):
+            com = "(turn back lights off)"
+            client_socket.sendall(com.encode())
+
+        if ( x == 7 ):
+            com = "(turn ventilator on)"
+            client_socket.sendall(com.encode())
+        
+        if ( x == 8 ):
+            com = "(turn ventilator off)"
+            client_socket.sendall(com.encode())
 
     def connect_to_database(self):
         # MySQL 연결 설정
