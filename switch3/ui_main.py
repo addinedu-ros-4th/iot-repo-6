@@ -260,7 +260,7 @@ class Ui_MainWindow(object):
         
         self.camera = QLabel(self.centralwidget)
         self.camera.setObjectName(u"camera")
-        self.camera.setGeometry(QRect(346, 440, 341, 301))
+        self.camera.setGeometry(QRect(376, 440, 341, 301))
         # self.camera.setMaximumSize(QSize(600, 40))
         font4 = QFont()
         font4.setFamily(u"Roboto Light")
@@ -272,7 +272,7 @@ class Ui_MainWindow(object):
         
         self.rfid = QLabel(self.centralwidget)
         self.rfid.setObjectName(u"rfid")
-        self.rfid.setGeometry(QRect(50,840,301,40))
+        self.rfid.setGeometry(QRect(20,840,331,40))
         self.rfid.setMaximumSize(QSize(600, 40))
         font4 = QFont()
         font4.setFamily(u"Roboto Light")
@@ -285,11 +285,11 @@ class Ui_MainWindow(object):
        
         self.user = QLineEdit(self.centralwidget)
         self.user.setObjectName(u"user")
-        self.user.setGeometry(QRect(370, 840, 161, 41))
+        self.user.setGeometry(QRect(370, 840, 201, 41))
                
         self.rfidRG = QPushButton(self.centralwidget)
         self.rfidRG.setObjectName(u"rfidRG")
-        self.rfidRG.setGeometry(QRect(550, 840, 131, 41))
+        self.rfidRG.setGeometry(QRect(580, 840, 131, 41))
         self.rfidRG.setText(QCoreApplication.translate("MainWindow", u"GRAPH", None))
         self.rfidRG.setStyleSheet(u"color: rgb(220, 220, 220);\n"
 "background-color: rgb(98, 98, 162);\n"

@@ -583,9 +583,9 @@ QPushButton:hover {
    <widget class="QLabel" name="rfid">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>20</x>
       <y>840</y>
-      <width>301</width>
+      <width>331</width>
       <height>40</height>
      </rect>
     </property>
@@ -692,7 +692,7 @@ QPushButton:hover {
    <widget class="QPushButton" name="frontON">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>190</x>
       <y>430</y>
       <width>111</width>
       <height>41</height>
@@ -705,7 +705,7 @@ QPushButton:hover {
    <widget class="QPushButton" name="backON">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>190</x>
       <y>530</y>
       <width>111</width>
       <height>41</height>
@@ -718,7 +718,7 @@ QPushButton:hover {
    <widget class="QPushButton" name="venON">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>190</x>
       <y>630</y>
       <width>111</width>
       <height>41</height>
@@ -731,7 +731,7 @@ QPushButton:hover {
    <widget class="QLabel" name="labelFront">
     <property name="geometry">
      <rect>
-      <x>100</x>
+      <x>90</x>
       <y>460</y>
       <width>67</width>
       <height>17</height>
@@ -752,7 +752,7 @@ QPushButton:hover {
    <widget class="QLabel" name="labelBack">
     <property name="geometry">
      <rect>
-      <x>100</x>
+      <x>90</x>
       <y>560</y>
       <width>67</width>
       <height>17</height>
@@ -773,7 +773,7 @@ QPushButton:hover {
    <widget class="QLabel" name="labelVen">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>40</x>
       <y>660</y>
       <width>121</width>
       <height>20</height>
@@ -833,7 +833,7 @@ QPushButton:hover {
    <widget class="QLabel" name="camera">
     <property name="geometry">
      <rect>
-      <x>346</x>
+      <x>376</x>
       <y>440</y>
       <width>341</width>
       <height>301</height>
@@ -857,7 +857,7 @@ border-radius: 20px;</string>
    <widget class="QPushButton" name="pushButton_4">
     <property name="geometry">
      <rect>
-      <x>550</x>
+      <x>580</x>
       <y>760</y>
       <width>64</width>
       <height>64</height>
@@ -1126,7 +1126,7 @@ border-radius: 20px;</string>
    <widget class="QLabel" name="time">
     <property name="geometry">
      <rect>
-      <x>340</x>
+      <x>370</x>
       <y>800</y>
       <width>201</width>
       <height>21</height>
@@ -1187,7 +1187,7 @@ border-radius: 20px;</string>
    <widget class="QPushButton" name="cameraIcon">
     <property name="geometry">
      <rect>
-      <x>620</x>
+      <x>650</x>
       <y>760</y>
       <width>64</width>
       <height>64</height>
@@ -1200,7 +1200,7 @@ border-radius: 20px;</string>
    <widget class="QPushButton" name="frontOFF">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>190</x>
       <y>480</y>
       <width>111</width>
       <height>41</height>
@@ -1213,7 +1213,7 @@ border-radius: 20px;</string>
    <widget class="QPushButton" name="backOFF">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>190</x>
       <y>580</y>
       <width>111</width>
       <height>41</height>
@@ -1226,7 +1226,7 @@ border-radius: 20px;</string>
    <widget class="QPushButton" name="venOFF">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>190</x>
       <y>680</y>
       <width>111</width>
       <height>41</height>
@@ -1239,7 +1239,7 @@ border-radius: 20px;</string>
    <widget class="QPushButton" name="allON">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>190</x>
       <y>730</y>
       <width>111</width>
       <height>41</height>
@@ -1252,7 +1252,7 @@ border-radius: 20px;</string>
    <widget class="QPushButton" name="allOFF">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>190</x>
       <y>780</y>
       <width>111</width>
       <height>41</height>
@@ -1265,7 +1265,7 @@ border-radius: 20px;</string>
    <widget class="QLabel" name="labelAll">
     <property name="geometry">
      <rect>
-      <x>110</x>
+      <x>100</x>
       <y>760</y>
       <width>51</width>
       <height>20</height>
@@ -1286,7 +1286,7 @@ border-radius: 20px;</string>
    <widget class="QPushButton" name="rfidRG">
     <property name="geometry">
      <rect>
-      <x>550</x>
+      <x>580</x>
       <y>840</y>
       <width>131</width>
       <height>41</height>
@@ -1301,7 +1301,7 @@ border-radius: 20px;</string>
      <rect>
       <x>370</x>
       <y>840</y>
-      <width>161</width>
+      <width>201</width>
       <height>41</height>
      </rect>
     </property>
