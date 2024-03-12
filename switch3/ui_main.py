@@ -482,24 +482,6 @@ class Ui_MainWindow(object):
         "    background-color: rgb(199, 0, 99);\n"
         "}")
         
-        self.venOFF = QPushButton(self.centralwidget)
-        self.venOFF.setObjectName(u"venOFF")
-        self.venOFF.setGeometry(QRect(200,680,111,41))
-        # self.venON.setText(QCoreApplication.translate("MainWindow", u"Button 3", None))
-        self.venOFF.setStyleSheet(u"QPushButton {\n"
-        "    background-color: rgb(255, 0, 127);\n"
-        "    border: 2px solid rgb(60, 60, 60);\n"
-        "    border-radius: 8px;\n"
-        "    color: white;\n"
-        "    font-weight: bold;\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "    background-color: rgb(255, 55, 155);\n"
-        "}\n"
-        "QPushButton:pressed {\n"
-        "    background-color: rgb(199, 0, 99);\n"
-        "}")
-        
         self.allON = QPushButton(self.centralwidget)
         self.allON.setObjectName(u"allON")
         self.allON.setGeometry(QRect(200,730,111,41))
