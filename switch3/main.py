@@ -26,6 +26,7 @@ from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QMainWindow, QLabel, QPushButton, QApplication, QGraphicsDropShadowEffect
 import speech_recognition as sr
 import mysql.connector
+from PyQt5.QtWidgets import QTableWidget, QTableWidgetItem, QWidget
 
 # GUI FILE
 from ui_splash_screen import Ui_SplashScreen
@@ -47,6 +48,7 @@ class MainWindow(QMainWindow):
         self.UiCAM()
         self.UiMIC()
         self.count = 0
+        self.fig_tem = None
 
        # 초기에 버튼과 라벨 숨김
         self.hide_all_buttons_and_labels()
@@ -75,15 +77,27 @@ class MainWindow(QMainWindow):
         self.btn_cam_button.clicked.connect(self.clickCamera)
         self.btn_mic_button.clicked.connect(self.clickMic)
 
-
         # QTimer 설정
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.update_count)
         self.timer.start(1000)  # 1초에 한 번씩 타이머가 작동
+           # 타이머 생성 및 설정
+        self.timer_store_data = QTimer(self)
+        self.timer_store_data.timeout.connect(self.store_data_in_database)
+        self.timer_store_data.start(60000)  # 1분(60초)에 한 번씩 타이머가 작동
+
+        # 메시지 저장 변수 초기화
+        self.stored_message = None
+
+        # 처음 데이터를 저장하기 위한 플래그
+        self.first_data_stored = False
 
         # 허용된 RFID 목록 가져오기
         self.allowed_rfids, self.user_names = self.get_allowed_rfids()
         self.ui.rfidRG.clicked.connect(self.rfid_registration)
+
+        self.ui.search_btn.clicked.connect(self.search_data)
+        self.ui.dbTable.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
 
     def connect_to_database(self):
         # MySQL 연결 설정
@@ -141,7 +155,7 @@ class MainWindow(QMainWindow):
             else:
                 # 등록되지 않은 RFID
                 self.hide_all_buttons_and_labels()
-                self.ui.rfid.setText(f"먼저 rfid 등록을 마쳐주세요.")
+                self.ui.rfid.setText(f"오른쪽에 이름 입력 후 rfid 등록해주세요.")
 
         except Exception as e:
             print(f"Error in WifiManager: {e}")
@@ -151,12 +165,12 @@ class MainWindow(QMainWindow):
             
              # 현재 RFID가 허용된 목록에 있는지 확인
             if self.rfid in self.allowed_rfids:
-                self.ui.rfid.setText(f"이미 있는 유저입니다. 등록 없이 로그인하세요.")
+                self.ui.rfid.setText(f"이미 있는 유저입니다.")
             else:
                 # 등록되지 않은 RFID
                 self.hide_all_buttons_and_labels()
                 
-                user_name = input("유저 이름을 입력하세요: ")  # 사용자 이름 입력 받기
+                user_name = self.ui.user.text() # 사용자 이름 입력 받기
                 # 데이터베이스에 RFID와 사용자 이름 등록
                 self.register_to_database(self.rfid, user_name)
 
@@ -211,8 +225,29 @@ class MainWindow(QMainWindow):
         self.ui.venOFF.show()
         self.ui.allON.show()
         self.ui.allOFF.show()
-    
-    
+
+    def Recv(self, message):
+        current_time = datetime.now()
+        formatted_time = current_time.strftime("%Y-%m-%d %H:%M:%S")
+        self.ui.time.setText(str(formatted_time))
+
+        self.tem = str(message).split(',')[0].split('[')[1]
+        self.ui.labelDegreeTEMP.setText(f"{self.tem}°C")
+
+        self.hum = str(message).split(',')[1]
+        self.ui.labelPercentageHUM.setText(f"{self.hum}%")
+
+        self.air = str(message).split(',')[2].split(']')[0]
+        self.ui.labelPercentageAIR.setText(f"{self.air}PPM")
+
+        if not self.first_data_stored:
+            # 처음 데이터 저장
+            self.store_data_in_database()
+            self.first_data_stored = True
+        else:
+            # 이후 데이터는 타이머가 처리하도록 stored_message만 업데이트
+            self.stored_message = message
+
     def update_count(self):
         if self.visualized_tem:
             self.count += 1
@@ -222,34 +257,33 @@ class MainWindow(QMainWindow):
                 self.time_values = []
                 self.tem_values = []
 
+    def store_data_in_database(self):
+        if self.stored_message is not None:
+            # 여기서 stored_message를 사용
+            tem = str(self.stored_message).split(',')[0].split('[')[1]
+            hum = str(self.stored_message).split(',')[1]
+            air = str(self.stored_message).split(',')[2].split(']')[0]
 
-    
-    def Recv(self, message):
-        current_time = datetime.now()
-        formatted_time = current_time.strftime("%Y-%m-%d %H:%M:%S")
-        self.ui.time.setText(str(formatted_time))
+            # 데이터 삽입
+            insert_query = '''
+            INSERT INTO iot_project (temperature, humidity, air)
+            VALUES (%s, %s, %s)
+            '''
+            values = (float(tem), float(hum), float(air))
 
-        self.tem = str(message).split(',')[0].split('[')[1]
-        self.ui.labelDegreeTEMP.setText(f"{self.tem}°C")
-    
-        self.hum = str(message).split(',')[1]
-        self.ui.labelPercentageHUM.setText(f"{self.hum}%")
+            try:
+                # MySQL 연결 설정
+                connection, cursor = self.connect_to_database()
 
-        self.air = str(message).split(',')[2].split(']')[0]
-        self.ui.labelPercentageAIR.setText(f"{self.air}PPM")
+                # MySQL 커서 생성
+                cursor.execute(insert_query, values)
 
-        if self.visualized_tem:
-            self.time_values.append(self.count)
-            self.tem_values.append(float(self.tem)) 
+                # 변경사항 커밋
+                connection.commit()
 
-            if self.fig_tem is None:
-                self.visualize()
-            else:
-                self.line_tem.set_xdata(self.time_values)
-                self.line_tem.set_ydata(self.tem_values)
-                self.ax_tem.relim()
-                self.ax_tem.autoscale_view()
-                self.fig_tem.canvas.flush_events()
+            except mysql.connector.Error as err:
+                print(f"Error: {err}")
+
 
     def visualizeTem(self):
         self.visualized_tem = True
@@ -266,7 +300,36 @@ class MainWindow(QMainWindow):
             plt.xticks(rotation=45, ha='right')
             plt.tight_layout()
             self.fig_tem.canvas.mpl_connect('close_event', self.handle_close)
+    
+    def search_data(self):
 
+        connection, cursor = self.connect_to_database()
+
+        date_start = self.ui.dateStart.date().toString("yyyy-MM-dd")
+        date_end = self.ui.dateEnd.date().toString("yyyy-MM-dd")
+        air_min = self.ui.air_min.text()
+        air_max = self.ui.air_max.text()
+        temp_min = self.ui.temp_min.text()
+        temp_max = self.ui.temp_max.text()
+        hum_min = self.ui.hum_min.text()
+        hum_max = self.ui.hum_max.text()
+
+        # Construct the SQL query based on user input
+        query = f"SELECT air, temperature, humidity, created_at FROM iot_project WHERE "
+        query += f"DATE(created_at) BETWEEN '{date_start}' AND '{date_end}'"
+        query += f" AND air BETWEEN {air_min} AND {air_max}"
+        query += f" AND temperature BETWEEN {temp_min} AND {temp_max}"
+        query += f" AND humidity BETWEEN {hum_min} AND {hum_max}"
+
+        cursor.execute(query)
+        result = cursor.fetchall()
+
+        self.ui.dbTable.setRowCount(0)
+        for row_number, row_data in enumerate(result):
+            self.ui.dbTable.insertRow(row_number)
+            for column_number, data in enumerate(row_data):
+                self.ui.dbTable.setItem(row_number, column_number, QTableWidgetItem(str(data)))
+        
     def handle_close(self, event):
         if event.canvas.figure == self.fig_tem:
             self.visualized_tem = False
@@ -368,7 +431,7 @@ class MainWindow(QMainWindow):
         # creating a push button
         self.btn_cam_button = QPushButton("", self)
         # setting geometry of button
-        self.btn_cam_button.setGeometry(620, 760, 64, 64)
+        self.btn_cam_button.setGeometry(650, 760, 64, 64)
         # setting icon to the button
         self.btn_cam_button.setStyleSheet(f"QPushButton {{ background-image: url({cam_image_path}); background-repeat: no-repeat; }}")
 
@@ -378,7 +441,7 @@ class MainWindow(QMainWindow):
         self.btn_mic_button = QPushButton("", self)
     
         # setting geometry of button
-        self.btn_mic_button.setGeometry(550, 760, 64, 64)
+        self.btn_mic_button.setGeometry(580, 760, 64, 64)
     
         # setting icon to the button
         self.btn_mic_button.setStyleSheet(f"QPushButton {{ background-image: url({mic_image_path}); background-repeat: no-repeat; }}")
@@ -418,7 +481,6 @@ class MainWindow(QMainWindow):
 
         # APPLY STYLESHEET WITH NEW VALUES
         widget.setStyleSheet(newStylesheet)
-
 
 ## ==> SPLASHSCREEN WINDOW
 class SplashScreen(QMainWindow):
@@ -564,6 +626,7 @@ class Camera(QThread):
     
     def stop(self):
         self.running = False
+
 
 
 if __name__ == "__main__":
