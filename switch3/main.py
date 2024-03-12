@@ -39,7 +39,7 @@ jumper = 10
 # serial setting
 ser = serial.Serial('/dev/ttyACM0', 9600)
 #wifi esp setting
-esp_32_ip = "192.168.0.12" 
+esp_32_ip = "192.168.0.27" 
 esp_32_port = 80
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client_socket.connect((esp_32_ip, esp_32_port))
@@ -448,12 +448,15 @@ class MainWindow(QMainWindow):
 
                 # 인식된 텍스트를 개별 문자로 리스트에 저장
                 character_list = list(recognized_text)
-                print("개별 문자:", character_list)
-
+                
                 # 리스트에서 특정 단어 확인 후 출력
                 if "불" in character_list and "꺼" in character_list:
-                    print("안녕하세요")
-                    print(character_list)
+                    self.sendCommand(2)
+                    print("개별 문자:", character_list)
+                
+                if "불" in character_list and "켜" in character_list:
+                    self.sendCommand(1)
+                    print("개별 문자:", character_list)
 
             except sr.UnknownValueError:
                 print("Google 음성 인식이 오디오를 이해하지 못했습니다.")
