@@ -5,7 +5,7 @@
 - 서보모터를 활용하여 스위치 원격 제어
 - 사용자에게 실시간 강의실 환경데이터 제공
 ## 시스템 구성
-시스템 구성도 추가할것.
+![Screenshot from 2024-03-13 13-27-29](https://github.com/addinedu-ros-4th/iot-repo-6/assets/157962186/f81c89c4-7104-4c0f-aacf-7c4f0fdefd57)
 ## 팀원
 송용탁 (팀장)
 - 통신 (Wifi, Serial)
