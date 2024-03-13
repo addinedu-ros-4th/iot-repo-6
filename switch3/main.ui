@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1332</width>
-    <height>900</height>
+    <width>1335</width>
+    <height>871</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -438,6 +438,34 @@
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="labelPercentageAIR">
+       <property name="geometry">
+        <rect>
+         <x>-10</x>
+         <y>50</y>
+         <width>224</width>
+         <height>79</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto Thin</family>
+         <pointsize>30</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(115, 255, 171); padding: 0px; background-color: none;</string>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:50pt;&quot;&gt;25PPM&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="indent">
+        <number>-1</number>
        </property>
       </widget>
      </widget>
@@ -1200,34 +1228,6 @@ border-radius: 20px;</string>
     </property>
     <property name="text">
      <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="labelPercentageAIR">
-    <property name="geometry">
-     <rect>
-      <x>51</x>
-      <y>131</y>
-      <width>224</width>
-      <height>79</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Roboto Thin</family>
-      <pointsize>30</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(115, 255, 171); padding: 0px; background-color: none;</string>
-    </property>
-    <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:50pt;&quot;&gt;25PPM&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-    <property name="indent">
-     <number>-1</number>
     </property>
    </widget>
   </widget>
