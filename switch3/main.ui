@@ -415,59 +415,6 @@
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <widget class="QWidget" name="layoutWidget_3">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>40</y>
-         <width>289</width>
-         <height>231</height>
-        </rect>
-       </property>
-       <layout class="QGridLayout" name="infoLayout_3">
-        <item row="6" column="1">
-         <widget class="QLabel" name="labelCredits_3">
-          <property name="font">
-           <font>
-            <family>Segoe UI</family>
-            <pointsize>8</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">color: rgb(148, 148, 216); background-color: none;</string>
-          </property>
-          <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;TEMP: &lt;span style=&quot; color:#ffffff;&quot;&gt;20º&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="5" column="1">
-         <widget class="QLabel" name="labelPercentageAIR">
-          <property name="font">
-           <font>
-            <family>Roboto Thin</family>
-            <pointsize>30</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">color: rgb(115, 255, 171); padding: 0px; background-color: none;</string>
-          </property>
-          <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:50pt;&quot;&gt;25PPM&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-          <property name="indent">
-           <number>-1</number>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
       <widget class="QLabel" name="labelAIR">
        <property name="geometry">
         <rect>
@@ -583,8 +530,8 @@ QPushButton:hover {
    <widget class="QLabel" name="rfid">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>840</y>
+      <x>30</x>
+      <y>820</y>
       <width>331</width>
       <height>40</height>
      </rect>
@@ -692,8 +639,8 @@ QPushButton:hover {
    <widget class="QPushButton" name="frontON">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>430</y>
+      <x>200</x>
+      <y>340</y>
       <width>111</width>
       <height>41</height>
      </rect>
@@ -705,8 +652,8 @@ QPushButton:hover {
    <widget class="QPushButton" name="backON">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>530</y>
+      <x>200</x>
+      <y>460</y>
       <width>111</width>
       <height>41</height>
      </rect>
@@ -718,8 +665,8 @@ QPushButton:hover {
    <widget class="QPushButton" name="venON">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>630</y>
+      <x>200</x>
+      <y>580</y>
       <width>111</width>
       <height>41</height>
      </rect>
@@ -731,8 +678,8 @@ QPushButton:hover {
    <widget class="QLabel" name="labelFront">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>460</y>
+      <x>100</x>
+      <y>370</y>
       <width>67</width>
       <height>17</height>
      </rect>
@@ -752,8 +699,8 @@ QPushButton:hover {
    <widget class="QLabel" name="labelBack">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>560</y>
+      <x>100</x>
+      <y>490</y>
       <width>67</width>
       <height>17</height>
      </rect>
@@ -773,8 +720,8 @@ QPushButton:hover {
    <widget class="QLabel" name="labelVen">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>660</y>
+      <x>50</x>
+      <y>610</y>
       <width>121</width>
       <height>20</height>
      </rect>
@@ -791,37 +738,11 @@ QPushButton:hover {
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="graphAIR">
+   <widget class="QPushButton" name="graph">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>350</y>
-      <width>141</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>GRAPH</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="graphTEMP">
-    <property name="geometry">
-     <rect>
-      <x>310</x>
-      <y>350</y>
-      <width>141</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>GRAPH</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="graphHUM">
-    <property name="geometry">
-     <rect>
-      <x>560</x>
-      <y>350</y>
+      <x>580</x>
+      <y>320</y>
       <width>141</width>
       <height>31</height>
      </rect>
@@ -833,8 +754,8 @@ QPushButton:hover {
    <widget class="QLabel" name="camera">
     <property name="geometry">
      <rect>
-      <x>376</x>
-      <y>440</y>
+      <x>380</x>
+      <y>380</y>
       <width>341</width>
       <height>301</height>
      </rect>
@@ -854,17 +775,17 @@ border-radius: 20px;</string>
      <string>TextLabel</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_4">
+   <widget class="QPushButton" name="micIcon">
     <property name="geometry">
      <rect>
-      <x>580</x>
-      <y>760</y>
+      <x>590</x>
+      <y>720</y>
       <width>64</width>
       <height>64</height>
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>mic</string>
     </property>
    </widget>
    <widget class="QLabel" name="start">
@@ -1087,8 +1008,8 @@ border-radius: 20px;</string>
    <widget class="QLabel" name="time">
     <property name="geometry">
      <rect>
-      <x>370</x>
-      <y>800</y>
+      <x>380</x>
+      <y>760</y>
       <width>201</width>
       <height>21</height>
      </rect>
@@ -1106,13 +1027,16 @@ border-radius: 20px;</string>
       <x>780</x>
       <y>390</y>
       <width>501</width>
-      <height>481</height>
+      <height>471</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">color: rgb(220, 220, 220);
 background-color: rgb(98, 98, 162);
 border-radius: 20px;</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
     </property>
     <column>
      <property name="text">
@@ -1143,21 +1067,21 @@ border-radius: 20px;</string>
    <widget class="QPushButton" name="cameraIcon">
     <property name="geometry">
      <rect>
-      <x>650</x>
-      <y>760</y>
+      <x>660</x>
+      <y>720</y>
       <width>64</width>
       <height>64</height>
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>camera</string>
     </property>
    </widget>
    <widget class="QPushButton" name="frontOFF">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>480</y>
+      <x>200</x>
+      <y>390</y>
       <width>111</width>
       <height>41</height>
      </rect>
@@ -1169,8 +1093,8 @@ border-radius: 20px;</string>
    <widget class="QPushButton" name="backOFF">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>580</y>
+      <x>200</x>
+      <y>510</y>
       <width>111</width>
       <height>41</height>
      </rect>
@@ -1182,8 +1106,8 @@ border-radius: 20px;</string>
    <widget class="QPushButton" name="venOFF">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>680</y>
+      <x>200</x>
+      <y>630</y>
       <width>111</width>
       <height>41</height>
      </rect>
@@ -1195,8 +1119,8 @@ border-radius: 20px;</string>
    <widget class="QPushButton" name="allON">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>730</y>
+      <x>200</x>
+      <y>700</y>
       <width>111</width>
       <height>41</height>
      </rect>
@@ -1208,8 +1132,8 @@ border-radius: 20px;</string>
    <widget class="QPushButton" name="allOFF">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>780</y>
+      <x>200</x>
+      <y>750</y>
       <width>111</width>
       <height>41</height>
      </rect>
@@ -1221,8 +1145,8 @@ border-radius: 20px;</string>
    <widget class="QLabel" name="labelAll">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>760</y>
+      <x>110</x>
+      <y>730</y>
       <width>51</width>
       <height>20</height>
      </rect>
@@ -1242,8 +1166,8 @@ border-radius: 20px;</string>
    <widget class="QPushButton" name="rfidRG">
     <property name="geometry">
      <rect>
-      <x>580</x>
-      <y>840</y>
+      <x>590</x>
+      <y>820</y>
       <width>131</width>
       <height>41</height>
      </rect>
@@ -1255,11 +1179,55 @@ border-radius: 20px;</string>
    <widget class="QLineEdit" name="user">
     <property name="geometry">
      <rect>
-      <x>370</x>
-      <y>840</y>
+      <x>380</x>
+      <y>820</y>
       <width>201</width>
       <height>41</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="micOnOff">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>720</y>
+      <width>20</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelPercentageAIR">
+    <property name="geometry">
+     <rect>
+      <x>51</x>
+      <y>131</y>
+      <width>224</width>
+      <height>79</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Roboto Thin</family>
+      <pointsize>30</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(115, 255, 171); padding: 0px; background-color: none;</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:50pt;&quot;&gt;25PPM&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="indent">
+     <number>-1</number>
     </property>
    </widget>
   </widget>

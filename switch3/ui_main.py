@@ -260,7 +260,7 @@ class Ui_MainWindow(object):
         
         self.camera = QLabel(self.centralwidget)
         self.camera.setObjectName(u"camera")
-        self.camera.setGeometry(QRect(376, 440, 341, 301))
+        self.camera.setGeometry(QRect(380, 380, 341, 301))
         # self.camera.setMaximumSize(QSize(600, 40))
         font4 = QFont()
         font4.setFamily(u"Roboto Light")
@@ -272,7 +272,7 @@ class Ui_MainWindow(object):
         
         self.rfid = QLabel(self.centralwidget)
         self.rfid.setObjectName(u"rfid")
-        self.rfid.setGeometry(QRect(20,840,331,40))
+        self.rfid.setGeometry(QRect(30,820,331,40))
         self.rfid.setMaximumSize(QSize(600, 40))
         font4 = QFont()
         font4.setFamily(u"Roboto Light")
@@ -285,11 +285,11 @@ class Ui_MainWindow(object):
        
         self.user = QLineEdit(self.centralwidget)
         self.user.setObjectName(u"user")
-        self.user.setGeometry(QRect(370, 840, 201, 41))
+        self.user.setGeometry(QRect(380, 820, 201, 41))
                
         self.rfidRG = QPushButton(self.centralwidget)
         self.rfidRG.setObjectName(u"rfidRG")
-        self.rfidRG.setGeometry(QRect(580, 840, 131, 41))
+        self.rfidRG.setGeometry(QRect(590, 820, 131, 41))
         self.rfidRG.setText(QCoreApplication.translate("MainWindow", u"GRAPH", None))
         self.rfidRG.setStyleSheet(u"color: rgb(220, 220, 220);\n"
 "background-color: rgb(98, 98, 162);\n"
@@ -324,63 +324,27 @@ class Ui_MainWindow(object):
 
         MainWindow.setCentralWidget(self.centralwidget)
         
-        self.graphAIR = QPushButton(self.centralwidget)
-        self.graphAIR.setObjectName(u"graphAIR")
-        self.graphAIR.setGeometry(QRect(60, 350, 141, 31))
-        self.graphAIR.setText(QCoreApplication.translate("MainWindow", u"GRAPH", None))
-        self.graphAIR.setStyleSheet(u"QPushButton {\n"
-        "    background-color: rgb(85, 255, 127);\n"
+        self.graph = QPushButton(self.centralwidget)
+        self.graph.setObjectName(u"graph")
+        self.graph.setGeometry(QRect(580, 320, 141, 31))
+        self.graph.setText(QCoreApplication.translate("MainWindow", u"GRAPH", None))
+        self.graph.setStyleSheet(u"QPushButton {\n"
+        "    background-color: rgb(254, 122, 1);\n"
         "    border: 2px solid rgb(60, 60, 60);\n"
         "    border-radius: 8px;\n"
         "    color: white;\n"
         "    font-weight: bold;\n"
         "}\n"
         "QPushButton:hover {\n"
-        "    background-color: rgb(105, 255, 150);\n"
+        "    background-color: rgb(255, 122, 26);\n"
         "}\n"
         "QPushButton:pressed {\n"
-        "    background-color: rgb(55, 195, 95);\n"
-        "}")
-        
-        self.graphTEMP = QPushButton(self.centralwidget)
-        self.graphTEMP.setObjectName(u"graphTEMP")
-        self.graphTEMP.setGeometry(QRect(310, 350, 141, 31))
-        self.graphTEMP.setText(QCoreApplication.translate("MainWindow", u"GRAPH", None))
-        self.graphTEMP.setStyleSheet(u"QPushButton {\n"
-        "    background-color: rgb(255, 0, 127);\n"
-        "    border: 2px solid rgb(60, 60, 60);\n"
-        "    border-radius: 8px;\n"
-        "    color: white;\n"
-        "    font-weight: bold;\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "    background-color: rgb(255, 55, 155);\n"
-        "}\n"
-        "QPushButton:pressed {\n"
-        "    background-color: rgb(199, 0, 99);\n"
-        "}")
-        
-        self.graphHUM = QPushButton(self.centralwidget)
-        self.graphHUM.setObjectName(u"graphHUM")
-        self.graphHUM.setGeometry(QRect(560, 350, 141, 31))
-        self.graphHUM.setText(QCoreApplication.translate("MainWindow", u"GRAPH", None))
-        self.graphHUM.setStyleSheet(u"QPushButton {\n"
-        "    background-color: rgb(85, 170, 255);\n"
-        "    border: 2px solid rgb(60, 60, 60);\n"
-        "    border-radius: 8px;\n"
-        "    color: white;\n"
-        "    font-weight: bold;\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "    background-color: rgb(105, 200, 255);\n"
-        "}\n"
-        "QPushButton:pressed {\n"
-        "    background-color: rgb(55, 130, 200);\n"
+        "    background-color: rgb(211, 76, 1);\n"
         "}")
         
         self.frontON = QPushButton(self.centralwidget)
         self.frontON.setObjectName(u"frontON")
-        self.frontON.setGeometry(QRect(200, 430, 111, 41))
+        self.frontON.setGeometry(QRect(200, 340, 111, 41))
         # self.frontON.setText(QCoreApplication.translate("MainWindow", u"Button 1", None))
         self.frontON.setStyleSheet(u"QPushButton {\n"
         "    background-color: rgb(85, 170, 255);\n"
@@ -398,7 +362,7 @@ class Ui_MainWindow(object):
         
         self.frontOFF = QPushButton(self.centralwidget)
         self.frontOFF.setObjectName(u"frontOFF")
-        self.frontOFF.setGeometry(QRect(200, 480, 111, 41))
+        self.frontOFF.setGeometry(QRect(200, 390, 111, 41))
         # self.frontON.setText(QCoreApplication.translate("MainWindow", u"Button 1", None))
         self.frontOFF.setStyleSheet(u"QPushButton {\n"
         "    background-color: rgb(85, 170, 255);\n"
@@ -416,7 +380,7 @@ class Ui_MainWindow(object):
 
         self.backON = QPushButton(self.centralwidget)
         self.backON.setObjectName(u"backON")
-        self.backON.setGeometry(QRect(200, 530, 111, 41))
+        self.backON.setGeometry(QRect(200, 460, 111, 41))
         # self.backON.setText(QCoreApplication.translate("MainWindow", u"Button 2", None))
         self.backON.setStyleSheet(u"QPushButton {\n"
         "    background-color: rgb(85, 255, 127);\n"
@@ -434,7 +398,7 @@ class Ui_MainWindow(object):
 
         self.backOFF = QPushButton(self.centralwidget)
         self.backOFF.setObjectName(u"backOFF")
-        self.backOFF.setGeometry(QRect(200, 580, 111, 41))
+        self.backOFF.setGeometry(QRect(200, 510, 111, 41))
         # self.backON.setText(QCoreApplication.translate("MainWindow", u"Button 2", None))
         self.backOFF.setStyleSheet(u"QPushButton {\n"
         "    background-color: rgb(85, 255, 127);\n"
@@ -452,7 +416,7 @@ class Ui_MainWindow(object):
         
         self.venON = QPushButton(self.centralwidget)
         self.venON.setObjectName(u"venON")
-        self.venON.setGeometry(QRect(200,630,111,41))
+        self.venON.setGeometry(QRect(200,580,111,41))
         # self.venON.setText(QCoreApplication.translate("MainWindow", u"Button 3", None))
         self.venON.setStyleSheet(u"QPushButton {\n"
         "    background-color: rgb(255, 0, 127);\n"
@@ -470,7 +434,7 @@ class Ui_MainWindow(object):
         
         self.venOFF = QPushButton(self.centralwidget)
         self.venOFF.setObjectName(u"venOFF")
-        self.venOFF.setGeometry(QRect(200,680,111,41))
+        self.venOFF.setGeometry(QRect(200,630,111,41))
         # self.venON.setText(QCoreApplication.translate("MainWindow", u"Button 3", None))
         self.venOFF.setStyleSheet(u"QPushButton {\n"
         "    background-color: rgb(255, 0, 127);\n"
@@ -488,7 +452,7 @@ class Ui_MainWindow(object):
         
         self.allON = QPushButton(self.centralwidget)
         self.allON.setObjectName(u"allON")
-        self.allON.setGeometry(QRect(200,730,111,41))
+        self.allON.setGeometry(QRect(200,700,111,41))
         # self.venON.setText(QCoreApplication.translate("MainWindow", u"Button 3", None))
         self.allON.setStyleSheet(u"QPushButton {\n"
         "    background-color: rgb(254, 122, 1);\n"
@@ -506,7 +470,7 @@ class Ui_MainWindow(object):
         
         self.allOFF = QPushButton(self.centralwidget)
         self.allOFF.setObjectName(u"allOFF")
-        self.allOFF.setGeometry(QRect(200,780,111,41))
+        self.allOFF.setGeometry(QRect(200,750,111,41))
         # self.venON.setText(QCoreApplication.translate("MainWindow", u"Button 3", None))
         self.allOFF.setStyleSheet(u"QPushButton {\n"
         "    background-color: rgb(254, 122, 1);\n"
@@ -657,7 +621,7 @@ class Ui_MainWindow(object):
             
         self.time = QLabel(self.centralwidget)
         self.time.setObjectName(u"min")
-        self.time.setGeometry(QRect(340,800,201,21))
+        self.time.setGeometry(QRect(380,760,201,21))
         self.time.setMaximumSize(QSize(600, 40))
         font4 = QFont()
         font4.setFamily(u"Roboto Light")
@@ -670,7 +634,7 @@ class Ui_MainWindow(object):
         
         self.labelFront = QLabel(self.centralwidget)
         self.labelFront.setObjectName(u"labelFront")
-        self.labelFront.setGeometry(QRect(100,460,67,17))
+        self.labelFront.setGeometry(QRect(100,370,67,17))
         self.labelFront.setMaximumSize(QSize(600, 40))
         font4 = QFont()
         font4.setFamily(u"Roboto Light")
@@ -683,7 +647,7 @@ class Ui_MainWindow(object):
         
         self.labelBack = QLabel(self.centralwidget)
         self.labelBack.setObjectName(u"labelBack")
-        self.labelBack.setGeometry(QRect(100,560,67,17))
+        self.labelBack.setGeometry(QRect(100,490,67,17))
         self.labelBack.setMaximumSize(QSize(600, 40))
         font4 = QFont()
         font4.setFamily(u"Roboto Light")
@@ -696,7 +660,7 @@ class Ui_MainWindow(object):
         
         self.labelVen = QLabel(self.centralwidget)
         self.labelVen.setObjectName(u"labelVen")
-        self.labelVen.setGeometry(QRect(50,660,121,20))
+        self.labelVen.setGeometry(QRect(50,610,121,20))
         self.labelVen.setMaximumSize(QSize(600, 40))
         font4 = QFont()
         font4.setFamily(u"Roboto Light")
@@ -709,7 +673,7 @@ class Ui_MainWindow(object):
         
         self.labelAll = QLabel(self.centralwidget)
         self.labelAll.setObjectName(u"labelAll")
-        self.labelAll.setGeometry(QRect(110,760,51,20))
+        self.labelAll.setGeometry(QRect(110,730,51,20))
         self.labelAll.setMaximumSize(QSize(600, 40))
         font4 = QFont()
         font4.setFamily(u"Roboto Light")
@@ -719,6 +683,10 @@ class Ui_MainWindow(object):
 "background-color: transparent;\n"
 "border-radius: 20px;")
         self.labelAll.setAlignment(Qt.AlignCenter)
+        
+        self.micOnOff = QLabel(self.centralwidget)
+        self.micOnOff.setObjectName(u"micOnOff")
+        self.micOnOff.setGeometry(QRect(560, 720, 20, 20))
         
         self.dbTable = QTableWidget(self.centralwidget)
         if (self.dbTable.columnCount() < 4):
