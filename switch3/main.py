@@ -39,7 +39,7 @@ jumper = 10
 # serial setting
 ser = serial.Serial('/dev/ttyACM0', 9600)
 #wifi esp setting
-esp_32_ip = "192.168.0.27" 
+esp_32_ip = "192.168.0.39" 
 esp_32_port = 80
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client_socket.connect((esp_32_ip, esp_32_port))
@@ -53,14 +53,17 @@ class MainWindow(QMainWindow):
         self.UiCAM()
         self.UiMIC()
         self.count = 0
-        self.fig_tem = None
+        self.fig = None
 
        # 초기에 버튼과 라벨 숨김
         self.hide_all_buttons_and_labels()
         
         self.time_values = []  # 시간 저장을 위한 리스트
         self.tem_values = []   # 온도 저장을 위한 리스트
-        self.visualized_tem = False  
+        self.hum_values = []
+        self.air_values = []
+
+        self.visualized = False  
         self.is_mic_listening = False  # 마이크 리스닝 상태를 나타내는 변수 추가
 
         # 카메라 설정
@@ -77,7 +80,7 @@ class MainWindow(QMainWindow):
         # 메소드 설정
         self.sensorThread.receive1.connect(self.Recv)
         self.sensorThread.receive2.connect(self.rfidRecv)
-        self.ui.graphTEMP.clicked.connect(self.visualizeTem)
+        self.ui.graph.clicked.connect(self.visualizeData)
         self.camera.update.connect(self.updateCamera)
         self.btn_cam_button.clicked.connect(self.clickCamera)
         self.btn_mic_button.clicked.connect(self.clickMic)
@@ -296,14 +299,44 @@ class MainWindow(QMainWindow):
             # 이후 데이터는 타이머가 처리하도록 stored_message만 업데이트
             self.stored_message = message
 
+        if self.visualized:
+            self.time_values.append(self.count)
+            self.tem_values.append(float(self.tem)) 
+            self.hum_values.append(float(self.hum))
+            self.air_values.append(float(self.air))
+
+            if self.fig is None:
+                self.visualizeData()
+            else:
+                self.line_tem.set_xdata(self.time_values)
+                self.line_tem.set_ydata(self.tem_values)
+
+                self.line_hum.set_xdata(self.time_values)
+                self.line_hum.set_ydata(self.hum_values)
+
+                self.line_air.set_xdata(self.time_values)
+                self.line_air.set_ydata(self.air_values)
+
+                # 리프레시 추가
+                self.ax_tem.relim()
+                self.ax_hum.relim()
+                self.ax_air.relim()
+                self.ax_tem.autoscale_view()
+                self.ax_hum.autoscale_view()
+                self.ax_air.autoscale_view()
+                self.fig.canvas.flush_events()
+
+
     def update_count(self):
-        if self.visualized_tem:
+        if self.visualized:
             self.count += 1
             # self.label2.setText(str(self.count))
             if self.count > 300:
                 self.count = 0
                 self.time_values = []
-                self.tem_values = []
+                self.tem_values = []   
+                self.hum_values = []
+                self.air_values = []
 
     def store_data_in_database(self):
         if self.stored_message is not None:
@@ -333,22 +366,60 @@ class MainWindow(QMainWindow):
                 print(f"Error: {err}")
 
 
-    def visualizeTem(self):
-        self.visualized_tem = True
-        if self.visualized_tem:
+    def visualizeData(self):
+        self.visualized = True
+        if self.visualized:
             plt.ion()
-            self.fig_tem, self.ax_tem = plt.subplots()
+            self.fig, (self.ax_tem, self.ax_hum, self.ax_air) = plt.subplots(3, 1, sharex=True)
             plt.xlim([0, 300])
-            plt.ylim([0, 100])
-            self.line_tem, = self.ax_tem.plot(self.time_values, self.tem_values)
+            self.ax_tem.set_ylim([10, 40])
+            self.ax_hum.set_ylim([10, 40])
+            self.ax_air.set_ylim([100, 200])  # You can adjust the upper limit for air PPM
+
+            self.line_tem, = self.ax_tem.plot(self.time_values, self.tem_values, label='Temperature')
+            self.line_hum, = self.ax_hum.plot(self.time_values, self.hum_values, label='Humidity')
+            self.line_air, = self.ax_air.plot(self.time_values, self.air_values, label='Air')
+
             self.ax_tem.legend()
-            self.ax_tem.set_xlabel('Time')
+            self.ax_hum.legend()
+            self.ax_air.legend()
+
+            self.ax_air.set_xlabel('Time')
             self.ax_tem.set_ylabel('Temperature (°C)')
-            self.ax_tem.set_title('Real-time Temperature Visualization')
+            self.ax_hum.set_ylabel('Humidity (%)')
+            self.ax_air.set_ylabel('Air (PPM)')
+
+            self.ax_tem.set_title('Real-time Sensor Data Visualization')
             plt.xticks(rotation=45, ha='right')
             plt.tight_layout()
-            self.fig_tem.canvas.mpl_connect('close_event', self.handle_close)
+            self.fig.canvas.mpl_connect('close_event', self.handle_close)
+
     
+    def handle_close(self, event):
+        if event.canvas.figure == self.fig:
+            self.visualized = False
+            self.fig = None
+            self.ax_tem = None
+            self.ax_hum = None
+            self.ax_air = None
+            self.line_tem = None
+            self.line_hum = None
+            self.line_air = None
+            self.time_values = []  
+            self.tem_values = []  
+            self.hum_values = []
+            self.air_values = []
+            self.count = 0
+
+
+    def closeEvent(self, event):
+        if self.fig is not None:
+            self.visualized = False
+            self.fig.canvas.mpl_disconnect(self.fig.canvas.manager.key_press_handler_id)
+            self.fig.clear()
+            plt.close(self.fig)
+    
+
     def search_data(self):
 
         connection, cursor = self.connect_to_database()
@@ -378,22 +449,6 @@ class MainWindow(QMainWindow):
             for column_number, data in enumerate(row_data):
                 self.ui.dbTable.setItem(row_number, column_number, QTableWidgetItem(str(data)))
         
-    def handle_close(self, event):
-        if event.canvas.figure == self.fig_tem:
-            self.visualized_tem = False
-            self.fig_tem = None
-            self.ax_tem = None
-            self.line_tem = None
-            self.time_values = []  
-            self.tem_values = []  
-            self.count = 0
-
-    def closeEvent(self, event):
-        if self.fig_tem is not None:
-            self.visualized_tem = False
-            self.fig_tem.canvas.mpl_disconnect(self.fig_tem.canvas.manager.key_press_handler_id)
-            self.fig_tem.clear()
-            plt.close(self.fig_tem)
 
     def updateCamera(self):
         retval, image = self.video.read()
@@ -431,12 +486,13 @@ class MainWindow(QMainWindow):
             self.video.release()                    # 운영체제에 자원을 반환
 
     def clickMic(self):
-        audio = None  # audio 변수를 초기화
-
+        audio = None
         if not self.is_mic_listening:
+            # 빨간색 배경색 설정
+            self.ui.micOnOff.setStyleSheet("background-color: red;")
+
             # 마이크에서 오디오 소스 생성
             r = sr.Recognizer()
-
             with sr.Microphone() as source:
                 print("말해보세요!")  # 사용자에게 메시지 출력
                 audio = r.listen(source)
@@ -448,12 +504,12 @@ class MainWindow(QMainWindow):
 
                 # 인식된 텍스트를 개별 문자로 리스트에 저장
                 character_list = list(recognized_text)
-                
+
                 # 리스트에서 특정 단어 확인 후 출력
                 if "불" in character_list and "꺼" in character_list:
                     self.sendCommand(2)
                     print("개별 문자:", character_list)
-                
+
                 if "불" in character_list and "켜" in character_list:
                     self.sendCommand(1)
                     print("개별 문자:", character_list)
@@ -463,17 +519,21 @@ class MainWindow(QMainWindow):
             except sr.RequestError as e:
                 print("Google 음성 인식 서비스에서 결과를 요청할 수 없습니다; {0}".format(e))
 
+            # 마이크 상태를 토글
+            self.is_mic_listening = not self.is_mic_listening
         else:
-            # 두 번째 클릭 시 음성 인식 멈추고 저장
+            # 배경색을 투명하게 변경
+            self.ui.micOnOff.setStyleSheet("background-color: none;")
+             # 오디오를 WAV 파일로 저장
             print("음성 인식 멈추고 저장")
-
-            # 오디오를 WAV 파일로 저장
             if audio is not None:
                 with open("microphone-results.wav", "wb") as f:
                     f.write(audio.get_wav_data())
 
-        # 상태 변경
-        self.is_mic_listening = not self.is_mic_listening
+            # 마이크 상태를 토글
+            self.is_mic_listening = not self.is_mic_listening
+
+
 
 
     
@@ -534,6 +594,7 @@ class MainWindow(QMainWindow):
         widget.setStyleSheet(newStylesheet)
 
 ## ==> SPLASHSCREEN WINDOW
+        
 class SplashScreen(QMainWindow):
     def __init__(self):
         QMainWindow.__init__(self)

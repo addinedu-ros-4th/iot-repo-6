@@ -260,7 +260,7 @@ class Ui_MainWindow(object):
         
         self.camera = QLabel(self.centralwidget)
         self.camera.setObjectName(u"camera")
-        self.camera.setGeometry(QRect(346, 440, 341, 301))
+        self.camera.setGeometry(QRect(380, 380, 341, 301))
         # self.camera.setMaximumSize(QSize(600, 40))
         font4 = QFont()
         font4.setFamily(u"Roboto Light")
@@ -272,7 +272,7 @@ class Ui_MainWindow(object):
         
         self.rfid = QLabel(self.centralwidget)
         self.rfid.setObjectName(u"rfid")
-        self.rfid.setGeometry(QRect(90,840,451,40))
+        self.rfid.setGeometry(QRect(30,820,331,40))
         self.rfid.setMaximumSize(QSize(600, 40))
         font4 = QFont()
         font4.setFamily(u"Roboto Light")
@@ -282,10 +282,14 @@ class Ui_MainWindow(object):
 "background-color: rgb(98, 98, 162);\n"
 "border-radius: 20px;")
         self.rfid.setAlignment(Qt.AlignCenter)
-        
+       
+        self.user = QLineEdit(self.centralwidget)
+        self.user.setObjectName(u"user")
+        self.user.setGeometry(QRect(380, 820, 201, 41))
+               
         self.rfidRG = QPushButton(self.centralwidget)
         self.rfidRG.setObjectName(u"rfidRG")
-        self.rfidRG.setGeometry(QRect(550, 840, 131, 41))
+        self.rfidRG.setGeometry(QRect(590, 820, 131, 41))
         self.rfidRG.setText(QCoreApplication.translate("MainWindow", u"GRAPH", None))
         self.rfidRG.setStyleSheet(u"color: rgb(220, 220, 220);\n"
 "background-color: rgb(98, 98, 162);\n"
@@ -320,63 +324,27 @@ class Ui_MainWindow(object):
 
         MainWindow.setCentralWidget(self.centralwidget)
         
-        self.graphAIR = QPushButton(self.centralwidget)
-        self.graphAIR.setObjectName(u"graphAIR")
-        self.graphAIR.setGeometry(QRect(60, 350, 141, 31))
-        self.graphAIR.setText(QCoreApplication.translate("MainWindow", u"GRAPH", None))
-        self.graphAIR.setStyleSheet(u"QPushButton {\n"
-        "    background-color: rgb(85, 255, 127);\n"
+        self.graph = QPushButton(self.centralwidget)
+        self.graph.setObjectName(u"graph")
+        self.graph.setGeometry(QRect(580, 320, 141, 31))
+        self.graph.setText(QCoreApplication.translate("MainWindow", u"GRAPH", None))
+        self.graph.setStyleSheet(u"QPushButton {\n"
+        "    background-color: rgb(254, 122, 1);\n"
         "    border: 2px solid rgb(60, 60, 60);\n"
         "    border-radius: 8px;\n"
         "    color: white;\n"
         "    font-weight: bold;\n"
         "}\n"
         "QPushButton:hover {\n"
-        "    background-color: rgb(105, 255, 150);\n"
+        "    background-color: rgb(255, 122, 26);\n"
         "}\n"
         "QPushButton:pressed {\n"
-        "    background-color: rgb(55, 195, 95);\n"
-        "}")
-        
-        self.graphTEMP = QPushButton(self.centralwidget)
-        self.graphTEMP.setObjectName(u"graphTEMP")
-        self.graphTEMP.setGeometry(QRect(310, 350, 141, 31))
-        self.graphTEMP.setText(QCoreApplication.translate("MainWindow", u"GRAPH", None))
-        self.graphTEMP.setStyleSheet(u"QPushButton {\n"
-        "    background-color: rgb(255, 0, 127);\n"
-        "    border: 2px solid rgb(60, 60, 60);\n"
-        "    border-radius: 8px;\n"
-        "    color: white;\n"
-        "    font-weight: bold;\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "    background-color: rgb(255, 55, 155);\n"
-        "}\n"
-        "QPushButton:pressed {\n"
-        "    background-color: rgb(199, 0, 99);\n"
-        "}")
-        
-        self.graphHUM = QPushButton(self.centralwidget)
-        self.graphHUM.setObjectName(u"graphHUM")
-        self.graphHUM.setGeometry(QRect(560, 350, 141, 31))
-        self.graphHUM.setText(QCoreApplication.translate("MainWindow", u"GRAPH", None))
-        self.graphHUM.setStyleSheet(u"QPushButton {\n"
-        "    background-color: rgb(85, 170, 255);\n"
-        "    border: 2px solid rgb(60, 60, 60);\n"
-        "    border-radius: 8px;\n"
-        "    color: white;\n"
-        "    font-weight: bold;\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "    background-color: rgb(105, 200, 255);\n"
-        "}\n"
-        "QPushButton:pressed {\n"
-        "    background-color: rgb(55, 130, 200);\n"
+        "    background-color: rgb(211, 76, 1);\n"
         "}")
         
         self.frontON = QPushButton(self.centralwidget)
         self.frontON.setObjectName(u"frontON")
-        self.frontON.setGeometry(QRect(200, 430, 111, 41))
+        self.frontON.setGeometry(QRect(200, 340, 111, 41))
         # self.frontON.setText(QCoreApplication.translate("MainWindow", u"Button 1", None))
         self.frontON.setStyleSheet(u"QPushButton {\n"
         "    background-color: rgb(85, 170, 255);\n"
@@ -394,7 +362,7 @@ class Ui_MainWindow(object):
         
         self.frontOFF = QPushButton(self.centralwidget)
         self.frontOFF.setObjectName(u"frontOFF")
-        self.frontOFF.setGeometry(QRect(200, 480, 111, 41))
+        self.frontOFF.setGeometry(QRect(200, 390, 111, 41))
         # self.frontON.setText(QCoreApplication.translate("MainWindow", u"Button 1", None))
         self.frontOFF.setStyleSheet(u"QPushButton {\n"
         "    background-color: rgb(85, 170, 255);\n"
@@ -412,7 +380,7 @@ class Ui_MainWindow(object):
 
         self.backON = QPushButton(self.centralwidget)
         self.backON.setObjectName(u"backON")
-        self.backON.setGeometry(QRect(200, 530, 111, 41))
+        self.backON.setGeometry(QRect(200, 460, 111, 41))
         # self.backON.setText(QCoreApplication.translate("MainWindow", u"Button 2", None))
         self.backON.setStyleSheet(u"QPushButton {\n"
         "    background-color: rgb(85, 255, 127);\n"
@@ -430,7 +398,7 @@ class Ui_MainWindow(object):
 
         self.backOFF = QPushButton(self.centralwidget)
         self.backOFF.setObjectName(u"backOFF")
-        self.backOFF.setGeometry(QRect(200, 580, 111, 41))
+        self.backOFF.setGeometry(QRect(200, 510, 111, 41))
         # self.backON.setText(QCoreApplication.translate("MainWindow", u"Button 2", None))
         self.backOFF.setStyleSheet(u"QPushButton {\n"
         "    background-color: rgb(85, 255, 127);\n"
@@ -448,7 +416,7 @@ class Ui_MainWindow(object):
         
         self.venON = QPushButton(self.centralwidget)
         self.venON.setObjectName(u"venON")
-        self.venON.setGeometry(QRect(200,630,111,41))
+        self.venON.setGeometry(QRect(200,580,111,41))
         # self.venON.setText(QCoreApplication.translate("MainWindow", u"Button 3", None))
         self.venON.setStyleSheet(u"QPushButton {\n"
         "    background-color: rgb(255, 0, 127);\n"
@@ -466,7 +434,7 @@ class Ui_MainWindow(object):
         
         self.venOFF = QPushButton(self.centralwidget)
         self.venOFF.setObjectName(u"venOFF")
-        self.venOFF.setGeometry(QRect(200,680,111,41))
+        self.venOFF.setGeometry(QRect(200,630,111,41))
         # self.venON.setText(QCoreApplication.translate("MainWindow", u"Button 3", None))
         self.venOFF.setStyleSheet(u"QPushButton {\n"
         "    background-color: rgb(255, 0, 127);\n"
@@ -484,7 +452,7 @@ class Ui_MainWindow(object):
         
         self.allON = QPushButton(self.centralwidget)
         self.allON.setObjectName(u"allON")
-        self.allON.setGeometry(QRect(200,730,111,41))
+        self.allON.setGeometry(QRect(200,700,111,41))
         # self.venON.setText(QCoreApplication.translate("MainWindow", u"Button 3", None))
         self.allON.setStyleSheet(u"QPushButton {\n"
         "    background-color: rgb(254, 122, 1);\n"
@@ -502,7 +470,7 @@ class Ui_MainWindow(object):
         
         self.allOFF = QPushButton(self.centralwidget)
         self.allOFF.setObjectName(u"allOFF")
-        self.allOFF.setGeometry(QRect(200,780,111,41))
+        self.allOFF.setGeometry(QRect(200,750,111,41))
         # self.venON.setText(QCoreApplication.translate("MainWindow", u"Button 3", None))
         self.allOFF.setStyleSheet(u"QPushButton {\n"
         "    background-color: rgb(254, 122, 1);\n"
@@ -520,7 +488,7 @@ class Ui_MainWindow(object):
         
         self.start = QLabel(self.centralwidget)
         self.start.setObjectName(u"start")
-        self.start.setGeometry(QRect(810,140,67,17))
+        self.start.setGeometry(QRect(800,140,67,17))
         self.start.setMaximumSize(QSize(600, 40))
         font4 = QFont()
         font4.setFamily(u"Roboto Light")
@@ -533,12 +501,12 @@ class Ui_MainWindow(object):
         
         self.dateStart = QDateEdit(self.centralwidget)
         self.dateStart.setObjectName(u"dateStart")
-        self.dateStart.setGeometry(QRect(890, 130, 101, 31))
+        self.dateStart.setGeometry(QRect(880, 130, 101, 31))
         self.dateStart.setCalendarPopup(True)
         
         self.end = QLabel(self.centralwidget)
         self.end.setObjectName(u"end")
-        self.end.setGeometry(QRect(1000,140,67,17))
+        self.end.setGeometry(QRect(990,140,67,17))
         self.end.setMaximumSize(QSize(600, 40))
         font4 = QFont()
         font4.setFamily(u"Roboto Light")
@@ -551,12 +519,15 @@ class Ui_MainWindow(object):
         
         self.dateEnd = QDateEdit(self.centralwidget)
         self.dateEnd.setObjectName(u"dateEnd")
-        self.dateEnd.setGeometry(QRect(1080, 130, 101, 31))
+        self.dateEnd.setGeometry(QRect(1070, 130, 101, 31))
         self.dateEnd.setCalendarPopup(True)
+        current_date = QDate.currentDate()
+        self.dateEnd.setDate(current_date)
+
         
         self.min = QLabel(self.centralwidget)
         self.min.setObjectName(u"min")
-        self.min.setGeometry(QRect(910,210,41,17))
+        self.min.setGeometry(QRect(970,200,41,17))
         self.min.setMaximumSize(QSize(600, 40))
         font4 = QFont()
         font4.setFamily(u"Roboto Light")
@@ -569,7 +540,7 @@ class Ui_MainWindow(object):
         
         self.max = QLabel(self.centralwidget)
         self.max.setObjectName(u"max")
-        self.max.setGeometry(QRect(1000,210,41,17))
+        self.max.setGeometry(QRect(1070,200,41,17))
         self.max.setMaximumSize(QSize(600, 40))
         font4 = QFont()
         font4.setFamily(u"Roboto Light")
@@ -583,7 +554,7 @@ class Ui_MainWindow(object):
         
         self.air = QLabel(self.centralwidget)
         self.air.setObjectName(u"air")
-        self.air.setGeometry(QRect(810,250,67,17))
+        self.air.setGeometry(QRect(850,240,67,17))
         self.air.setMaximumSize(QSize(600, 40))
         font4 = QFont()
         font4.setFamily(u"Roboto Light")
@@ -596,7 +567,7 @@ class Ui_MainWindow(object):
         
         self.temperature = QLabel(self.centralwidget)
         self.temperature.setObjectName(u"temperature")
-        self.temperature.setGeometry(QRect(756,290,121,20))
+        self.temperature.setGeometry(QRect(796,280,121,20))
         self.temperature.setMaximumSize(QSize(600, 40))
         font4 = QFont()
         font4.setFamily(u"Roboto Light")
@@ -609,7 +580,7 @@ class Ui_MainWindow(object):
         
         self.humidity = QLabel(self.centralwidget)
         self.humidity.setObjectName(u"humidity")
-        self.humidity.setGeometry(QRect(796,330,81,20))
+        self.humidity.setGeometry(QRect(836,320,81,20))
         self.humidity.setMaximumSize(QSize(600, 40))
         font4 = QFont()
         font4.setFamily(u"Roboto Light")
@@ -622,39 +593,27 @@ class Ui_MainWindow(object):
         
         self.air_min = QLineEdit(self.centralwidget)
         self.air_min.setObjectName(u"air_min")
-        self.air_min.setGeometry(QRect(900, 250, 51, 25))
+        self.air_min.setGeometry(QRect(960, 240, 61, 25))
         
         self.air_max = QLineEdit(self.centralwidget)
         self.air_max.setObjectName(u"air_max")
-        self.air_max.setGeometry(QRect(1000, 250, 51, 25))
+        self.air_max.setGeometry(QRect(1070, 240, 61, 25))
         
         self.temp_min = QLineEdit(self.centralwidget)
         self.temp_min.setObjectName(u"temp_min")
-        self.temp_min.setGeometry(QRect(900, 290, 51, 25))
+        self.temp_min.setGeometry(QRect(960, 280, 61, 25))
         
         self.temp_max = QLineEdit(self.centralwidget)
         self.temp_max.setObjectName(u"temp_max")
-        self.temp_max.setGeometry(QRect(1000, 290, 51, 25))
+        self.temp_max.setGeometry(QRect(1070, 280, 61, 25))
         
         self.hum_min = QLineEdit(self.centralwidget)
         self.hum_min.setObjectName(u"hum_min")
-        self.hum_min.setGeometry(QRect(900, 330, 51, 25))
+        self.hum_min.setGeometry(QRect(960, 320, 61, 25))
         
         self.hum_max = QLineEdit(self.centralwidget)
         self.hum_max.setObjectName(u"hum_max")
-        self.hum_max.setGeometry(QRect(1000, 330, 51, 25))
-        
-        self.airok_btn = QPushButton(self.centralwidget)
-        self.airok_btn.setObjectName(u"airok_btn")
-        self.airok_btn.setGeometry(QRect(1080, 250, 89, 25))
-        
-        self.tempok_btn = QPushButton(self.centralwidget)
-        self.tempok_btn.setObjectName(u"tempok_btn")
-        self.tempok_btn.setGeometry(QRect(1080, 290, 89, 25))
-        
-        self.humok_btn = QPushButton(self.centralwidget)
-        self.humok_btn.setObjectName(u"humok_btn")
-        self.humok_btn.setGeometry(QRect(1080, 330, 89, 25))
+        self.hum_max.setGeometry(QRect(1070, 320, 61, 25))
         
         self.search_btn = QPushButton(self.centralwidget)
         self.search_btn.setObjectName(u"search_btn")
@@ -662,7 +621,7 @@ class Ui_MainWindow(object):
             
         self.time = QLabel(self.centralwidget)
         self.time.setObjectName(u"min")
-        self.time.setGeometry(QRect(340,800,201,21))
+        self.time.setGeometry(QRect(380,760,201,21))
         self.time.setMaximumSize(QSize(600, 40))
         font4 = QFont()
         font4.setFamily(u"Roboto Light")
@@ -675,7 +634,7 @@ class Ui_MainWindow(object):
         
         self.labelFront = QLabel(self.centralwidget)
         self.labelFront.setObjectName(u"labelFront")
-        self.labelFront.setGeometry(QRect(100,460,67,17))
+        self.labelFront.setGeometry(QRect(100,370,67,17))
         self.labelFront.setMaximumSize(QSize(600, 40))
         font4 = QFont()
         font4.setFamily(u"Roboto Light")
@@ -688,7 +647,7 @@ class Ui_MainWindow(object):
         
         self.labelBack = QLabel(self.centralwidget)
         self.labelBack.setObjectName(u"labelBack")
-        self.labelBack.setGeometry(QRect(100,560,67,17))
+        self.labelBack.setGeometry(QRect(100,490,67,17))
         self.labelBack.setMaximumSize(QSize(600, 40))
         font4 = QFont()
         font4.setFamily(u"Roboto Light")
@@ -701,7 +660,7 @@ class Ui_MainWindow(object):
         
         self.labelVen = QLabel(self.centralwidget)
         self.labelVen.setObjectName(u"labelVen")
-        self.labelVen.setGeometry(QRect(50,660,121,20))
+        self.labelVen.setGeometry(QRect(50,610,121,20))
         self.labelVen.setMaximumSize(QSize(600, 40))
         font4 = QFont()
         font4.setFamily(u"Roboto Light")
@@ -714,7 +673,7 @@ class Ui_MainWindow(object):
         
         self.labelAll = QLabel(self.centralwidget)
         self.labelAll.setObjectName(u"labelAll")
-        self.labelAll.setGeometry(QRect(110,760,51,20))
+        self.labelAll.setGeometry(QRect(110,730,51,20))
         self.labelAll.setMaximumSize(QSize(600, 40))
         font4 = QFont()
         font4.setFamily(u"Roboto Light")
@@ -725,9 +684,13 @@ class Ui_MainWindow(object):
 "border-radius: 20px;")
         self.labelAll.setAlignment(Qt.AlignCenter)
         
+        self.micOnOff = QLabel(self.centralwidget)
+        self.micOnOff.setObjectName(u"micOnOff")
+        self.micOnOff.setGeometry(QRect(560, 720, 20, 20))
+        
         self.dbTable = QTableWidget(self.centralwidget)
-        if (self.dbTable.columnCount() < 5):
-            self.dbTable.setColumnCount(5)
+        if (self.dbTable.columnCount() < 4):
+            self.dbTable.setColumnCount(4)
         __qtablewidgetitem = QTableWidgetItem()
         self.dbTable.setHorizontalHeaderItem(0, __qtablewidgetitem)
         __qtablewidgetitem1 = QTableWidgetItem()
@@ -739,14 +702,12 @@ class Ui_MainWindow(object):
         self.dbTable.setHorizontalHeaderItem(2, __qtablewidgetitem2)
         __qtablewidgetitem3 = QTableWidgetItem()
         self.dbTable.setHorizontalHeaderItem(3, __qtablewidgetitem3)
-        __qtablewidgetitem4 = QTableWidgetItem()
-        self.dbTable.setHorizontalHeaderItem(4, __qtablewidgetitem4)
         self.dbTable.setObjectName(u"dbTable")
         self.dbTable.setGeometry(QRect(780, 390, 501, 461))
         self.dbTable.setStyleSheet(u"color: rgb(220, 220, 220);\n"
 "background-color: rgb(98, 98, 162);\n"
 "border-radius: 20px;")
-        
+     
         self.retranslateUi(MainWindow)
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
@@ -778,18 +739,15 @@ class Ui_MainWindow(object):
         
         self.start.setText(QCoreApplication.translate("MainWindow", u"START", None))
         self.end.setText(QCoreApplication.translate("MainWindow", u"END", None))
-        self.dateStart.setDisplayFormat(QCoreApplication.translate("MainWindow", u"yyyy/mm/dd", None))
-        self.dateEnd.setDisplayFormat(QCoreApplication.translate("MainWindow", u"yyyy/mm/dd", None))
+        self.dateStart.setDisplayFormat(QCoreApplication.translate("MainWindow", u"yyyy/MM/dd", None))
+        self.dateEnd.setDisplayFormat(QCoreApplication.translate("MainWindow", u"yyyy/MM/dd", None))
         self.min.setText(QCoreApplication.translate("MainWindow", u"MIN", None))
         self.max.setText(QCoreApplication.translate("MainWindow", u"MAX", None))
         self.air.setText(QCoreApplication.translate("MainWindow", u"AIR", None))
         self.temperature.setText(QCoreApplication.translate("MainWindow", u"TEMPERATURE", None))
         self.humidity.setText(QCoreApplication.translate("MainWindow", u"HUMIDITY", None))
         self.time.setText(QCoreApplication.translate("MainWindow", u"00:00:00", None))
-        
-        self.airok_btn.setText(QCoreApplication.translate("MainWindow", u"ok", None))
-        self.tempok_btn.setText(QCoreApplication.translate("MainWindow", u"ok", None))
-        self.humok_btn.setText(QCoreApplication.translate("MainWindow", u"ok", None))
+  
         self.search_btn.setText(QCoreApplication.translate("MainWindow", u"SEARCH", None))
         
         self.air_min.setText(QCoreApplication.translate("MainWindow", u"0", None))
@@ -799,15 +757,14 @@ class Ui_MainWindow(object):
         self.hum_min.setText(QCoreApplication.translate("MainWindow", u"0", None))
         self.hum_max.setText(QCoreApplication.translate("MainWindow", u"100", None))
         
-        ___qtablewidgetitem = self.dbTable.horizontalHeaderItem(0)
-        ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"ID", None));
-        ___qtablewidgetitem1 = self.dbTable.horizontalHeaderItem(1)
+
+        ___qtablewidgetitem1 = self.dbTable.horizontalHeaderItem(0)
         ___qtablewidgetitem1.setText(QCoreApplication.translate("MainWindow", u"AIR", None));
-        ___qtablewidgetitem2 = self.dbTable.horizontalHeaderItem(2)
+        ___qtablewidgetitem2 = self.dbTable.horizontalHeaderItem(1)
         ___qtablewidgetitem2.setText(QCoreApplication.translate("MainWindow", u"TEMPERATURE", None));
-        ___qtablewidgetitem3 = self.dbTable.horizontalHeaderItem(3)
+        ___qtablewidgetitem3 = self.dbTable.horizontalHeaderItem(2)
         ___qtablewidgetitem3.setText(QCoreApplication.translate("MainWindow", u"HUMIDITY", None));
-        ___qtablewidgetitem4 = self.dbTable.horizontalHeaderItem(4)
+        ___qtablewidgetitem4 = self.dbTable.horizontalHeaderItem(3)
         ___qtablewidgetitem4.setText(QCoreApplication.translate("MainWindow", u"CREATE_AT", None));
         
         self.btn_maximize.setToolTip(QCoreApplication.translate("MainWindow", u"Maximize", None))
