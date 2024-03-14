@@ -4,9 +4,17 @@
 - 강의실 내 환경 데이터를 실시간 측정
 - 서보모터를 활용하여 스위치 원격 제어
 - 사용자에게 실시간 강의실 환경데이터 제공
+## 영상
+*리모컨 원격제어 영상
+*gui 제어 영상
+*음성인식 영상
 ## 시스템 구성
+### 전체 시스템 구성도
 ![Screenshot from 2024-03-13 13-27-29](https://github.com/addinedu-ros-4th/iot-repo-6/assets/157962186/f81c89c4-7104-4c0f-aacf-7c4f0fdefd57)
-  *하드웨어 구성도 이미지 + 설명 필요 
+### 하드웨어 구성도 (스위치)
+![Screenshot from 2024-03-14 14-49-28](https://github.com/addinedu-ros-4th/iot-repo-6/assets/157962186/7daa4fdf-db7b-4a73-9496-0c7b09f7e53f)
+### 하드웨어 구성도 (센서, RFID)
+![Screenshot from 2024-03-14 14-51-42](https://github.com/addinedu-ros-4th/iot-repo-6/assets/157962186/52963895-7be9-448c-b53b-3c9e26e26df3)
 
 ## 팀원 소개 및 역할
 |구분|이름|역할|
@@ -34,7 +42,7 @@
 ### 커뮤니케이션 
 ![Slack](https://img.shields.io/badge/slack-4A154B?style=for-the-badge&logo=slack&logoColor=white)
 
-requirments (txt파일로 저장할것.)
+requirements (txt파일로 저장할것.)
 - PyQt5 == 5.14.2
 - pyserial == 3.5
 - imutils == 0.5.4
@@ -42,10 +50,8 @@ requirments (txt파일로 저장할것.)
 - speechRecognition == 3.10.1
 - opencv-python == 4.9.0.80
 
-## 데모 영상
-*리모컨 원격제어 영상
-*gui 제어 영상
-*음성인식 영상
-## 기능
+
+## 기능 
 
 ### GUI
+
