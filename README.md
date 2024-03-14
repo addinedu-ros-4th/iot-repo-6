@@ -64,7 +64,7 @@ requirements (txt파일로 저장할것.)
 ### 하드웨어 구성도 (센서, RFID)
 ![Screenshot from 2024-03-14 14-51-42](https://github.com/addinedu-ros-4th/iot-repo-6/assets/157962186/52963895-7be9-448c-b53b-3c9e26e26df3)
 ### 소프트 웨어 구성도 ( 추가예정 )
-ㅁㄴㅇㅁㄴㅇㅁㄴㅇ
+![Screenshot from 2024-03-14 16-00-39](https://github.com/addinedu-ros-4th/iot-repo-6/assets/157962186/4b4ba14d-27cb-464d-be5c-0541981431a9)
 ### DB
 
 ### GUI
