@@ -18,7 +18,7 @@
 |---|---|---|
 |팀장|송용탁|통신 (Wifi, Serial), MCU GUI 연동, 하드웨어 제작, 프로세스 총괄|
 |팀원|임대환|모터 작동 테스트 및 원격제어 알고리즘 구성, 하드웨어 제작, 회로 설계, 딥러닝 (객체인식)|
-|팀원|양혜경|DB 설계, Query 작성, 음성인식, RFID 인식|
+|팀원|양혜경|MCU GUI 연동, DB 설계, Query 작성, 음성인식, RFID 인식|
 |팀원|장하린|GUI(PyQt), 제작 및 작동 테스트 진행|
 
 ## 기능리스트
@@ -49,14 +49,6 @@
 ![Mysql](https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 ### 커뮤니케이션 
 ![Slack](https://img.shields.io/badge/slack-4A154B?style=for-the-badge&logo=slack&logoColor=white)
-
-requirements (txt파일로 저장할것.)
-- PyQt5 == 5.14.2
-- pyserial == 3.5
-- imutils == 0.5.4
-- matplotlib == 3.8.3
-- speechRecognition == 3.10.1
-- opencv-python == 4.9.0.80
 
 ## 구성 
 ### 하드웨어 구성도 (스위치)
