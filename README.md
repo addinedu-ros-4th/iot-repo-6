@@ -46,6 +46,13 @@
 ### 커뮤니케이션 
 ![Slack](https://img.shields.io/badge/slack-4A154B?style=for-the-badge&logo=slack&logoColor=white)
 
+## 영상
+### 리모컨 원격제어 영상
+
+
+*gui 제어 영상
+*음성인식 영상
+
 ## 구성 
 ### 하드웨어 구성도 (스위치)
 ![Screenshot from 2024-03-14 14-49-28](https://github.com/addinedu-ros-4th/iot-repo-6/assets/157962186/7daa4fdf-db7b-4a73-9496-0c7b09f7e53f)
@@ -67,7 +74,3 @@
 ### GUI
 ![image](https://github.com/addinedu-ros-4th/iot-repo-6/assets/113657807/e3cf8b80-db44-4d88-8757-d7f224069227)
 
-## 영상
-*리모컨 원격제어 영상
-*gui 제어 영상
-*음성인식 영상
