@@ -1,0 +1,6 @@
+PyQt5 == 5.14.2
+pyserial == 3.5
+imutils == 0.5.4
+matplotlib == 3.8.3
+speechRecognition == 3.10.1
+opencv-python == 4.9.0.80
