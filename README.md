@@ -68,3 +68,4 @@ requirements (txt파일로 저장할것.)
 ### DB
 
 ### GUI
+![image](https://github.com/addinedu-ros-4th/iot-repo-6/assets/113657807/e3cf8b80-db44-4d88-8757-d7f224069227)
