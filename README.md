@@ -58,14 +58,12 @@
 ### 소프트 웨어 구성도 ( 추가예정 )
 ![Screenshot from 2024-03-14 16-00-39](https://github.com/addinedu-ros-4th/iot-repo-6/assets/157962186/4b4ba14d-27cb-464d-be5c-0541981431a9)
 ### DB
-iot_project
-<br>
-*공기질 센서, 온도 센서, 습도 센서, 현재 시간 정보 저장
+##### iot_project
+* 공기질 센서, 온도 센서, 습도 센서, 현재 시간 정보 저장
 <br>
 
-rfid_cards
-<br>
-*카드 ID, 사용자 이름, 현재 시간 정보 저장
+##### rfid_cards
+* 카드 ID, 사용자 이름, 현재 시간 정보 저장
 <br>
 
 ![image](https://github.com/addinedu-ros-4th/iot-repo-6/assets/113657807/80e5dc77-c411-4a3b-877a-fc4769e6a789)
