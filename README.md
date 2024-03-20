@@ -1,4 +1,5 @@
 # 세계 최고의 스마트 스위치
+![switch image](https://github.com/addinedu-ros-4th/iot-repo-6/assets/113657807/3f9b8017-81a0-4a49-ba8a-426bc93dd1f0)
 ## 프로젝트 소개
 **쾌적한 강의환경을 위한 스마트 스위치 제작**
 - 강의실 내 환경 데이터를 실시간 측정
@@ -7,11 +8,6 @@
 
 ## 시스템 구성
 ![Screenshot from 2024-03-13 13-27-29](https://github.com/addinedu-ros-4th/iot-repo-6/assets/157962186/f81c89c4-7104-4c0f-aacf-7c4f0fdefd57)
-
-## 영상
-*리모컨 원격제어 영상
-*gui 제어 영상
-*음성인식 영상
 
 ## 팀원 소개 및 역할
 |구분|이름|역할|
@@ -70,3 +66,8 @@
 <br>
 ### GUI
 ![image](https://github.com/addinedu-ros-4th/iot-repo-6/assets/113657807/e3cf8b80-db44-4d88-8757-d7f224069227)
+
+## 영상
+*리모컨 원격제어 영상
+*gui 제어 영상
+*음성인식 영상
