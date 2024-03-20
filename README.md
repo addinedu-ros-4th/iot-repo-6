@@ -50,7 +50,7 @@
 ### 리모컨 원격제어 영상
 [![Video Label](http://img.youtube.com/vi/vmIu6hCUOD0/0.jpg)](https://youtu.be/vmIu6hCUOD0)
 
-### gui 제어 영상
+### GUI 제어 영상
 [![Video Label](http://img.youtube.com/vi/HrK0cDhgM44/0.jpg)](https://youtu.be/HrK0cDhgM44)
 
 ### 음성인식 영상
