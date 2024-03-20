@@ -48,10 +48,13 @@
 
 ## 영상
 ### 리모컨 원격제어 영상
+[![Video Label](http://img.youtube.com/vi/vmIu6hCUOD0/0.jpg)](https://youtu.be/vmIu6hCUOD0)
 
+### gui 제어 영상
+[![Video Label](http://img.youtube.com/vi/HrK0cDhgM44/0.jpg)](https://youtu.be/HrK0cDhgM44)
 
-*gui 제어 영상
-*음성인식 영상
+### 음성인식 영상
+[![Video Label](http://img.youtube.com/vi/0gaTNLKtJvw/0.jpg)](https://youtu.be/0gaTNLKtJvw)
 
 ## 구성 
 ### 하드웨어 구성도 (스위치)
