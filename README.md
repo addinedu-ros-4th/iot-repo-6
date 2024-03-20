@@ -47,13 +47,13 @@
 ![Slack](https://img.shields.io/badge/slack-4A154B?style=for-the-badge&logo=slack&logoColor=white)
 
 ## 영상
-### 리모컨 원격제어 영상
+### 리모컨 원격제어
 [![Video Label](http://img.youtube.com/vi/vmIu6hCUOD0/0.jpg)](https://youtu.be/vmIu6hCUOD0)
 
-### GUI 제어 영상
+### GUI 제어
 [![Video Label](http://img.youtube.com/vi/HrK0cDhgM44/0.jpg)](https://youtu.be/HrK0cDhgM44)
 
-### 음성인식 영상
+### 음성인식
 [![Video Label](http://img.youtube.com/vi/0gaTNLKtJvw/0.jpg)](https://youtu.be/0gaTNLKtJvw)
 
 ## 구성 
