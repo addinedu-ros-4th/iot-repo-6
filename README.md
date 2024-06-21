@@ -103,18 +103,18 @@
  P.S. 기존의 ESP32.ino 코드에는 프린트와 딜레이가 있습니다. 프린트를 없애고 밀리스 함수로 변환하는 것이 좋을 것 같습니다. 또한, ESP32가 아닌 가벼운 아두이노로 구현해 보는 것도 좋을 것 같습니다.
 
 ## 코드 실행방법
-### 1. classroom_led_control_ESP32 다운 및 실행
-### 2. LIBRARY MANAGER -> IRremote 3.6.0 install(최신 버전으로 설치하면 리모컨이 고정된 16진수 코드를 수신 못하는 문제가 발생)
-### 3. Tools -> Board -> esp32 -> ESP32 DeV Module
+#### 1. classroom_led_control_ESP32 다운 및 실행
+#### 2. LIBRARY MANAGER -> IRremote 3.6.0 install(최신 버전으로 설치하면 리모컨이 고정된 16진수 코드를 수신 못하는 문제가 발생)
+#### 3. Tools -> Board -> esp32 -> ESP32 DeV Module
 
 ## 개선 결과물
-### 1. 빔프로젝터 리모컨 원격제어
+#### 1. 빔프로젝터 리모컨 원격제어
  [![Video Label](http://img.youtube.com/vi/fzBe4QH2KW4/0.jpg)](https://youtu.be/fzBe4QH2KW4)
-### 2. 아두이노 리모컨 원격제어-개선
+#### 2. 아두이노 리모컨 원격제어-개선
  [![Video Label](http://img.youtube.com/vi/wX0Och-dwP8/0.jpg)](https://youtu.be/wX0Och-dwP8)
-### 3.하드웨어 구성도 - 개선
+#### 3.하드웨어 구성도 - 개선
 **정면**
-![image](https://github.com/addinedu-ros-4th/iot-repo-6/assets/132053839/deeb03e7-437c-424c-9392-4027dee436ec)
+![image width="50%"](https://github.com/addinedu-ros-4th/iot-repo-6/assets/132053839/deeb03e7-437c-424c-9392-4027dee436ec)
 **측면**
 ![image](https://github.com/addinedu-ros-4th/iot-repo-6/assets/132053839/93d8ec38-4442-4758-8cd2-e92b74a3f168)
 
