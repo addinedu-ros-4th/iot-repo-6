@@ -149,7 +149,7 @@ void loop() {
   }
 
   // Check IR remote signal
-  // (projection remote control_EIKI)
+  // (projector remote control_EIKI)
   if (irrecv.decode(&results)) {
     switch (results.value) {
       case 0xFDC1D3E0:
