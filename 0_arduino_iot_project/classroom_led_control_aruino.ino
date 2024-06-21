@@ -1,4 +1,4 @@
-// libray
+// library
 #include <Servo.h>
 #include <IRremote.h>
 
