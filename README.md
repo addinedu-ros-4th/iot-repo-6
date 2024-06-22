@@ -112,7 +112,7 @@ P.S. 기존의 ESP32.ino 코드에는 print와 delay가 있습니다. print를 �
 ## 개선 결과물
 #### 1. 빔프로젝터 리모컨 원격제어 - 추가
  [![Video Label](http://img.youtube.com/vi/fzBe4QH2KW4/0.jpg)](https://youtu.be/fzBe4QH2KW4)
-#### 2. 아두이노 리모컨 원격제어 - 개선
+#### 2. 아두이노 리모컨 원격제어 - 개선(수신거리 약 6m까지 증가)
  [![Video Label](http://img.youtube.com/vi/wX0Och-dwP8/0.jpg)](https://youtu.be/wX0Och-dwP8)
 #### 3.하드웨어 - 개선
   ![image](https://github.com/addinedu-ros-4th/iot-repo-6/assets/132053839/cd4f06a3-1dc5-49e1-90c1-09f99297d84c)
